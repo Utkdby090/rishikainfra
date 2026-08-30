@@ -1,11 +1,731 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { SITE_CONFIG } from '../data/siteConfig';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Rishika Infra | Aerial Inspection & GIS">
+
+  <!-- =========================================================
+       TOP ANNOUNCEMENT BAR
+       ========================================================= -->
+  <div class="relative z-[60] h-[66px] overflow-hidden bg-white">
+    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 lg:px-16">
+
+      <!-- Left -->
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3">
+          <span class="text-[22px] font-medium tracking-[0.2em] text-[#17324D]">
+            
+          </span>
+
+          <span class="text-2xl text-[#0077B8]">✦</span>
+        </div>
+
+        <div class="hidden h-8 w-px bg-gray-300 md:block"></div>
+
+        <p class="text-sm text-[#1F2937] md:text-[15px]">
+          <span class="font-bold">Rishika Infra</span>
+          is a leader in aerial inspection and geospatial intelligence.
+          <a
+            href="#about"
+            class="ml-1 font-semibold underline underline-offset-2 transition-colors hover:text-[#0070BA]"
+          >
+            Read more
+          </a>
+        </p>
+      </div>
+
+      <!-- Right -->
+      <div class="hidden items-center gap-8 text-sm font-bold text-[#0070BA] md:flex">
+        <a href="#contact" class="transition-colors hover:text-[#17324D]">
+          CONTACT US
+        </a>
+
+        <a
+          href="#demo"
+          class="rounded-full bg-[#F7F7F7] px-7 py-3 text-[#111827] transition-all hover:bg-[#E5E7EB]"
+        >
+          BOOK A DEMO
+        </a>
+      </div>
+    </div>
+
+    <!-- Diagonal blue strip -->
+    <div
+      class="absolute right-0 top-0 h-full w-[28%] opacity-95"
+      style="
+        background:
+          repeating-linear-gradient(
+            55deg,
+            #FFFFFF 0px,
+            #FFFFFF 26px,
+            #0077B8 26px,
+            #0077B8 56px
+          );
+        clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+      "
+    ></div>
+
+    <!-- Keep controls above stripe -->
+    <div class="pointer-events-none absolute inset-0"></div>
+  </div>
+
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="relative min-h-[calc(100vh-66px)] overflow-hidden bg-[#1D2630]">
+
+    <!-- Background video -->
+    <video
+      class="absolute inset-0 h-full w-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/images/cyberhawk-hero-poster.jpg"
+      aria-hidden="true"
+    >
+      <source src="public/videos/WebsiteVideo.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-[#17212B]/45 pointer-events-none"></div>
+
+    <!-- Strong left-side gradient -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="
+        background:
+          linear-gradient(
+            90deg,
+            rgba(20, 29, 38, 0.96) 0%,
+            rgba(20, 29, 38, 0.85) 29%,
+            rgba(20, 29, 38, 0.48) 55%,
+            rgba(20, 29, 38, 0.08) 100%
+          );
+      "
+    ></div>
+
+    <!-- Slight blue tint on the right -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="
+        background:
+          linear-gradient(
+            180deg,
+            rgba(6, 24, 38, 0.15) 0%,
+            rgba(0, 112, 186, 0.08) 100%
+          );
+      "
+    ></div>
+
+
+    <!-- =======================================================
+         NAVIGATION
+         ======================================================= -->
+    <header class="absolute left-0 right-0 top-0 z-30">
+      <div class="mx-auto flex h-[92px] max-w-[1440px] items-center justify-between px-6 lg:px-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center">
+          <div class="flex items-center gap-3">
+
+            <!-- Logo mark -->
+            <div
+              class="flex h-[58px] w-[58px] items-center justify-center rounded-full border-[3px] border-[#FFC62F]"
+            >
+              <div class="text-[26px] leading-none text-white">
+                ≋
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-1">
+                <span
+                  class="text-[22px] font-light tracking-[0.3em] text-white"
+                >
+                  RISHIKA
+                </span>
+
+                <span class="text-[22px] font-extrabold tracking-[0.15em] text-white">
+                  INFRA
+                </span>
+
+                <sup class="ml-1 text-[7px] text-[#FFC62F]">™</sup>
+              </div>
+
+              <p class="mt-0.5 text-[9px] tracking-[0.22em] text-white/75">
+                YOUR ASSETS. OUR SOLUTIONS. BETTER DECISIONS.
+              </p>
+
+              <p class="mt-1 text-[7px] tracking-[0.28em] text-white/55">
+                AERIAL INSPECTION & GEOSPATIAL INTELLIGENCE
+              </p>
+            </div>
+
+          </div>
+        </a>
+
+
+        <!-- Desktop navigation -->
+        <nav class="hidden items-center gap-8 lg:flex">
+          <a
+            href="#sectors"
+            class="text-[15px] font-semibold text-white transition-colors hover:text-[#FFC62F]"
+          >
+            SECTORS
+          </a>
+
+          <a
+            href="#solutions"
+            class="text-[15px] font-semibold text-white transition-colors hover:text-[#FFC62F]"
+          >
+            OUR SOLUTIONS
+          </a>
+
+          <a
+            href="#platform"
+            class="text-[15px] font-semibold text-white transition-colors hover:text-[#FFC62F]"
+          >
+            PLATFORM
+          </a>
+
+          <a
+            href="#about"
+            class="text-[15px] font-semibold text-white transition-colors hover:text-[#FFC62F]"
+          >
+            ABOUT
+          </a>
+
+          <a
+            href="#contact"
+            class="rounded-full bg-[#FFC62F] px-7 py-3 text-[14px] font-bold text-[#16212B] transition-all hover:bg-[#FFD85C] hover:scale-[1.03]"
+          >
+            CONTACT
+          </a>
+        </nav>
+
+
+        <!-- Mobile menu -->
+        <button
+          type="button"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white lg:hidden"
+          aria-label="Open navigation"
+        >
+          <div class="space-y-1.5">
+            <span class="block h-[2px] w-5 bg-white"></span>
+            <span class="block h-[2px] w-5 bg-white"></span>
+            <span class="block h-[2px] w-5 bg-white"></span>
+          </div>
+        </button>
+
+      </div>
+    </header>
+
+
+    <!-- =======================================================
+         HERO CONTENT
+         ======================================================= -->
+    <div class="relative z-10 mx-auto flex min-h-[calc(100vh-66px)] max-w-[1440px] items-center px-6 pb-24 pt-28 lg:px-16 pointer-events-none">
+
+      <div class="max-w-[760px] pointer-events-auto">
+
+        <h1
+          class="max-w-[730px] text-[48px] font-extrabold leading-[1.02] tracking-[-0.035em] text-white sm:text-[58px] md:text-[68px] lg:text-[72px]"
+        >
+          Safer, smarter
+          <br />
+
+          inspections with
+          <br />
+
+          <span class="text-[#FFC62F]">
+            powerful aerial data
+          </span>
+        </h1>
+
+        <!-- Yellow line -->
+        <div class="mt-7 h-[3px] w-[470px] max-w-full bg-[#FFC62F]"></div>
+
+        <p
+          class="mt-6 max-w-[690px] text-[17px] leading-[1.7] text-white/90 md:text-[18px]"
+        >
+          Transform how you inspect and manage your assets. Rishika Infra pairs
+          expert drone inspection services with powerful aerial data management
+          to provide rapid, reliable insight across industries. The result:
+          reduced downtime, enhanced safety, and smarter decisions.
+        </p>
+
+        <div class="mt-9">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center rounded-full bg-[#FFC62F] px-9 py-4 text-[15px] font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:shadow-xl hover:-translate-y-0.5"
+          >
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- =======================================================
+         SCROLL INDICATOR
+         ======================================================= -->
+    <a
+      href="#sectors"
+      class="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center text-white"
+      aria-label="Scroll down"
+    >
+      <div
+        class="flex h-16 w-16 items-center justify-center rounded-full border border-[#FFC62F] bg-black/10 backdrop-blur-sm transition-colors hover:bg-[#FFC62F] hover:text-[#17212B]"
+      >
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="text-current"
+        >
+          <path
+            d="M6 9L12 15L18 9"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </a>
+
+  </section>
+
+
+  <!-- =========================================================
+       CLIENTS
+       ========================================================= -->
+  <section class="border-b border-gray-200 bg-white py-10">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+
+      <div class="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 opacity-65 grayscale">
+        {
+          SITE_CONFIG.clients.map((client) => (
+            <div class="whitespace-nowrap text-base font-bold tracking-wide text-gray-700">
+              {client.name}
+            </div>
+          ))
+        }
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       WHO WE ARE
+       ========================================================= -->
+  <section id="about" class="bg-white py-24">
+    <div class="mx-auto max-w-4xl px-6 text-center">
+
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500">
+        WHO WE ARE
+      </p>
+
+      <h2 class="mt-5 text-4xl font-bold tracking-tight text-[#17212B] md:text-5xl">
+        Trusted leader in drone inspections
+        and aerial data management
+      </h2>
+
+      <p class="mt-7 text-lg leading-8 text-gray-600">
+        Rishika Infra transforms the way asset-intensive industries inspect,
+        manage, and maintain critical infrastructure. We combine specialist
+        pilots, advanced drone technology, and RTK/PPK systems to deliver safe,
+        actionable insights that reduce risk and improve performance.
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+
+        <a
+          href="#inspections"
+          class="rounded-full border-2 border-[#FFC62F] px-7 py-3 text-sm font-bold text-[#17212B] transition-colors hover:bg-[#FFC62F]"
+        >
+          Drone inspections
+        </a>
+
+        <a
+          href="#data"
+          class="rounded-full border-2 border-[#FFC62F] px-7 py-3 text-sm font-bold text-[#17212B] transition-colors hover:bg-[#FFC62F]"
+        >
+          Geospatial Mapping
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       SECTORS
+       ========================================================= -->
+  <section id="sectors" class="bg-white pb-24">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+
+      <div class="mb-12 flex items-end justify-between">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500">
+            INDUSTRIES
+          </p>
+
+          <h2 class="mt-3 text-4xl font-bold text-[#17212B]">
+            Sectors we serve
+          </h2>
+        </div>
+      </div>
+
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+        <!-- Card 1 -->
+        <a
+          href="#"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+        >
+          <div class="absolute inset-0 bg-gradient-to-br from-[#4B6574] via-[#263642] to-[#101820]"></div>
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-7">
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
+              SECTOR 01
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">
+              Power Grid &
+              <br />
+              Utilities
+            </h3>
+
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+              →
+            </div>
+          </div>
+        </a>
+
+
+        <!-- Card 2 -->
+        <a
+          href="#"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+        >
+          <div class="absolute inset-0 bg-gradient-to-br from-[#88A86E] via-[#4B6345] to-[#1B271D]"></div>
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-7">
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
+              SECTOR 02
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">
+              Renewables &
+              <br />
+              Solar
+            </h3>
+
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+              →
+            </div>
+          </div>
+        </a>
+
+
+        <!-- Card 3 -->
+        <a
+          href="#"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+        >
+          <div class="absolute inset-0 bg-gradient-to-br from-[#7F8A91] via-[#414D56] to-[#161C21]"></div>
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-7">
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
+              SECTOR 03
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">
+              Capital Projects &
+              <br />
+              Infrastructure
+            </h3>
+
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+              →
+            </div>
+          </div>
+        </a>
+
+
+        <!-- Card 4 -->
+        <a
+          href="#"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+        >
+          <div class="absolute inset-0 bg-gradient-to-br from-[#8A9BA5] via-[#485862] to-[#172027]"></div>
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-7">
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
+              SECTOR 04
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">
+              Highway Corridor
+              <br />
+              Mapping
+            </h3>
+
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+              →
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       DATA PLATFORM (iHAWK EQUIVALENT)
+       ========================================================= -->
+  <section id="platform" class="relative py-32 overflow-hidden bg-[#17212B]">
+    <!-- Background image -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2500&auto=format&fit=crop" 
+        alt="Construction Site Aerial" 
+        class="w-full h-full object-cover opacity-30"
+      />
+    </div>
+    
+    <!-- Dark gradient overlay to ensure text readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/80 to-transparent z-0"></div>
+
+    <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16">
+      <div class="max-w-2xl">
+        <h2 class="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-[54px]">
+          The Rishika Infra aerial data management platform: 
+          <br/><span class="text-white/80 text-3xl md:text-4xl mt-4 block leading-snug">where visual data becomes actionable intelligence, giving you clarity, context, and control</span>
+        </h2>
+        
+        <p class="mt-6 text-lg text-white/80">
+          Through GIS-based asset mapping and digital elevation models, we transform complex topological data into accessible formats for preventative maintenance[cite: 1].
+        </p>
+
+        <div class="mt-10">
+          <a
+            href="#platform-details"
+            class="inline-flex rounded-full border-2 border-[#FFC62F] px-8 py-3.5 text-[15px] font-bold text-white transition-all hover:bg-[#FFC62F] hover:text-[#17212B]"
+          >
+            Find out more
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Decorative bottom yellow block (optional stylistic tie-in to the video) -->
+    <div class="absolute bottom-0 right-10 w-64 h-4 bg-[#FFC62F] skew-card z-10"></div>
+  </section>
+
+
+  <!-- =========================================================
+       STATISTICS
+       ========================================================= -->
+  <section
+    class="overflow-hidden border-y border-gray-200 bg-[#F3F4F6] py-24"
+  >
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+
+      <div class="mx-auto mb-14 max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#17212B]">
+          EXPERIENCE THAT DELIVERS
+        </p>
+
+        <h2 class="mt-4 text-4xl font-bold text-[#17212B] md:text-5xl">
+          Leading scope and scale in visual intelligence
+        </h2>
+      </div>
+
+
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
+          <div class="skew-content">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
+              OPERATING IN
+            </p>
+
+            <div class="mt-4 text-4xl font-extrabold text-[#17212B]">
+              Pan-India
+            </div>
+
+            <p class="mt-2 text-sm text-[#17212B]">
+              presence
+            </p>
+          </div>
+        </div>
+
+
+        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
+          <div class="skew-content">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
+              OVER
+            </p>
+
+            <div class="mt-4 text-5xl font-extrabold text-[#17212B]">
+              15+
+            </div>
+
+            <p class="mt-2 text-sm text-[#17212B]">
+              enterprise clients
+            </p>
+          </div>
+        </div>
+
+
+        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
+          <div class="skew-content">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
+              MORE THAN
+            </p>
+
+            <div class="mt-4 text-5xl font-extrabold text-[#17212B]">
+              10k+
+            </div>
+
+            <p class="mt-2 text-sm text-[#17212B]">
+              km of transmission mapped
+            </p>
+          </div>
+        </div>
+
+
+        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
+          <div class="skew-content">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
+              OVER
+            </p>
+
+            <div class="mt-4 text-5xl font-extrabold text-[#17212B]">
+              2M+
+            </div>
+
+            <p class="mt-2 text-sm text-[#17212B]">
+              assets inspected
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       SOLUTIONS
+       ========================================================= -->
+  <section id="solutions" class="bg-white py-24">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+
+      <div class="mx-auto mb-14 max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500">
+          WHAT WE DO
+        </p>
+
+        <h2 class="mt-4 text-4xl font-bold text-[#17212B] md:text-5xl">
+          Our solutions
+        </h2>
+
+        <p class="mt-5 text-lg leading-8 text-gray-600">
+          From flight to insight, Rishika Infra delivers precise,
+          actionable intelligence across industrial assets.
+        </p>
+      </div>
+
+
+      <div class="flex flex-wrap justify-center gap-5">
+
+        {
+          [
+            'Inspections',
+            'Thermal Diagnostics',
+            'Geospatial Surveys',
+            '3D Modeling (BIM)',
+            'AI Traffic Mgmt'
+          ].map((solution) => (
+            <div class="skew-card flex h-36 w-60 items-center justify-center bg-[#FFC62F] shadow-sm transition-transform hover:-translate-y-1">
+              <div class="skew-content px-5 text-center">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-[#17212B]">
+                  {solution}
+                </h3>
+              </div>
+            </div>
+          ))
+        }
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       CTA
+       ========================================================= -->
+  <section id="contact" class="bg-[#17212B] py-24">
+    <div class="mx-auto max-w-5xl px-6 text-center">
+
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#FFC62F]">
+        READY TO GET STARTED?
+      </p>
+
+      <h2 class="mt-5 text-4xl font-bold text-white md:text-5xl">
+        Make your asset inspections
+        safer and smarter.
+      </h2>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
+        Talk to our team about drone inspection, aerial data,
+        mapping and geospatial intelligence.
+      </p>
+
+      <div class="mt-9">
+        <a
+          href="mailto:hello@example.com"
+          class="inline-flex rounded-full bg-[#FFC62F] px-9 py-4 text-sm font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-0.5"
+        >
+          Get in touch
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       LOCAL STYLES
+       ========================================================= -->
+  <style>
+    .skew-card {
+      transform: skewX(-8deg);
+    }
+
+    .skew-content {
+      transform: skewX(8deg);
+    }
+  </style>
+
 </Layout>

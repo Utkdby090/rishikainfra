@@ -1,0 +1,35 @@
+---
+import { SITE_CONFIG } from '../../data/siteConfig';
+---
+
+<footer id="contact" class="bg-cyber-dark border-t border-cyber-border py-12 text-slate-400 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-6 h-6 rounded bg-brand-500 flex items-center justify-center font-bold text-xs text-white">ri</span>
+        <span class="font-bold text-white text-base">Rishika Infra</span>
+      </div>
+      <p class="text-slate-400 text-xs max-w-sm mb-4">
+        {SITE_CONFIG.tagline}
+      </p>
+      <p class="font-mono text-slate-500">© {new Date().getFullYear()} Rishika Infra. All rights reserved.</p>
+    </div>
+
+    <div>
+      <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-3">Operations & Headquarters</h4>
+      <p class="text-slate-300 leading-relaxed mb-2">{SITE_CONFIG.contact.address}</p>
+      <p class="text-slate-300">Phone: <span class="font-mono text-brand-accent">{SITE_CONFIG.contact.phone}</span></p>
+      <p class="text-slate-300">Email: <span class="font-mono text-brand-accent">{SITE_CONFIG.contact.email}</span></p>
+    </div>
+
+    <div>
+      <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-3">Certified Capabilities</h4>
+      <ul class="space-y-1 text-slate-300 font-mono">
+        <li>• DGCA Type-Certified SURVEYXK Fleet</li>
+        <li>• RTK & PPK Sub-Centimeter Georeferencing</li>
+        <li>• Radiometric Thermography Standards</li>
+        <li>• NHAI & DPR Corridor Mapping Compliance</li>
+      </ul>
+    </div>
+  </div>
+</footer>

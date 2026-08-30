@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../data/siteConfig';
+import ClientCarousel from '../components/islands/ClientCarousel';
+import Navbar from '../components/islands/Navbar';
 ---
 
 <Layout title="Rishika Infra | Aerial Inspection & GIS">
@@ -120,18 +122,20 @@ import { SITE_CONFIG } from '../data/siteConfig';
       "
     ></div>
 
+	
 
     <!-- =======================================================
          NAVIGATION
          ======================================================= -->
+	<!-- 	 
     <header class="absolute left-0 right-0 top-0 z-30">
       <div class="mx-auto flex h-[92px] max-w-[1440px] items-center justify-between px-6 lg:px-16">
 
-        <!-- Logo -->
+        
         <a href="/" class="flex items-center">
           <div class="flex items-center gap-3">
 
-            <!-- Logo mark -->
+            
             <div
               class="flex h-[58px] w-[58px] items-center justify-center rounded-full border-[3px] border-[#FFC62F]"
             >
@@ -166,10 +170,11 @@ import { SITE_CONFIG } from '../data/siteConfig';
 
           </div>
         </a>
+-->
 
 
         <!-- Desktop navigation -->
-        <nav class="hidden items-center gap-8 lg:flex">
+      <!--  <nav class="hidden items-center gap-8 lg:flex">
           <a
             href="#sectors"
             class="text-[15px] font-semibold text-white transition-colors hover:text-[#FFC62F]"
@@ -205,9 +210,11 @@ import { SITE_CONFIG } from '../data/siteConfig';
             CONTACT
           </a>
         </nav>
+-->
 
 
         <!-- Mobile menu -->
+		 <!-- 
         <button
           type="button"
           class="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white lg:hidden"
@@ -221,8 +228,16 @@ import { SITE_CONFIG } from '../data/siteConfig';
         </button>
 
       </div>
-    </header>
+    </header>-->
 
+	<!-- =======================================================
+     NAVIGATION (REACT ISLAND)
+     ======================================================= -->
+
+	<Navbar client:load />
+
+	
+	
 
     <!-- =======================================================
          HERO CONTENT
@@ -305,7 +320,7 @@ import { SITE_CONFIG } from '../data/siteConfig';
   <!-- =========================================================
        CLIENTS
        ========================================================= -->
-  <section class="border-b border-gray-200 bg-white py-10">
+  <!-- <section class="border-b border-gray-200 bg-white py-10">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
 
       <div class="flex flex-wrap items-center justify-center gap-x-14 gap-y-8 opacity-65 grayscale">
@@ -319,6 +334,14 @@ import { SITE_CONFIG } from '../data/siteConfig';
       </div>
 
     </div>
+  </section>
+  -->
+
+  <!-- =========================================================
+       CLIENTS (INTERACTIVE CAROUSEL)
+       ========================================================= -->
+  <section class="bg-white">
+    <ClientCarousel client:load />
   </section>
 
 
@@ -385,250 +408,136 @@ import { SITE_CONFIG } from '../data/siteConfig';
       </div>
 
 
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-        <!-- Card 1 -->
+        <!-- Card 1: Power Grid & Utilities -->
         <a
           href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
         >
-          <div class="absolute inset-0 bg-gradient-to-br from-[#4B6574] via-[#263642] to-[#101820]"></div>
+          <!-- Background Image (Verified Link) -->
+          <img 
+            src="public\images\cards\powergrid.png" 
+            alt="Power Grid Transmission Towers"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
 
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+          <!-- Dark Gradient Overlay for text legibility -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
 
+          <!-- Card Content -->
           <div class="absolute bottom-0 left-0 right-0 p-7">
             <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
               SECTOR 01
             </div>
 
-            <h3 class="text-2xl font-bold text-white">
+            <h3 class="text-2xl font-bold text-white leading-snug">
               Power Grid &
               <br />
               Utilities
             </h3>
 
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
               →
             </div>
           </div>
         </a>
 
 
-        <!-- Card 2 -->
+        <!-- Card 2: Renewables & Solar -->
         <a
           href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
         >
-          <div class="absolute inset-0 bg-gradient-to-br from-[#88A86E] via-[#4B6345] to-[#1B271D]"></div>
+          <!-- Background Image (Zooms on hover) -->
+          <img 
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" 
+            alt="Solar Panels"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
 
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
 
           <div class="absolute bottom-0 left-0 right-0 p-7">
             <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
               SECTOR 02
             </div>
 
-            <h3 class="text-2xl font-bold text-white">
+            <h3 class="text-2xl font-bold text-white leading-snug">
               Renewables &
               <br />
               Solar
             </h3>
 
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
               →
             </div>
           </div>
         </a>
 
 
-        <!-- Card 3 -->
+        <!-- Card 3: Capital Projects & Infrastructure -->
         <a
           href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
         >
-          <div class="absolute inset-0 bg-gradient-to-br from-[#7F8A91] via-[#414D56] to-[#161C21]"></div>
+          <!-- Background Image (Verified Link) -->
+          <img 
+            src="public\images\cards\construction.jpg" 
+            alt="Construction Infrastructure"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
 
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
 
           <div class="absolute bottom-0 left-0 right-0 p-7">
             <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
               SECTOR 03
             </div>
 
-            <h3 class="text-2xl font-bold text-white">
+            <h3 class="text-2xl font-bold text-white leading-snug">
               Capital Projects &
               <br />
               Infrastructure
             </h3>
 
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
               →
             </div>
           </div>
         </a>
 
 
-        <!-- Card 4 -->
+        <!-- Card 4: Highway Corridor Mapping -->
         <a
           href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C]"
+          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
         >
-          <div class="absolute inset-0 bg-gradient-to-br from-[#8A9BA5] via-[#485862] to-[#172027]"></div>
+          <!-- Background Image (Zooms on hover) -->
+          <img 
+            src="public\images\cards\highway.jpg" 
+            alt="Highway Corridor"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
 
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
 
           <div class="absolute bottom-0 left-0 right-0 p-7">
             <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
               SECTOR 04
             </div>
 
-            <h3 class="text-2xl font-bold text-white">
+            <h3 class="text-2xl font-bold text-white leading-snug">
               Highway Corridor
               <br />
               Mapping
             </h3>
 
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-transform group-hover:translate-x-1">
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
               →
             </div>
           </div>
         </a>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       DATA PLATFORM (iHAWK EQUIVALENT)
-       ========================================================= -->
-  <section id="platform" class="relative py-32 overflow-hidden bg-[#17212B]">
-    <!-- Background image -->
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2500&auto=format&fit=crop" 
-        alt="Construction Site Aerial" 
-        class="w-full h-full object-cover opacity-30"
-      />
-    </div>
-    
-    <!-- Dark gradient overlay to ensure text readability -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/80 to-transparent z-0"></div>
-
-    <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16">
-      <div class="max-w-2xl">
-        <h2 class="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-[54px]">
-          The Rishika Infra aerial data management platform: 
-          <br/><span class="text-white/80 text-3xl md:text-4xl mt-4 block leading-snug">where visual data becomes actionable intelligence, giving you clarity, context, and control</span>
-        </h2>
-        
-        <p class="mt-6 text-lg text-white/80">
-          Through GIS-based asset mapping and digital elevation models, we transform complex topological data into accessible formats for preventative maintenance[cite: 1].
-        </p>
-
-        <div class="mt-10">
-          <a
-            href="#platform-details"
-            class="inline-flex rounded-full border-2 border-[#FFC62F] px-8 py-3.5 text-[15px] font-bold text-white transition-all hover:bg-[#FFC62F] hover:text-[#17212B]"
-          >
-            Find out more
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Decorative bottom yellow block (optional stylistic tie-in to the video) -->
-    <div class="absolute bottom-0 right-10 w-64 h-4 bg-[#FFC62F] skew-card z-10"></div>
-  </section>
-
-
-  <!-- =========================================================
-       STATISTICS
-       ========================================================= -->
-  <section
-    class="overflow-hidden border-y border-gray-200 bg-[#F3F4F6] py-24"
-  >
-    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
-
-      <div class="mx-auto mb-14 max-w-3xl text-center">
-        <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#17212B]">
-          EXPERIENCE THAT DELIVERS
-        </p>
-
-        <h2 class="mt-4 text-4xl font-bold text-[#17212B] md:text-5xl">
-          Leading scope and scale in visual intelligence
-        </h2>
-      </div>
-
-
-      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
-          <div class="skew-content">
-            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
-              OPERATING IN
-            </p>
-
-            <div class="mt-4 text-4xl font-extrabold text-[#17212B]">
-              Pan-India
-            </div>
-
-            <p class="mt-2 text-sm text-[#17212B]">
-              presence
-            </p>
-          </div>
-        </div>
-
-
-        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
-          <div class="skew-content">
-            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
-              OVER
-            </p>
-
-            <div class="mt-4 text-5xl font-extrabold text-[#17212B]">
-              15+
-            </div>
-
-            <p class="mt-2 text-sm text-[#17212B]">
-              enterprise clients
-            </p>
-          </div>
-        </div>
-
-
-        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
-          <div class="skew-content">
-            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
-              MORE THAN
-            </p>
-
-            <div class="mt-4 text-5xl font-extrabold text-[#17212B]">
-              10k+
-            </div>
-
-            <p class="mt-2 text-sm text-[#17212B]">
-              km of transmission mapped
-            </p>
-          </div>
-        </div>
-
-
-        <div class="relative h-52 bg-[#FFC62F] px-8 py-7 shadow-sm skew-card">
-          <div class="skew-content">
-            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#17212B]">
-              OVER
-            </p>
-
-            <div class="mt-4 text-5xl font-extrabold text-[#17212B]">
-              2M+
-            </div>
-
-            <p class="mt-2 text-sm text-[#17212B]">
-              assets inspected
-            </p>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -676,6 +585,96 @@ import { SITE_CONFIG } from '../data/siteConfig';
             </div>
           ))
         }
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DIFFERENTIATORS (WHY RISHIKA)
+       ========================================================= -->
+  <section id="differentiators" class="bg-white py-24 border-t border-gray-100">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+      
+      <!-- Section Header -->
+      <div class="mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-8">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0070BA] mb-2">
+            WHY RISHIKA INFRA?
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-[#17212B]">
+            Our Differentiators
+          </h2>
+        </div>
+      </div>
+
+      <!-- 4-Column Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+        
+        <!-- Feature 1: Enhanced Safety -->
+        <div class="group cursor-pointer">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#17212B]">Enhanced Safety</h3>
+          </div>
+          <p class="text-[15px] leading-relaxed text-gray-600">
+            Drone inspections eliminate the need for personnel to climb towers, enter hazardous environments, or work near energized equipment[cite: 1].
+          </p>
+        </div>
+
+        <!-- Feature 2: Advanced Technology -->
+        <div class="group cursor-pointer">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#17212B]">Advanced Technology</h3>
+          </div>
+          <p class="text-[15px] leading-relaxed text-gray-600">
+            We utilize modern UAV platforms equipped with visual and thermal sensors to deliver reliable, high-fidelity data at every asset[cite: 1].
+          </p>
+        </div>
+
+        <!-- Feature 3: Cost Efficiency -->
+        <div class="group cursor-pointer">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#17212B]">Cost Efficiency</h3>
+          </div>
+          <p class="text-[15px] leading-relaxed text-gray-600">
+            Our solutions significantly reduce inspection time, manpower requirements, and operational costs while ensuring fast project delivery[cite: 1].
+          </p>
+        </div>
+
+        <!-- Feature 4: Improved Accuracy -->
+        <div class="group cursor-pointer">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="21.17" y1="8" x2="12" y2="8"/>
+                <line x1="3.95" y1="6.06" x2="8.54" y2="14"/>
+                <line x1="10.88" y1="21.94" x2="15.46" y2="14"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[#17212B]">Improved Accuracy</h3>
+          </div>
+          <p class="text-[15px] leading-relaxed text-gray-600">
+            High-resolution imaging and thermal sensors enable precise defect identification, turning complex challenges into clear, actionable insight[cite: 1].
+          </p>
+        </div>
 
       </div>
     </div>

@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/islands/Navbar';
+import SolutionsGrid from '../../components/shared/SolutionsGrid.astro';
+import Differentiators from '../../components/shared/Differentiators.astro';
+import NewsSlider from '../../components/islands/NewsSlider';
+---
+
+<Layout title="Powerline Inspection | Rishika Infra">
+  <Navbar client:load />
+
+  <!-- =========================================================
+       HERO (Video Background)
+       ========================================================= -->
+  <section class="relative min-h-[70vh] flex items-center pt-20 overflow-hidden bg-[#1D2630]">
+    <video class="absolute inset-0 h-full w-full object-cover opacity-60" autoplay muted loop playsinline>
+      <source src="/videos/WebsiteVideo.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/80 to-transparent"></div>
+    
+    <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
+      <div class="max-w-[760px]">
+        <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px]">
+          Powerline inspections that go<br/>
+          <span class="text-[#FFC62F]">beyond the drone</span>
+        </h1>
+        <p class="mt-6 max-w-[600px] text-[17px] leading-relaxed text-white/90">
+          Effective aerial asset inspections go far beyond flying a drone. Our teams use advanced thermal sensors and GIS mapping to identify defects, evaluate severity, and inform repair prioritization across EHV, HV, and MV networks.
+        </p>
+        <div class="mt-8">
+          <a href="#contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C]">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DISTINCT: INTRO SECTION (Image Right)
+       ========================================================= -->
+  <section class="bg-white py-24">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-6">See your grid assets<br/><span class="text-gray-400">like never before</span></h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          By using drones equipped with high-resolution RGB and radiometric thermal cameras instead of people to inspect hazardous transmission lines, we capture deeper insights into asset health[cite: 1, 2].
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          This allows for accurate, data-driven decision-making in a fraction of the time, keeping team members safely out of harm's way while reducing asset down time.
+        </p>
+      </div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1548345680-f5475ea90f14?q=80&w=800&auto=format&fit=crop" alt="Transmission Tower" class="rounded-xl shadow-2xl" />
+        <!-- Decorative graphic from video -->
+        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gray-100 rounded-full border-[8px] border-white flex items-center justify-center">
+          <span class="text-[#FFC62F] text-2xl font-bold">⚡</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DISTINCT: CAPABILITIES DIAGRAM
+       ========================================================= -->
+  <section class="bg-gray-50 py-20 border-y border-gray-200">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+      <div class="flex justify-center mb-12">
+        <div class="w-px h-16 bg-gray-300"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <!-- Capability 1 -->
+        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-[#FFC62F] hover:-translate-y-1 transition-transform cursor-pointer">
+          <div class="text-3xl mb-3">📷</div>
+          <h4 class="font-bold text-[#17212B] text-sm">Visual (RGB) Audits</h4>
+          <p class="text-xs text-gray-500 mt-2">Hardware & insulator defect detection</p>
+        </div>
+        <!-- Capability 2 -->
+        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-gray-200 hover:border-[#FFC62F] hover:-translate-y-1 transition-all cursor-pointer">
+          <div class="text-3xl mb-3">🔥</div>
+          <h4 class="font-bold text-[#17212B] text-sm">Thermography</h4>
+          <p class="text-xs text-gray-500 mt-2">Dead-end joint thermal anomalies</p>
+        </div>
+        <!-- Capability 3 -->
+        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-gray-200 hover:border-[#FFC62F] hover:-translate-y-1 transition-all cursor-pointer">
+          <div class="text-3xl mb-3">🗺️</div>
+          <h4 class="font-bold text-[#17212B] text-sm">GIS Asset Mapping</h4>
+          <p class="text-xs text-gray-500 mt-2">Right-of-way monitoring</p>
+        </div>
+        <!-- Capability 4 -->
+        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-gray-200 hover:border-[#FFC62F] hover:-translate-y-1 transition-all cursor-pointer">
+          <div class="text-3xl mb-3">🏗️</div>
+          <h4 class="font-bold text-[#17212B] text-sm">Substation Scanning</h4>
+          <p class="text-xs text-gray-500 mt-2">Transformer equipment condition</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DISTINCT: EXPERT EYES (Image Left)
+       ========================================================= -->
+  <section class="bg-white py-24">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="order-2 lg:order-1">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop" alt="Data Processor Engineer" class="rounded-full shadow-xl" />
+      </div>
+      <div class="order-1 lg:order-2">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500 mb-2">ENGINEERING INSPECTIONS</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-6">Get expert eyes on your grid</h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+          A photo can't always tell you if a crack needs monitoring or an urgent shutdown. Our certified engineers know where to look to separate minor wear from major risk[cite: 1, 2].
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          They process raw inspection data into actionable intelligence, sizing and classifying every defect against industry standards to give you clear, evidence-based insight.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SHARED SECTIONS INJECTED HERE
+       ========================================================= -->
+  <SolutionsGrid />
+  <Differentiators />
+  <NewsSlider client:visible />
+
+</Layout>

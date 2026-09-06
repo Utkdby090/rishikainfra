@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { SITE_CONFIG } from '../data/siteConfig';
 import ClientCarousel from '../components/islands/ClientCarousel';
 import Navbar from '../components/islands/Navbar';
+import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
 ---
 
 <Layout title="Rishika Infra | Aerial Inspection & GIS">
@@ -88,7 +89,7 @@ import Navbar from '../components/islands/Navbar';
       poster="/images/cyberhawk-hero-poster.jpg"
       aria-hidden="true"
     >
-      <source src="public/videos/WebsiteVideo.mp4" type="video/mp4" />
+      <source src="videos/WebsiteVideo.mp4" type="video/mp4" />
     </video>
 
     <!-- Dark overlay -->
@@ -392,150 +393,100 @@ import Navbar from '../components/islands/Navbar';
   <!-- =========================================================
        SECTORS
        ========================================================= -->
-  <section id="sectors" class="bg-white pb-24">
+ 
+       <!-- =========================================================
+       SECTORS
+       ========================================================= -->
+  <section id="sectors" class="bg-white pb-24 overflow-hidden">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
 
-      <div class="mb-12 flex items-end justify-between">
+      <!-- Header (Fades in on scroll) -->
+      <div class="scroll-animate mb-12 flex items-end justify-between opacity-0 translate-y-8 transition-all duration-1000 ease-out">
         <div>
           <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500">
             INDUSTRIES
           </p>
-
           <h2 class="mt-3 text-4xl font-bold text-[#17212B]">
             Sectors we serve
           </h2>
         </div>
       </div>
 
-
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
         <!-- Card 1: Power Grid & Utilities -->
         <a
-          href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          href="/services/powerline-inspection"
+          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          style="transition-delay: 0ms;"
         >
-          <!-- Background Image (Verified Link) -->
           <img 
-            src="public\images\cards\powergrid.png" 
+            src="https://images.unsplash.com/photo-1517420879524-86d64ac2f339?q=80&w=800&auto=format&fit=crop" 
             alt="Power Grid Transmission Towers"
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-
-          <!-- Dark Gradient Overlay for text legibility -->
           <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-
-          <!-- Card Content -->
           <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
-              SECTOR 01
-            </div>
-
-            <h3 class="text-2xl font-bold text-white leading-snug">
-              Power Grid &
-              <br />
-              Utilities
-            </h3>
-
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
-              →
-            </div>
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 01</div>
+            <h3 class="text-2xl font-bold text-white leading-snug">Power Grid &<br />Utilities</h3>
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
           </div>
         </a>
 
-
         <!-- Card 2: Renewables & Solar -->
         <a
-          href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          href="/services/solar-inspection"
+          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          style="transition-delay: 150ms;"
         >
-          <!-- Background Image (Zooms on hover) -->
           <img 
             src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" 
             alt="Solar Panels"
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-
           <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-
           <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
-              SECTOR 02
-            </div>
-
-            <h3 class="text-2xl font-bold text-white leading-snug">
-              Renewables &
-              <br />
-              Solar
-            </h3>
-
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
-              →
-            </div>
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 02</div>
+            <h3 class="text-2xl font-bold text-white leading-snug">Renewables &<br />Solar</h3>
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
           </div>
         </a>
-
 
         <!-- Card 3: Capital Projects & Infrastructure -->
         <a
-          href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          href="/services/geospatial-mapping"
+          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          style="transition-delay: 300ms;"
         >
-          <!-- Background Image (Verified Link) -->
           <img 
-            src="public\images\cards\construction.jpg" 
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" 
             alt="Construction Infrastructure"
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-
           <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-
           <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
-              SECTOR 03
-            </div>
-
-            <h3 class="text-2xl font-bold text-white leading-snug">
-              Capital Projects &
-              <br />
-              Infrastructure
-            </h3>
-
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
-              →
-            </div>
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 03</div>
+            <h3 class="text-2xl font-bold text-white leading-snug">Capital Projects &<br />Infrastructure</h3>
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
           </div>
         </a>
 
-
         <!-- Card 4: Highway Corridor Mapping -->
         <a
-          href="#"
-          class="group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          href="/services/geospatial-mapping"
+          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          style="transition-delay: 450ms;"
         >
-          <!-- Background Image (Zooms on hover) -->
           <img 
-            src="public\images\cards\highway.jpg" 
+            src="https://images.unsplash.com/photo-1545042746-ec9e5a59b359?q=80&w=800&auto=format&fit=crop" 
             alt="Highway Corridor"
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-
           <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-
           <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">
-              SECTOR 04
-            </div>
-
-            <h3 class="text-2xl font-bold text-white leading-snug">
-              Highway Corridor
-              <br />
-              Mapping
-            </h3>
-
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">
-              →
-            </div>
+            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 04</div>
+            <h3 class="text-2xl font-bold text-white leading-snug">Highway Corridor<br />Mapping</h3>
+            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
           </div>
         </a>
 
@@ -547,48 +498,9 @@ import Navbar from '../components/islands/Navbar';
   <!-- =========================================================
        SOLUTIONS
        ========================================================= -->
-  <section id="solutions" class="bg-white py-24">
-    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+       
+       <SolutionsGrid />
 
-      <div class="mx-auto mb-14 max-w-3xl text-center">
-        <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500">
-          WHAT WE DO
-        </p>
-
-        <h2 class="mt-4 text-4xl font-bold text-[#17212B] md:text-5xl">
-          Our solutions
-        </h2>
-
-        <p class="mt-5 text-lg leading-8 text-gray-600">
-          From flight to insight, Rishika Infra delivers precise,
-          actionable intelligence across industrial assets.
-        </p>
-      </div>
-
-
-      <div class="flex flex-wrap justify-center gap-5">
-
-        {
-          [
-            'Inspections',
-            'Thermal Diagnostics',
-            'Geospatial Surveys',
-            '3D Modeling (BIM)',
-            'AI Traffic Mgmt'
-          ].map((solution) => (
-            <div class="skew-card flex h-36 w-60 items-center justify-center bg-[#FFC62F] shadow-sm transition-transform hover:-translate-y-1">
-              <div class="skew-content px-5 text-center">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-[#17212B]">
-                  {solution}
-                </h3>
-              </div>
-            </div>
-          ))
-        }
-
-      </div>
-    </div>
-  </section>
 
   <!-- =========================================================
        DIFFERENTIATORS (WHY RISHIKA)

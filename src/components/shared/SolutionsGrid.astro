@@ -1,0 +1,85 @@
+---
+// Reusable Solutions Grid Component
+// Now updated with actual links to the service pages
+const solutions = [
+  { name: 'Inspections', href: '/services/powerline-inspection' },
+  { name: 'Thermal Diagnostics', href: '/services/solar-inspection' },
+  { name: 'Geospatial Surveys', href: '/services/geospatial-mapping' },
+  { name: '3D Modeling (BIM)', href: '/services/geospatial-mapping' },
+  { name: 'AI Traffic Mgmt', href: '#' } // Add link here when this page is built
+];
+---
+
+<section class="bg-white py-24 border-t border-gray-100 overflow-hidden">
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+    
+    <!-- Header (Fades in on scroll) -->
+    <div class="scroll-animate mx-auto mb-14 max-w-3xl text-center opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+      <h2 class="text-4xl font-bold text-[#17212B] md:text-5xl">Our solutions</h2>
+      <p class="mt-5 text-lg leading-8 text-gray-600">
+        From flight to insight, Rishika Infra delivers precise, actionable intelligence across all your industrial assets.
+      </p>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="flex flex-wrap justify-center gap-5 md:gap-6">
+      {solutions.map((solution, index) => (
+        <a 
+          href={solution.href}
+          class="scroll-animate skew-card group relative flex h-36 w-64 items-center justify-center bg-[#FFC62F] shadow-sm transition-all duration-700 ease-out opacity-0 translate-y-12 hover:shadow-xl hover:-translate-y-2 hover:bg-[#FFD85C]"
+          style={`transition-delay: ${index * 150}ms;`}
+        >
+          <div class="skew-content px-5 text-center w-full transition-transform duration-300 group-hover:scale-105">
+            <h3 class="text-[13px] font-extrabold uppercase tracking-widest text-[#17212B] flex items-center justify-center gap-2">
+              {solution.name}
+              <!-- Hidden arrow that slides in on hover -->
+              <span class="opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                →
+              </span>
+            </h3>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+  </div>
+
+  <style>
+    /* Keeps the parallelogram shape clean */
+    .skew-card { 
+      transform: skewX(-10deg); 
+      will-change: transform, opacity; /* Optimizes the scroll animation */
+    }
+    /* Reverses the skew so the text stays straight */
+    .skew-content { 
+      transform: skewX(10deg); 
+    }
+  </style>
+</section>
+
+<script>
+  function initAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Remove the classes that hide the elements
+          entry.target.classList.remove('opacity-0', 'translate-y-8', 'translate-y-12');
+          // Stop observing once the animation has triggered
+          observer.unobserve(entry.target); 
+        }
+      });
+    }, {
+      threshold: 0.1, 
+      rootMargin: "0px 0px -50px 0px" 
+    });
+
+    // Find all elements with the 'scroll-animate' class and observe them
+    const elementsToAnimate = document.querySelectorAll('.scroll-animate');
+    elementsToAnimate.forEach(el => observer.observe(el));
+  }
+
+  // Run on standard load
+  document.addEventListener('DOMContentLoaded', initAnimations);
+  // Run when navigating between Astro pages
+  document.addEventListener('astro:page-load', initAnimations);
+</script>

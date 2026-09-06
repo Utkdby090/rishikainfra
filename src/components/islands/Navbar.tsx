@@ -3,18 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Data from Rishika Infra's PDF profiles and requested structure
 const SECTORS = [
-  { label: 'Power Grid & Utilities', href: '#sectors' },
-  { label: 'Renewables & Solar', href: '#sectors' },
-  { label: 'Capital Projects', href: '#sectors' },
-  { label: 'Highway Corridors', href: '#sectors' },
+  { label: 'Power Grid & Utilities', href: '/services/powerline-inspection' },
+  { label: 'Renewables & Solar', href: '/services/solar-inspection' },
+  { label: 'Capital Projects', href: '/services/geospatial-mapping' },
+  { label: 'Highway Corridors', href: '/services/geospatial-mapping' },
 ];
 
 const SOLUTIONS = [
-  { label: 'Drone Inspections', href: '#solutions' },
-  { label: 'Thermal Diagnostics', href: '#solutions' },
-  { label: 'Geospatial Surveys', href: '#solutions' },
-  { label: '3D Modeling (BIM)', href: '#solutions' },
-  { label: 'AI Traffic Mgmt', href: '#solutions' },
+  { label: 'Drone Inspections', href: '/services/powerline-inspection' },
+  { label: 'Thermal Diagnostics', href: '/services/solar-inspection' },
+  { label: 'Geospatial Surveys', href: '/services/geospatial-mapping' },
+  { label: '3D Modeling (BIM)', href: '/services/geospatial-mapping' },
+  { label: 'AI Traffic Mgmt', href: '#' },
 ];
 
 const ABOUT_LINKS = [
@@ -161,7 +161,7 @@ export default function Navbar() {
           </div>
 
           {/* CONTACT Button */}
-          <a href="#contact" className="rounded-full bg-[#FFC62F] px-7 py-3 text-[14px] font-bold text-[#16212B] transition-all hover:bg-[#FFD85C] hover:scale-[1.03]">
+          <a href="/contact" className="rounded-full bg-[#FFC62F] px-7 py-3 text-[14px] font-bold text-[#16212B] transition-all hover:bg-[#FFD85C] hover:scale-[1.03]">
             CONTACT
           </a>
         </nav>

@@ -1,33 +1,39 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/islands/Navbar';
-import SolutionsGrid from '../../components/shared/SolutionsGrid.astro';
+import RenewablesTabs from '../../components/islands/RenewablesTabs';
 import Differentiators from '../../components/shared/Differentiators.astro';
-import NewsSlider from '../../components/islands/NewsSlider';
 ---
 
-<Layout title="Solar Plant Thermal Inspection | Rishika Infra">
+<Layout title="Solar & Wind Plant Inspection | Rishika Infra">
   <Navbar client:load />
 
   <!-- =========================================================
-       HERO 
+       HERO SECTION
        ========================================================= -->
   <section class="relative min-h-[70vh] flex items-center pt-20 overflow-hidden bg-[#1D2630]">
-    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2500&auto=format&fit=crop" class="absolute inset-0 h-full w-full object-cover opacity-50" alt="Solar Farm" />
-    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/80 to-transparent"></div>
+    <img 
+      src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2500&auto=format&fit=crop" 
+      class="absolute inset-0 h-full w-full object-cover opacity-50 scale-105" 
+      alt="Solar Power Plant" 
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/90 to-transparent"></div>
     
     <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
-      <div class="max-w-[760px]">
+      <div class="max-w-[760px] repeat-animate" data-transform="translateY(30px)">
+        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-[#FFC62F] mb-6">
+          Renewable Energy Diagnostics
+        </p>
         <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px]">
-          Maximizing solar yields with<br/>
-          <span class="text-[#FFC62F]">radiometric thermal data</span>
+          Maximize output with <br/>
+          <span class="text-[#FFC62F]">precision thermal data</span>
         </h1>
         <p class="mt-6 max-w-[600px] text-[17px] leading-relaxed text-white/90">
-          Drone-based thermal inspection provides a safe, fast, and accurate solution for monitoring solar power plants, ensuring maximum energy output, operational safety, and long-term asset reliability[cite: 2].
+          Utility-scale renewable assets require constant monitoring to maintain peak efficiency. Our drone-based thermal inspections rapidly detect anomalies in solar arrays and wind turbines, helping operators validate warranties and safeguard long-term output.
         </p>
         <div class="mt-8">
-          <a href="#contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C]">
-            Get in touch
+          <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+            Book a Demo
           </a>
         </div>
       </div>
@@ -35,66 +41,78 @@ import NewsSlider from '../../components/islands/NewsSlider';
   </section>
 
   <!-- =========================================================
-       INTRO SECTION (Image Right)
+       PROTECTING LIFESPANS (Custom Overlapping Slanted Images)
        ========================================================= -->
-  <section class="bg-white py-24">
-    <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-6">Detect hidden faults<br/><span class="text-gray-400">invisible to the naked eye</span></h2>
-        <p class="text-lg text-gray-600 leading-relaxed mb-6">
-          Thermal imaging enables us to detect hidden faults that are not visible to the naked eye[cite: 1]. By deploying drones equipped with advanced thermal sensors, we can quickly scan thousands of panels to identify anomalies.
-        </p>
-        <p class="text-lg text-gray-600 leading-relaxed">
-          This allows us to identify defective cells, bypassed diodes, and vegetation shadowing before they cause significant drops in overall plant efficiency or pose fire risks.
-        </p>
-      </div>
-      <div class="relative">
-        <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=800&auto=format&fit=crop" alt="Thermal Solar Panel Analysis" class="rounded-xl shadow-2xl" />
-        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gray-100 rounded-full border-[8px] border-white flex items-center justify-center">
-          <span class="text-[#FFC62F] text-2xl font-bold">☀️</span>
+  <section class="bg-white py-32 overflow-hidden">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      
+      {/* CUSTOM GEOMETRIC IMAGE GRAPHIC (Left - Recreated from Screenshot) */}
+      <div class="relative h-[550px] w-full flex justify-center items-center repeat-animate" data-transform="translateX(-40px)">
+        
+        {/* Dashed Background Circle */}
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border-2 border-dashed border-gray-400 z-0"></div>
+
+        {/* Floating Yellow Parallelogram (Top Left) */}
+        <div class="absolute top-4 left-[20%] w-12 h-20 bg-[#FFC62F] -skew-x-[20deg] z-30"></div>
+        
+        {/* Floating Black Parallelogram (Right Edge) */}
+        <div class="absolute top-1/2 right-[5%] w-10 h-16 bg-[#17212B] -skew-x-[20deg] z-30 shadow-lg"></div>
+
+        {/* Image 2 (Back Right - Solar Panels) */}
+        <div class="absolute right-[10%] top-16 w-[280px] h-[350px] -skew-x-[20deg] overflow-hidden shadow-xl z-10 border-4 border-white">
+          <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
+            <img 
+              src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" 
+              alt="Solar Drone Inspection" 
+              class="w-full h-full object-cover opacity-90"
+            />
+          </div>
         </div>
+
+        {/* Image 1 (Front Left - Wind Turbine) */}
+        <div class="absolute left-[10%] bottom-8 w-[250px] h-[380px] -skew-x-[20deg] overflow-hidden shadow-[20px_0_40px_-15px_rgba(0,0,0,0.4)] z-20 border-[8px] border-white bg-gray-100">
+          <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
+            <img 
+              src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=800&auto=format&fit=crop" 
+              alt="Wind Turbine" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Floating Yellow Parallelogram (Bottom Right) */}
+        <div class="absolute bottom-4 right-[30%] w-8 h-12 bg-[#FFC62F] -skew-x-[20deg] z-30"></div>
+
       </div>
+
+      {/* TEXT CONTENT (Right) */}
+      <div class="repeat-animate" data-transform="translateX(40px)">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight">
+          Protecting wind and solar <br/>
+          <span class="text-[#0070BA]">asset lifespans</span>
+        </h2>
+        <p class="text-[17px] text-gray-600 leading-relaxed mb-6">
+          Wind turbines and solar farms operate in harsh environments where blades erode, composites crack, and panels degrade under heat and dust. If left unchecked, minor faults escalate into costly failures.
+        </p>
+        <p class="text-[17px] text-gray-600 leading-relaxed mb-10">
+          Regular drone-based inspections provide high-resolution visual and thermal data that help operators validate warranties, plan maintenance, and safeguard long-term output without disrupting operations.
+        </p>
+        <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+          Find out more
+        </a>
+      </div>
+
     </div>
   </section>
 
   <!-- =========================================================
-       CAPABILITIES DIAGRAM
+       INTERACTIVE RENEWABLES VIEWER (Solar/Wind Tabs)
        ========================================================= -->
-  <section class="bg-gray-50 py-20 border-y border-gray-200">
-    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
-      <div class="flex justify-center mb-12">
-        <div class="w-px h-16 bg-gray-300"></div>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-[#FFC62F] hover:-translate-y-1 transition-transform cursor-pointer">
-          <div class="text-3xl mb-3">🔥</div>
-          <h4 class="font-bold text-[#17212B] text-sm">Thermal Hotspot Detection</h4>
-          <p class="text-xs text-gray-500 mt-2">Identify overheated cells[cite: 1]</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-gray-200 hover:border-[#FFC62F] hover:-translate-y-1 transition-all cursor-pointer">
-          <div class="text-3xl mb-3">🔍</div>
-          <h4 class="font-bold text-[#17212B] text-sm">Panel Defect Identification</h4>
-          <p class="text-xs text-gray-500 mt-2">Locate micro-cracks and bypass diode failures[cite: 1]</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-gray-200 hover:border-[#FFC62F] hover:-translate-y-1 transition-all cursor-pointer">
-          <div class="text-3xl mb-3">📈</div>
-          <h4 class="font-bold text-[#17212B] text-sm">Performance Assessment</h4>
-          <p class="text-xs text-gray-500 mt-2">Evaluate energy output efficiency[cite: 1]</p>
-        </div>
-        <div class="bg-white p-6 rounded shadow-sm border-t-4 border-gray-200 hover:border-[#FFC62F] hover:-translate-y-1 transition-all cursor-pointer">
-          <div class="text-3xl mb-3">📋</div>
-          <h4 class="font-bold text-[#17212B] text-sm">Preventive Maintenance Reporting</h4>
-          <p class="text-xs text-gray-500 mt-2">Actionable digital reports[cite: 1]</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <RenewablesTabs client:visible />
 
   <!-- =========================================================
-       SHARED SECTIONS
+       SHARED SECTIONS INJECTED HERE
        ========================================================= -->
-  <SolutionsGrid />
   <Differentiators />
-  <NewsSlider client:visible />
 
 </Layout>

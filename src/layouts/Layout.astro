@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 interface Props {
   title: string;
 }
@@ -16,84 +16,119 @@ const { title } = Astro.props;
   </head>
   <body class="bg-white">
     
-    <!-- Render the Page Content (index.astro) -->
+    <!-- Render the Page Content -->
     <slot />
-    
+
+    <!-- =========================================================
+         GLOBAL PRE-FOOTER CTA
+         ========================================================= -->
+    <section class="bg-[#17212B] py-24 border-b border-white/5 overflow-hidden flex flex-col items-center justify-center text-center">
+      <div 
+        class="repeat-animate mx-auto max-w-4xl px-6 transition-all duration-1000 ease-out" 
+        data-transform="translateY(30px)"
+      >
+        <p class="text-[12px] font-bold uppercase tracking-[0.25em] text-[#FFC62F] mb-6">
+          Ready to get started?
+        </p>
+        <h2 class="text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+          Make your asset inspections safer and smarter.
+        </h2>
+        <p class="text-lg text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto">
+          Talk to our team about drone inspection, aerial data, mapping and geospatial intelligence.
+        </p>
+        <a 
+          href="/contact" 
+          class="inline-flex items-center justify-center rounded-full bg-[#FFC62F] px-10 py-4 text-[15px] font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:scale-105 hover:shadow-xl"
+        >
+          Get in touch
+        </a>
+      </div>
+    </section>
+
     <!-- =========================================================
          FOOTER (CYBERHAWK STYLE)
          ========================================================= -->
-    <footer class="bg-[#0B1117] text-white pt-24 font-sans">
+    <footer class="bg-[#0B1117] text-white pt-20 font-sans">
       <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
-        
-        <!-- Top CTA Section -->
-        <div class="text-center mb-20">
-          <h2 class="text-3xl md:text-4xl font-bold mb-8 leading-tight text-white">
-            Make the most of your data.<br/>
-            Get started with Rishika Infra today.
-          </h2>
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/contact" class="inline-flex justify-center rounded-full bg-[#FFC62F] px-9 py-3.5 text-sm font-bold text-[#17212B] transition-all hover:bg-[#FFD85C]">
-              Contact us
-            </a>
-            <a href="/demo" class="inline-flex justify-center rounded-full border-2 border-white px-9 py-3.5 text-sm font-bold text-white transition-all hover:border-[#FFC62F] hover:text-[#FFC62F]">
-              Book a demo
-            </a>
-          </div>
-        </div>
 
         <!-- Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16 border-t border-white/10 pt-16">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           <!-- Column 1: HQ Address -->
           <div class="md:col-span-5 lg:col-span-3">
-            <h3 class="font-bold text-base mb-4 text-white uppercase tracking-wider">HQ Noida, India</h3>
+            <h3 class="font-bold text-base mb-4 text-white uppercase tracking-wider">
+              HQ Noida, India
+            </h3>
             <p class="text-gray-400 text-sm leading-relaxed mb-4">
-              C-828, Tower C Alpha Thum,<br/>
+              C-828, Tower C Alpha Thum,<br />
               Sec-90, Near Biodiversity Park - 201305
             </p>
-            <a href="tel:+919811331744" class="block text-gray-400 text-sm mb-1 hover:text-[#FFC62F] transition-colors">+91 9811331744</a>
-            <a href="mailto:Anurag.singh@rishikainfra.com" class="block text-gray-400 text-sm hover:text-[#FFC62F] transition-colors">Anurag.singh@rishikainfra.com</a>
+            <a
+              href="tel:+919811331744"
+              class="block text-gray-400 text-sm mb-1 hover:text-[#FFC62F] transition-colors"
+              >+91 9811331744</a
+            >
+            <a
+              href="mailto:Anurag.singh@rishikainfra.com"
+              class="block text-gray-400 text-sm hover:text-[#FFC62F] transition-colors"
+              >Anurag.singh@rishikainfra.com</a
+            >
           </div>
-          
+
           <!-- Column 2 & 3: Solutions/Sectors Links -->
           <div class="md:col-span-7 lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="flex flex-col gap-4">
-              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">Powerline Inspection</a>
-              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">Solar Power Plant Thermal Inspection</a>
-              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">Geospatial Mapping</a>
+              <a href="/services/powerline-inspection" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">
+                Powerline Inspection
+              </a>
+              <a href="/services/solar-inspection" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">
+                Solar Power Plant Thermal Inspection
+              </a>
+              <a href="/services/geospatial-mapping" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">
+                Geospatial Mapping
+              </a>
             </div>
             <div class="flex flex-col gap-4">
-              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">LIDAR Engineering</a>
-              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">Building Information Modeling (BIM)</a>
-              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">Traffic Management with AI</a>
+              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">
+                LIDAR Engineering
+              </a>
+              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">
+                Building Information Modeling (BIM)
+              </a>
+              <a href="#" class="text-gray-300 hover:text-[#FFC62F] text-sm border-b border-white/10 pb-3 font-semibold transition-colors">
+                Traffic Management with AI
+              </a>
             </div>
           </div>
 
           <!-- Column 4: Certifications -->
           <div class="md:col-span-12 lg:col-span-3 flex flex-col items-start lg:items-end gap-4">
-             <!-- Certification Badge (Type-Certified SURVEYXK) -->
-             <div class="bg-white p-4 flex items-center justify-center rounded w-56 shadow-lg">
-                <div class="text-center">
-                   <div class="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">DGCA Approved Fleet</div>
-                   <div class="text-sm font-extrabold text-[#17212B]">TYPE-CERTIFIED<br/>SURVEYXK</div>
+            <!-- Certification Badge (Type-Certified SURVEYXK) -->
+            <div class="bg-white p-4 flex items-center justify-center rounded w-56 shadow-lg hover:-translate-y-1 transition-transform">
+              <div class="text-center">
+                <div class="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-1">
+                  DGCA Approved Fleet
                 </div>
-             </div>
+                <div class="text-sm font-extrabold text-[#17212B]">
+                  TYPE-CERTIFIED<br />SURVEYXK
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Socials & Big Logo Area -->
         <div class="flex flex-col items-center border-t border-white/10 pt-16 pb-20">
-          
           <!-- Social Icons -->
           <div class="flex gap-4 mb-10">
             <a href="#" aria-label="LinkedIn" class="w-12 h-12 rounded-full bg-[#FFC62F] flex items-center justify-center text-[#17212B] hover:scale-110 transition-transform">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
               </svg>
             </a>
             <a href="#" aria-label="YouTube" class="w-12 h-12 rounded-full bg-[#FFC62F] flex items-center justify-center text-[#17212B] hover:scale-110 transition-transform">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
               </svg>
             </a>
           </div>
@@ -111,37 +146,79 @@ const { title } = Astro.props;
               </div>
             </div>
           </div>
-          <p class="text-gray-400 text-[11px] font-bold tracking-[0.2em] uppercase mt-2">Delivering Safer, Smarter, and More Efficient Inspections</p>
+          <p class="text-gray-400 text-[11px] font-bold tracking-[0.2em] uppercase mt-2 text-center">
+            Delivering Safer, Smarter, and More Efficient Inspections
+          </p>
         </div>
       </div>
 
       <!-- Bottom White Bar with Links -->
       <div class="bg-white py-6 relative overflow-hidden">
         <div class="mx-auto max-w-[1440px] px-6 lg:px-16 flex flex-col md:flex-row items-center justify-between z-10 relative">
-          
           <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 text-[13px] font-bold text-[#17212B]">
-            <a href="#" class="hover:text-[#0070BA] transition-colors">About</a>
+            <a href="/about" class="hover:text-[#0070BA] transition-colors">About</a>
             <span class="text-gray-300 font-normal">|</span>
             <a href="#" class="hover:text-[#0070BA] transition-colors">News</a>
             <span class="text-gray-300 font-normal">|</span>
             <a href="#" class="hover:text-[#0070BA] transition-colors">Careers</a>
             <span class="text-gray-300 font-normal">|</span>
-            <a href="#" class="hover:text-[#0070BA] transition-colors">Contact</a>
+            <a href="/contact" class="hover:text-[#0070BA] transition-colors">Contact</a>
             <span class="text-gray-300 font-normal">|</span>
             <a href="#" class="hover:text-[#0070BA] transition-colors">Privacy & Cookies</a>
             <span class="text-gray-300 font-normal">|</span>
             <a href="#" class="hover:text-[#0070BA] transition-colors">Terms & Conditions</a>
           </div>
-          
+
           <div class="mt-4 md:mt-0 text-[12px] font-semibold text-gray-500">
             © {new Date().getFullYear()} Rishika Infra. All rights reserved.
           </div>
         </div>
 
-        <!-- Diagonal accents on the far right (Cyberhawk style) -->
+        <!-- Diagonal accents on the far right -->
         <div class="hidden lg:block absolute right-0 bottom-0 top-0 w-32 bg-[#FFC62F] transform skew-x-[-20deg] translate-x-12 z-0"></div>
         <div class="hidden lg:block absolute right-6 bottom-0 top-0 w-6 bg-[#17212B] transform skew-x-[-20deg] translate-x-12 z-0"></div>
       </div>
     </footer>
+
+    <!-- GLOBAL REPEATABLE SCROLL ANIMATION -->
+    <script>
+      function initRepeatAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const el = entry.target as HTMLElement;
+              if (entry.isIntersecting) {
+                // Element enters the screen: Animate it in
+                el.style.opacity = "1";
+                el.style.transform = "translate(0, 0)";
+              } else {
+                // Element leaves the screen: Reset it so it can animate again next time
+                el.style.opacity = "0";
+                // It reads the initial offset from the data-transform attribute we set
+                el.style.transform = el.dataset.transform || "translateY(40px)";
+              }
+            });
+          },
+          {
+            threshold: 0.1, // Trigger when 10% visible
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        // Find all elements with the 'repeat-animate' class
+        const elements = document.querySelectorAll(".repeat-animate");
+
+        // Setup their initial hidden state before observing
+        elements.forEach((el) => {
+          const htmlEl = el as HTMLElement;
+          htmlEl.style.opacity = "0";
+          htmlEl.style.transform = htmlEl.dataset.transform || "translateY(40px)";
+          observer.observe(htmlEl);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", initRepeatAnimations);
+      document.addEventListener("astro:page-load", initRepeatAnimations);
+    </script>
   </body>
 </html>

@@ -1,24 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { SITE_CONFIG } from '../data/siteConfig';
-import ClientCarousel from '../components/islands/ClientCarousel';
-import Navbar from '../components/islands/Navbar';
-import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
+import Layout from "../layouts/Layout.astro";
+import { SITE_CONFIG } from "../data/siteConfig";
+import ClientCarousel from "../components/islands/ClientCarousel";
+import Navbar from "../components/islands/Navbar";
+import SolutionsGrid from "../components/shared/SolutionsGrid.astro";
+import FleetAndEquipment from "../components/shared/FleetAndEquipment.astro";
+import RishikaAI from "../components/shared/RishikaAI.astro";
 ---
 
 <Layout title="Rishika Infra | Aerial Inspection & GIS">
-
   <!-- =========================================================
        TOP ANNOUNCEMENT BAR
        ========================================================= -->
   <div class="relative z-[60] h-[66px] overflow-hidden bg-white">
-    <div class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 lg:px-16">
-
+    <div
+      class="mx-auto flex h-full max-w-[1440px] items-center justify-between px-6 lg:px-16"
+    >
       <!-- Left -->
       <div class="flex items-center gap-6">
         <div class="flex items-center gap-3">
           <span class="text-[22px] font-medium tracking-[0.2em] text-[#17324D]">
-            
           </span>
 
           <span class="text-2xl text-[#0077B8]">✦</span>
@@ -39,7 +40,9 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
       </div>
 
       <!-- Right -->
-      <div class="hidden items-center gap-8 text-sm font-bold text-[#0070BA] md:flex">
+      <div
+        class="hidden items-center gap-8 text-sm font-bold text-[#0070BA] md:flex"
+      >
         <a href="#contact" class="transition-colors hover:text-[#17324D]">
           CONTACT US
         </a>
@@ -67,18 +70,19 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
           );
         clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
       "
-    ></div>
+    >
+    </div>
 
     <!-- Keep controls above stripe -->
     <div class="pointer-events-none absolute inset-0"></div>
   </div>
 
-
   <!-- =========================================================
        HERO
        ========================================================= -->
-  <section class="relative min-h-[calc(100vh-66px)] overflow-hidden bg-[#1D2630]">
-
+  <section
+    class="relative min-h-[calc(100vh-66px)] overflow-hidden bg-[#1D2630]"
+  >
     <!-- Background video -->
     <video
       class="absolute inset-0 h-full w-full object-cover"
@@ -86,7 +90,7 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
       muted
       loop
       playsinline
-      poster="/images/cyberhawk-hero-poster.jpg"
+      poster="/images/cyberhawk-hero-poster.g"
       aria-hidden="true"
     >
       <source src="videos/WebsiteVideo.mp4" type="video/mp4" />
@@ -108,7 +112,8 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
             rgba(20, 29, 38, 0.08) 100%
           );
       "
-    ></div>
+    >
+    </div>
 
     <!-- Slight blue tint on the right -->
     <div
@@ -121,14 +126,13 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
             rgba(0, 112, 186, 0.08) 100%
           );
       "
-    ></div>
-
-	
+    >
+    </div>
 
     <!-- =======================================================
          NAVIGATION
          ======================================================= -->
-	<!-- 	 
+    <!-- 	 
     <header class="absolute left-0 right-0 top-0 z-30">
       <div class="mx-auto flex h-[92px] max-w-[1440px] items-center justify-between px-6 lg:px-16">
 
@@ -173,9 +177,8 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
         </a>
 -->
 
-
-        <!-- Desktop navigation -->
-      <!--  <nav class="hidden items-center gap-8 lg:flex">
+    <!-- Desktop navigation -->
+    <!--  <nav class="hidden items-center gap-8 lg:flex">
           <a
             href="#sectors"
             class="text-[15px] font-semibold text-white transition-colors hover:text-[#FFC62F]"
@@ -213,9 +216,8 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
         </nav>
 -->
 
-
-        <!-- Mobile menu -->
-		 <!-- 
+    <!-- Mobile menu -->
+    <!-- 
         <button
           type="button"
           class="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white lg:hidden"
@@ -231,22 +233,19 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
       </div>
     </header>-->
 
-	<!-- =======================================================
+    <!-- =======================================================
      NAVIGATION (REACT ISLAND)
      ======================================================= -->
 
-	<Navbar client:load />
-
-	
-	
+    <Navbar client:load />
 
     <!-- =======================================================
          HERO CONTENT
          ======================================================= -->
-    <div class="relative z-10 mx-auto flex min-h-[calc(100vh-66px)] max-w-[1440px] items-center px-6 pb-24 pt-28 lg:px-16 pointer-events-none">
-
+    <div
+      class="relative z-10 mx-auto flex min-h-[calc(100vh-66px)] max-w-[1440px] items-center px-6 pb-24 pt-28 lg:px-16 pointer-events-none"
+    >
       <div class="max-w-[760px] pointer-events-auto">
-
         <h1
           class="max-w-[730px] text-[48px] font-extrabold leading-[1.02] tracking-[-0.035em] text-white sm:text-[58px] md:text-[68px] lg:text-[72px]"
         >
@@ -256,9 +255,7 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
           inspections with
           <br />
 
-          <span class="text-[#FFC62F]">
-            powerful aerial data
-          </span>
+          <span class="text-[#FFC62F]"> powerful aerial data </span>
         </h1>
 
         <!-- Yellow line -->
@@ -284,7 +281,6 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
       </div>
     </div>
 
-
     <!-- =======================================================
          SCROLL INDICATOR
          ======================================================= -->
@@ -309,14 +305,11 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
             stroke="currentColor"
             stroke-width="1.7"
             stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+            stroke-linejoin="round"></path>
         </svg>
       </div>
     </a>
-
   </section>
-
 
   <!-- =========================================================
        CLIENTS
@@ -345,20 +338,19 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
     <ClientCarousel client:load />
   </section>
 
-
   <!-- =========================================================
        WHO WE ARE
        ========================================================= -->
   <section id="about" class="bg-white py-24">
     <div class="mx-auto max-w-4xl px-6 text-center">
-
       <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500">
         WHO WE ARE
       </p>
 
-      <h2 class="mt-5 text-4xl font-bold tracking-tight text-[#17212B] md:text-5xl">
-        Trusted leader in drone inspections
-        and aerial data management
+      <h2
+        class="mt-5 text-4xl font-bold tracking-tight text-[#17212B] md:text-5xl"
+      >
+        Trusted leader in drone inspections and aerial data management
       </h2>
 
       <p class="mt-7 text-lg leading-8 text-gray-600">
@@ -369,7 +361,6 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
       </p>
 
       <div class="mt-10 flex flex-wrap justify-center gap-4">
-
         <a
           href="#inspections"
           class="rounded-full border-2 border-[#FFC62F] px-7 py-3 text-sm font-bold text-[#17212B] transition-colors hover:bg-[#FFC62F]"
@@ -383,135 +374,33 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
         >
           Geospatial Mapping
         </a>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================================================
-       SECTORS
-       ========================================================= -->
- 
-       <!-- =========================================================
-       SECTORS
-       ========================================================= -->
-  <section id="sectors" class="bg-white pb-24 overflow-hidden">
-    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
-
-      <!-- Header (Fades in on scroll) -->
-      <div class="scroll-animate mb-12 flex items-end justify-between opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-        <div>
-          <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500">
-            INDUSTRIES
-          </p>
-          <h2 class="mt-3 text-4xl font-bold text-[#17212B]">
-            Sectors we serve
-          </h2>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-        <!-- Card 1: Power Grid & Utilities -->
-        <a
-          href="/services/powerline-inspection"
-          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
-          style="transition-delay: 0ms;"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1517420879524-86d64ac2f339?q=80&w=800&auto=format&fit=crop" 
-            alt="Power Grid Transmission Towers"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 01</div>
-            <h3 class="text-2xl font-bold text-white leading-snug">Power Grid &<br />Utilities</h3>
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
-          </div>
-        </a>
-
-        <!-- Card 2: Renewables & Solar -->
-        <a
-          href="/services/solar-inspection"
-          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
-          style="transition-delay: 150ms;"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" 
-            alt="Solar Panels"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 02</div>
-            <h3 class="text-2xl font-bold text-white leading-snug">Renewables &<br />Solar</h3>
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
-          </div>
-        </a>
-
-        <!-- Card 3: Capital Projects & Infrastructure -->
-        <a
-          href="/services/geospatial-mapping"
-          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
-          style="transition-delay: 300ms;"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" 
-            alt="Construction Infrastructure"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 03</div>
-            <h3 class="text-2xl font-bold text-white leading-snug">Capital Projects &<br />Infrastructure</h3>
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
-          </div>
-        </a>
-
-        <!-- Card 4: Highway Corridor Mapping -->
-        <a
-          href="/services/geospatial-mapping"
-          class="scroll-animate group relative h-[340px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
-          style="transition-delay: 450ms;"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1545042746-ec9e5a59b359?q=80&w=800&auto=format&fit=crop" 
-            alt="Highway Corridor"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-7">
-            <div class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FFC62F]">SECTOR 04</div>
-            <h3 class="text-2xl font-bold text-white leading-snug">Highway Corridor<br />Mapping</h3>
-            <div class="mt-5 flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#17212B] transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#FFC62F]">→</div>
-          </div>
-        </a>
-
       </div>
     </div>
   </section>
-
 
   <!-- =========================================================
        SOLUTIONS
        ========================================================= -->
-       
-       <SolutionsGrid />
 
+  <SolutionsGrid />
+
+  <FleetAndEquipment />
+
+  <RishikaAI />
 
   <!-- =========================================================
        DIFFERENTIATORS (WHY RISHIKA)
        ========================================================= -->
   <section id="differentiators" class="bg-white py-24 border-t border-gray-100">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
-      
       <!-- Section Header -->
-      <div class="mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-8">
+      <div
+        class="mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-8"
+      >
         <div>
-          <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0070BA] mb-2">
+          <p
+            class="text-sm font-bold uppercase tracking-[0.25em] text-[#0070BA] mb-2"
+          >
             WHY RISHIKA INFRA?
           </p>
           <h2 class="text-3xl md:text-4xl font-bold text-[#17212B]">
@@ -521,110 +410,138 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
       </div>
 
       <!-- 4-Column Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-        
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12"
+      >
         <!-- Feature 1: Enhanced Safety -->
         <div class="group cursor-pointer">
           <div class="flex items-center gap-4 mb-4">
-            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <div
+              class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
             </div>
             <h3 class="text-xl font-bold text-[#17212B]">Enhanced Safety</h3>
           </div>
           <p class="text-[15px] leading-relaxed text-gray-600">
-            Drone inspections eliminate the need for personnel to climb towers, enter hazardous environments, or work near energized equipment[cite: 1].
+            Drone inspections eliminate the need for personnel to climb towers,
+            enter hazardous environments, or work near energized equipment[cite:
+            1].
           </p>
         </div>
 
         <!-- Feature 2: Advanced Technology -->
         <div class="group cursor-pointer">
           <div class="flex items-center gap-4 mb-4">
-            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            <div
+              class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-[#17212B]">Advanced Technology</h3>
+            <h3 class="text-xl font-bold text-[#17212B]">
+              Advanced Technology
+            </h3>
           </div>
           <p class="text-[15px] leading-relaxed text-gray-600">
-            We utilize modern UAV platforms equipped with visual and thermal sensors to deliver reliable, high-fidelity data at every asset[cite: 1].
+            We utilize modern UAV platforms equipped with visual and thermal
+            sensors to deliver reliable, high-fidelity data at every asset[cite:
+            1].
           </p>
         </div>
 
         <!-- Feature 3: Cost Efficiency -->
         <div class="group cursor-pointer">
           <div class="flex items-center gap-4 mb-4">
-            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
+            <div
+              class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
             </div>
             <h3 class="text-xl font-bold text-[#17212B]">Cost Efficiency</h3>
           </div>
           <p class="text-[15px] leading-relaxed text-gray-600">
-            Our solutions significantly reduce inspection time, manpower requirements, and operational costs while ensuring fast project delivery[cite: 1].
+            Our solutions significantly reduce inspection time, manpower
+            requirements, and operational costs while ensuring fast project
+            delivery[cite: 1].
           </p>
         </div>
 
         <!-- Feature 4: Improved Accuracy -->
         <div class="group cursor-pointer">
           <div class="flex items-center gap-4 mb-4">
-            <div class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <circle cx="12" cy="12" r="4"/>
-                <line x1="21.17" y1="8" x2="12" y2="8"/>
-                <line x1="3.95" y1="6.06" x2="8.54" y2="14"/>
-                <line x1="10.88" y1="21.94" x2="15.46" y2="14"/>
+            <div
+              class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] text-[#FFC62F] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#FFC62F] group-hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="4"></circle>
+                <line x1="21.17" y1="8" x2="12" y2="8"></line>
+                <line x1="3.95" y1="6.06" x2="8.54" y2="14"></line>
+                <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
               </svg>
             </div>
             <h3 class="text-xl font-bold text-[#17212B]">Improved Accuracy</h3>
           </div>
           <p class="text-[15px] leading-relaxed text-gray-600">
-            High-resolution imaging and thermal sensors enable precise defect identification, turning complex challenges into clear, actionable insight[cite: 1].
+            High-resolution imaging and thermal sensors enable precise defect
+            identification, turning complex challenges into clear, actionable
+            insight[cite: 1].
           </p>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- =========================================================
-       CTA
-       ========================================================= -->
-  <section id="contact" class="bg-[#17212B] py-24">
-    <div class="mx-auto max-w-5xl px-6 text-center">
-
-      <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#FFC62F]">
-        READY TO GET STARTED?
-      </p>
-
-      <h2 class="mt-5 text-4xl font-bold text-white md:text-5xl">
-        Make your asset inspections
-        safer and smarter.
-      </h2>
-
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70">
-        Talk to our team about drone inspection, aerial data,
-        mapping and geospatial intelligence.
-      </p>
-
-      <div class="mt-9">
-        <a
-          href="mailto:hello@example.com"
-          class="inline-flex rounded-full bg-[#FFC62F] px-9 py-4 text-sm font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-0.5"
-        >
-          Get in touch
-        </a>
-      </div>
-
-    </div>
-  </section>
-
+  
 
   <!-- =========================================================
        LOCAL STYLES
@@ -638,5 +555,4 @@ import SolutionsGrid from '../components/shared/SolutionsGrid.astro';
       transform: skewX(8deg);
     }
   </style>
-
 </Layout>

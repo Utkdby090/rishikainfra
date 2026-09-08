@@ -2,8 +2,9 @@
 import "../styles/global.css";
 interface Props {
   title: string;
+  hideCTA?: boolean;
 }
-const { title } = Astro.props;
+const { title, hideCTA = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,28 +23,30 @@ const { title } = Astro.props;
     <!-- =========================================================
          GLOBAL PRE-FOOTER CTA
          ========================================================= -->
-    <section class="bg-[#17212B] py-24 border-b border-white/5 overflow-hidden flex flex-col items-center justify-center text-center">
-      <div 
-        class="repeat-animate mx-auto max-w-4xl px-6 transition-all duration-1000 ease-out" 
-        data-transform="translateY(30px)"
-      >
-        <p class="text-[12px] font-bold uppercase tracking-[0.25em] text-[#FFC62F] mb-6">
-          Ready to get started?
-        </p>
-        <h2 class="text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-          Make your asset inspections safer and smarter.
-        </h2>
-        <p class="text-lg text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto">
-          Talk to our team about drone inspection, aerial data, mapping and geospatial intelligence.
-        </p>
-        <a 
-          href="/contact" 
-          class="inline-flex items-center justify-center rounded-full bg-[#FFC62F] px-10 py-4 text-[15px] font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:scale-105 hover:shadow-xl"
+   { !hideCTA && (
+      <section class="bg-[#17212B] py-24 border-b border-white/5 overflow-hidden flex flex-col items-center justify-center text-center">
+        <div 
+          class="repeat-animate mx-auto max-w-4xl px-6 transition-all duration-1000 ease-out" 
+          data-transform="translateY(30px)"
         >
-          Get in touch
-        </a>
-      </div>
-    </section>
+          <p class="text-[12px] font-bold uppercase tracking-[0.25em] text-[#FFC62F] mb-6">
+            Ready to get started?
+          </p>
+          <h2 class="text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+            Make your asset inspections safer and smarter.
+          </h2>
+          <p class="text-lg text-white/70 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Talk to our team about drone inspection, aerial data, mapping and geospatial intelligence.
+          </p>
+          <a 
+            href="/contact" 
+            class="inline-flex items-center justify-center rounded-full bg-[#FFC62F] px-10 py-4 text-[15px] font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:scale-105 hover:shadow-xl"
+          >
+            Get in touch
+          </a>
+        </div>
+      </section>
+    ) }
 
     <!-- =========================================================
          FOOTER (CYBERHAWK STYLE)

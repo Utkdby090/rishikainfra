@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/islands/Navbar';
+import Differentiators from '../../components/shared/Differentiators.astro';
+import AnimatedShowcase from '../../components/islands/AnimatedShowcase';
+
+// DATA ARRAY FOR THE INTERACTIVE SHOWCASE
+const trafficAnalyticsData = [
+  {
+    id: 'flow',
+    tabLabel: 'Traffic Flow',
+    tagline: 'Observe traffic flow during peak periods.',
+    heading: 'Congestion & Flow Analysis',
+    description: 'During peak periods or major events, our drones observe traffic flow from above. This aerial perspective helps authorities in studying congestion patterns and planning effective route diversions.',
+    image: 'https://images.unsplash.com/photo-1517331580970-80c443653132?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    id: 'kinematics',
+    tabLabel: 'Speed & Acceleration',
+    tagline: 'Extract precise vehicle kinematics.',
+    heading: 'Speed & Acceleration Tracking',
+    description: 'Utilize AI-based drones to get quick results on vehicle behavior. Our analytics extract highly accurate speed and acceleration data directly from the aerial video feed to monitor roadway compliance.',
+    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    id: 'gap-time',
+    tabLabel: 'Gap Time & PET',
+    tagline: 'Measure intersection efficiency metrics.',
+    heading: 'Gap Time & PET',
+    description: 'Evaluate intersection safety and traffic light efficiency by extracting advanced metrics like gap time and Post Encroachment Time (PET) from complex junctions and merging lanes.',
+    image: 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    id: 'safety',
+    tabLabel: 'Safety Analysis',
+    tagline: 'Calculate collision risks instantly.',
+    heading: 'Time to Collision & Safety',
+    description: 'Gain comprehensive safety analysis data. Our AI models process the drone footage to calculate Time to Collision metrics, helping planners identify dangerous bottlenecks and improve overall road safety.',
+    image: 'https://images.unsplash.com/photo-1582215883723-5e74116035cb?q=80&w=1000&auto=format&fit=crop'
+  }
+];
+---
+
+<Layout title="Traffic Monitoring & Safety | Rishika Infra">
+  <Navbar client:load />
+
+  <!-- =========================================================
+       HERO SECTION
+       ========================================================= -->
+  <section class="relative min-h-[70vh] flex items-center pt-20 overflow-hidden bg-[#1D2630]">
+    {/* Background Image: Smart City / Traffic Long Exposure */}
+    <img 
+      src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2500&auto=format&fit=crop" 
+      class="absolute inset-0 h-full w-full object-cover opacity-30 scale-105" 
+      alt="Smart City Traffic AI" 
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/90 to-transparent"></div>
+    
+    <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
+      <div class="max-w-[800px] repeat-animate" data-transform="translateY(30px)">
+        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-[#FFC62F] mb-6">
+          Smart Analytics
+        </p>
+        <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px] mb-6">
+          Traffic Monitoring <br/>
+          <span class="text-[#FFC62F]">& Safety</span>
+        </h1>
+        <p class="text-[17px] leading-relaxed text-white/90 mb-8 max-w-[650px]">
+          AI-based drones can give quick results. We capture high-altitude aerial data during peak periods and major events to observe traffic flow, enabling highway authorities to study congestion patterns and plan diversions effectively.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+            Request a Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VALUE PROP (Custom Overlapping Slanted Images)
+       ========================================================= -->
+  <section class="bg-white py-32 overflow-hidden border-b border-gray-100">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      
+      {/* TEXT CONTENT (Left) */}
+      <div class="repeat-animate" data-transform="translateX(-40px)">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight">
+          Study patterns, <br/>
+          <span class="text-[#0070BA]">plan diversions</span>
+        </h2>
+        <p class="text-[17px] text-gray-600 leading-relaxed mb-6">
+          During peak periods or major events, drones observe traffic flow to provide comprehensive situational awareness. This aerial perspective is critical for understanding how vehicles behave in real-world scenarios.
+        </p>
+        <p class="text-[17px] text-gray-600 leading-relaxed mb-10">
+          Our AI-based drones give quick, actionable results. We process the footage to help you study deep congestion patterns and plan safer, more efficient road diversions.
+        </p>
+        
+        <ul class="space-y-4 font-bold text-[#17212B]">
+          <li class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            Get speed, acceleration, and gap time data
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            Safety analysis including time to collision and PET
+          </li>
+        </ul>
+      </div>
+
+      {/* CUSTOM GEOMETRIC IMAGE GRAPHIC (Right) */}
+      <div class="relative h-[550px] w-full flex justify-center items-center repeat-animate" data-transform="translateX(40px)">
+        <div class="absolute right-[10%] top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border-2 border-dashed border-gray-400 z-0"></div>
+        <div class="absolute top-8 left-[15%] w-12 h-20 bg-[#0070BA] -skew-x-[20deg] z-30"></div>
+        <div class="absolute bottom-12 right-[15%] w-16 h-12 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-lg"></div>
+
+        {/* Image 2 (Back Right - Data/Analytics abstract) */}
+        <div class="absolute right-[5%] top-10 w-[300px] h-[320px] -skew-x-[20deg] overflow-hidden shadow-xl z-10 border-4 border-white bg-gray-900">
+          <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
+            <img 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
+              alt="Data Analytics Dashboard" 
+              class="w-full h-full object-cover opacity-90"
+            />
+          </div>
+        </div>
+
+        {/* Image 1 (Front Left - Highway Drone View) */}
+        <div class="absolute left-[5%] bottom-10 w-[320px] h-[380px] -skew-x-[20deg] overflow-hidden shadow-[20px_0_40px_-15px_rgba(0,0,0,0.4)] z-20 border-[8px] border-white bg-gray-100">
+          <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
+            <img 
+              src="https://images.unsplash.com/photo-1474408990415-38505500e5bc?q=80&w=800&auto=format&fit=crop" 
+              alt="Highway Aerial View" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       INTERACTIVE COMPONENTS INJECTED HERE
+       ========================================================= -->
+       
+  <AnimatedShowcase 
+    client:visible 
+    subtitle="AI Capabilities" 
+    title="Traffic Data Extraction" 
+    data={trafficAnalyticsData} 
+  />
+
+  <!-- =========================================================
+       SHARED SECTIONS
+       ========================================================= -->
+  <Differentiators />
+
+</Layout>

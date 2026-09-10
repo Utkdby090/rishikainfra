@@ -1,21 +1,29 @@
 ---
 import "../styles/global.css";
+import SEO from '../components/shared/SEO.astro';
+import Analytics from '../components/shared/Analytics.astro';
+
 interface Props {
   title: string;
+  description?: string;
   hideCTA?: boolean;
 }
-const { title, hideCTA = false } = Astro.props;
+const { title,description, hideCTA = false } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <SEO title={title} description={description} />
+    <Analytics />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    
   </head>
-  <body class="bg-white">
+ <body class="bg-white text-[#17212B] antialiased selection:bg-[#FFC62F] selection:text-[#17212B]">
     
     <!-- Render the Page Content -->
     <slot />
@@ -161,15 +169,13 @@ const { title, hideCTA = false } = Astro.props;
           <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 text-[13px] font-bold text-[#17212B]">
             <a href="/about" class="hover:text-[#0070BA] transition-colors">About</a>
             <span class="text-gray-300 font-normal">|</span>
-            <a href="#" class="hover:text-[#0070BA] transition-colors">News</a>
-            <span class="text-gray-300 font-normal">|</span>
-            <a href="#" class="hover:text-[#0070BA] transition-colors">Careers</a>
+            <a href="/news" class="hover:text-[#0070BA] transition-colors">News</a>
             <span class="text-gray-300 font-normal">|</span>
             <a href="/contact" class="hover:text-[#0070BA] transition-colors">Contact</a>
             <span class="text-gray-300 font-normal">|</span>
-            <a href="#" class="hover:text-[#0070BA] transition-colors">Privacy & Cookies</a>
+            <a href="/privacy" class="hover:text-[#0070BA] transition-colors">Privacy & Cookies</a>
             <span class="text-gray-300 font-normal">|</span>
-            <a href="#" class="hover:text-[#0070BA] transition-colors">Terms & Conditions</a>
+            <a href="/terms" class="hover:text-[#0070BA] transition-colors">Terms & Conditions</a>
           </div>
 
           <div class="mt-4 md:mt-0 text-[12px] font-semibold text-gray-500">

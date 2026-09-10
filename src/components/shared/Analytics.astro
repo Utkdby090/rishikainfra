@@ -1,0 +1,17 @@
+---
+const trackingId = import.meta.env.PUBLIC_GA_TRACKING_ID;
+// Only render the script if we have an ID and we are in production
+const isProd = import.meta.env.PROD;
+---
+
+{trackingId && isProd && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}></script>
+    <script is:inline define:vars={{ trackingId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', trackingId);
+    </script>
+  </>
+)}

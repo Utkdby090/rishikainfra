@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/islands/Navbar';
+---
+
+<Layout hideCTA title="Privacy Policy | Rishika Infra">
+  <Navbar client:load />
+
+  <section class="pt-32 pb-24 bg-gray-50 min-h-screen">
+    <div class="mx-auto max-w-[800px] px-6 lg:px-8 bg-white p-10 md:p-16 rounded-3xl shadow-sm border border-gray-100">
+      <h1 class="text-4xl font-extrabold text-[#17212B] mb-4">Privacy Policy</h1>
+      <p class="text-gray-500 mb-10">Last updated: {new Date().toLocaleDateString()}</p>
+
+      <div class="prose prose-lg text-gray-600 prose-headings:text-[#17212B] prose-a:text-[#0070BA]">
+        <p>
+          At Rishika Infra, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+        </p>
+
+        <h3>1. Information We Collect</h3>
+        <p>
+          We may collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services. The personal information that we collect depends on the context of your interactions with us and the website, the choices you make, and the products and features you use. The personal information we collect may include:
+        </p>
+        <ul>
+          <li>Names</li>
+          <li>Email Addresses</li>
+          <li>Phone Numbers</li>
+          <li>Company Details</li>
+        </ul>
+
+        <h3>2. How We Use Your Information</h3>
+        <p>
+          We use personal information collected via our website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests:
+        </p>
+        <ul>
+          <li>To respond to user inquiries and offer support to users.</li>
+          <li>To send administrative information to you.</li>
+          <li>To request feedback and to contact you about your use of our website.</li>
+        </ul>
+
+        <h3>3. Contact Us</h3>
+        <p>
+          If you have questions or comments about this notice, you may email us at <strong>contact@rishikainfra.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

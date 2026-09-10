@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/islands/Navbar';
+---
+
+<Layout hideCTA title="Terms & Conditions | Rishika Infra">
+  <Navbar client:load />
+
+  <section class="pt-32 pb-24 bg-gray-50 min-h-screen">
+    <div class="mx-auto max-w-[800px] px-6 lg:px-8 bg-white p-10 md:p-16 rounded-3xl shadow-sm border border-gray-100">
+      <h1 class="text-4xl font-extrabold text-[#17212B] mb-4">Terms & Conditions</h1>
+      <p class="text-gray-500 mb-10">Last updated: {new Date().toLocaleDateString()}</p>
+
+      <div class="prose prose-lg text-gray-600 prose-headings:text-[#17212B] prose-a:text-[#0070BA]">
+        <p>
+          Welcome to Rishika Infra. These terms and conditions outline the rules and regulations for the use of our Website and Services.
+        </p>
+
+        <h3>1. Acceptance of Terms</h3>
+        <p>
+          By accessing this website, we assume you accept these terms and conditions. Do not continue to use Rishika Infra if you do not agree to take all of the terms and conditions stated on this page.
+        </p>
+
+        <h3>2. Service Delivery</h3>
+        <p>
+          Our drone inspection, LiDAR mapping, and AI analytics services are subject to specific Service Level Agreements (SLAs) which will be provided directly to enterprise clients upon contract execution.
+        </p>
+
+        <h3>3. Intellectual Property</h3>
+        <p>
+          Unless otherwise stated, Rishika Infra and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved. You may access this for your own personal use subjected to restrictions set in these terms and conditions.
+        </p>
+
+        <h3>4. Contact</h3>
+        <p>
+          For any legal inquiries regarding these terms, please contact us at <strong>legal@rishikainfra.com</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

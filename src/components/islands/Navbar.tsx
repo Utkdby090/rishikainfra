@@ -27,9 +27,29 @@ export default function Navbar() {
         
         {/* LOGO AREA */}
         <a href="/" className="flex items-center gap-4 group">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#FFC62F] transition-transform duration-500 group-hover:rotate-180">
-            <div className="text-[20px] leading-none text-white">≋</div>
-          </div>
+          <div className="relative flex items-center justify-center w-14 h-14">
+  <style>{`
+    @keyframes drone-float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-drone-float {
+      animation: drone-float 4s ease-in-out infinite;
+    }
+  `}</style>
+  <svg 
+    viewBox="0 0 200 250" 
+    className="w-full h-full animate-drone-float transition-all duration-500 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <line x1="20" y1="50" x2="180" y2="125" stroke="#2B79C2" strokeWidth="12" strokeDasharray="24 16" />
+    <polygon points="110,35 50,130 90,110 102,150" fill="#FFFFFF" />
+    <circle cx="98" cy="165" r="8" fill="#2B79C2" />
+    <text x="58" y="217" fontFamily="Arial, sans-serif" fontSize="60" fontWeight="900" fontStyle="italic" fill="#FFFFFF">r</text>
+    <polygon points="91,178 106,178 97,217" fill="#FFFFFF" />
+  </svg>
+</div>l̥
           <div>
             <div className="flex items-center gap-1.5">
               <span className="text-xl font-light tracking-[0.2em] text-white">RISHIKA</span>
@@ -46,7 +66,7 @@ export default function Navbar() {
           
           {/* OUR SOLUTIONS - Animated Dropdown */}
           <div className="relative group py-4">
-            <button className="text-[13px] font-bold tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors flex items-center gap-2">
+            <button className="text-[13px] font tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors flex items-center gap-2">
               Our Solutions
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="transition-transform duration-300 group-hover:rotate-180"><path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
@@ -60,7 +80,7 @@ export default function Navbar() {
                     href={item.href} 
                     className="group/item flex items-center justify-between px-6 py-3.5 text-[#17212B] hover:bg-[#E5B22A] transition-colors"
                   >
-                    <span className="font-extrabold text-[13px] tracking-wide transform transition-transform duration-300 group-hover/item:translate-x-2">
+                    <span className="font text-[13px] tracking-wide transform transition-transform duration-300 group-hover/item:translate-x-2">
                       {item.label}
                     </span>
                     <span className="opacity-0 -translate-x-4 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0 font-bold">
@@ -72,19 +92,16 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* RISHIKA AI */}
-          <a href="/#rishika-ai" className="text-[13px] font-bold tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors">
-            Rishika AI
-          </a>
+        
 
           {/* ABOUT */}
-          <a href="/about" className="text-[13px] font-bold tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors">
+          <a href="/about" className="text-[13px] font tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors">
             About
           </a>
 
           {/* CONTACT BUTTON */}
-          <a href="/contact" className="ml-4 rounded-full bg-[#FFC62F] px-8 py-3 text-[13px] font-bold tracking-widest text-[#17212B] uppercase transition-all hover:bg-[#FFD85C] hover:scale-105 hover:shadow-lg">
-            Contact
+          <a href="/contact" className="ml-4 rounded-full bg-[#FFC62F] px-8 py-3 text-[13px] font tracking-widest text-[#17212B] uppercase transition-all hover:bg-[#FFD85C] hover:scale-105 hover:shadow-lg">
+            Contact us
           </a>
         </nav>
 

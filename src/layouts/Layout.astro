@@ -146,9 +146,31 @@ const { title,description, hideCTA = false } = Astro.props;
 
           <!-- Big Centered Logo -->
           <div class="flex items-center gap-4 mb-4">
-            <div class="flex h-[80px] w-[80px] items-center justify-center rounded-full border-[3px] border-[#FFC62F]">
-              <div class="text-[36px] leading-none text-white">≋</div>
+            
+            <div class="relative flex items-center justify-center w-20 h-20">
+              <style>
+                @keyframes drone-float {
+                  0% { transform: translateY(0px); }
+                  50% { transform: translateY(-4px); }
+                  100% { transform: translateY(0px); }
+                }
+                .animate-drone-float {
+                  animation: drone-float 4s ease-in-out infinite;
+                }
+              </style>
+              <svg 
+                viewBox="0 0 200 250" 
+                class="w-full h-full animate-drone-float transition-all duration-500 ease-out hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line x1="20" y1="50" x2="180" y2="125" stroke="#2B79C2" stroke-width="12" stroke-dasharray="24 16" />
+                <polygon points="110,35 50,130 90,110 102,150" fill="#FFFFFF" />
+                <circle cx="98" cy="165" r="8" fill="#2B79C2" />
+                <text x="58" y="217" font-family="Arial, sans-serif" font-size="60" font-weight="900" font-style="italic" fill="#FFFFFF">r</text>
+                <polygon points="91,178 106,178 97,217" fill="#FFFFFF" />
+              </svg>
             </div>
+
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-[30px] font-light tracking-[0.3em] text-white">RISHIKA</span>

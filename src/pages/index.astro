@@ -5,7 +5,6 @@ import ClientCarousel from "../components/islands/ClientCarousel";
 import Navbar from "../components/islands/Navbar";
 import SolutionsGrid from "../components/shared/SolutionsGrid.astro";
 import FleetAndEquipment from "../components/shared/FleetAndEquipment.astro";
-import RishikaAI from "../components/shared/RishikaAI.astro";
 import Differentiators from "../components/shared/Differentiators.astro";
 import NewsSlider from "../components/islands/NewsSlider";
 ---
@@ -147,7 +146,7 @@ import NewsSlider from "../components/islands/NewsSlider";
   </section>
 
   <!-- =========================================================
-       WHO WE ARE (Restored Original)
+       WHO WE ARE
        ========================================================= -->
   <section id="about" class="bg-white py-24">
     <div class="mx-auto max-w-4xl px-6 text-center">
@@ -168,7 +167,21 @@ import NewsSlider from "../components/islands/NewsSlider";
         actionable insights that reduce risk and improve performance.
       </p>
 
-   
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="#inspections"
+          class="rounded-full border-2 border-[#FFC62F] px-7 py-3 text-sm font-bold text-[#17212B] transition-colors hover:bg-[#FFC62F]"
+        >
+          Drone inspections
+        </a>
+
+        <a
+          href="#data"
+          class="rounded-full border-2 border-[#FFC62F] px-7 py-3 text-sm font-bold text-[#17212B] transition-colors hover:bg-[#FFC62F]"
+        >
+          Geospatial Mapping
+        </a>
+      </div>
     </div>
   </section>
 
@@ -177,9 +190,10 @@ import NewsSlider from "../components/islands/NewsSlider";
        ========================================================= -->
   <SolutionsGrid />
 
+  <!-- =========================================================
+       FLEET & EQUIPMENT (Includes 3 Cards: Drones, Sensors, Software)
+       ========================================================= -->
   <FleetAndEquipment />
-
-  <RishikaAI />
 
   <!-- =========================================================
        PILOTS & FLEET (Expert Eyes Style)
@@ -293,7 +307,10 @@ import NewsSlider from "../components/islands/NewsSlider";
        ========================================================= -->
   <Differentiators />
 
-  <NewsSlider />
+  <!-- =========================================================
+       NEWS SLIDER (client:visible enables the interactive JS)
+       ========================================================= -->
+  <NewsSlider client:visible />
 
   <!-- =========================================================
        LOCAL STYLES

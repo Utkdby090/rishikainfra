@@ -7,21 +7,53 @@ import Differentiators from '../components/shared/Differentiators.astro';
 <Layout title="About Us | Rishika Infra">
   <Navbar client:load />
 
-  <!-- Hero Section -->
-  <section class="relative pt-40 pb-32 bg-[#1D2630] overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2500&auto=format&fit=crop" class="absolute inset-0 h-full w-full object-cover opacity-20" alt="Drone Pilots" />
-    <div class="absolute inset-0 bg-gradient-to-t from-[#17212B] to-transparent"></div>
+ <!-- =========================================================
+       HERO SECTION
+       ========================================================= -->
+  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#17212B]">
+    {/* Background Image: Adjust the src to point to your actual dark drone image */}
+    <img 
+      src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2500&auto=format&fit=crop" 
+      class="absolute inset-0 h-full w-full object-cover opacity-30" 
+      alt="Expert Drone Pilots" 
+    />
     
-    <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Expert pilots and advanced<br/>drone technology, <span class="text-[#FFC62F]">working as one.</span></h1>
-      <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-        We provide innovative drone inspection solutions that improve operational efficiency, reduce maintenance costs, and enhance asset reliability.
-      </p>
-    </div>
-  </section>
+    {/* Dark Overlay Gradient to make text pop */}
+    <div class="absolute inset-0 bg-gradient-to-b from-[#17212B]/80 via-[#17212B]/50 to-[#17212B]"></div>
+    
+    <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full flex flex-col items-center text-center">
+      <div class="max-w-[900px] repeat-animate" data-transform="translateY(30px)">
+        
+        <h1 class="text-[42px] font-extrabold leading-[1.1] tracking-tight text-white md:text-[56px] lg:text-[64px] mb-6">
+          Expert pilots and advanced <br/>
+          drone technology, <span class="text-[#FFC62F]">working as one.</span>
+        </h1>
+        
+        <p class="text-[17px] md:text-[19px] leading-relaxed text-white/80 mx-auto max-w-[700px]">
+          We provide innovative drone inspection solutions that improve operational efficiency, reduce maintenance costs, and enhance asset reliability.
+        </p>
 
+      </div>
+    </div>
+    
+    <!-- Optional: Scroll Down Arrow Indicator -->
+    <a
+      href="#commitment"
+      class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center text-white"
+      aria-label="Scroll down"
+    >
+      <div
+        class="flex h-14 w-14 items-center justify-center rounded-full border border-[#FFC62F] bg-black/10 backdrop-blur-sm transition-colors hover:bg-[#FFC62F] hover:text-[#17212B]"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-current">
+          <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </a>
+  </section>
+  
   <!-- Mission & Fleet -->
-  <section class="bg-white py-24">
+  <section id="commitment" class="bg-white py-24 border-b border-gray-100">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
       <div>
         <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-6">Our Commitment & Quality</h2>
@@ -96,6 +128,13 @@ import Differentiators from '../components/shared/Differentiators.astro';
 
   <Differentiators />
 
+  <style>
+    /* This makes all anchor links (#) on this page glide smoothly! */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
 </Layout>
 
 <!-- Client-side script to trigger the slide-in animation on scroll -->
@@ -113,7 +152,7 @@ import Differentiators from '../components/shared/Differentiators.astro';
         }
       });
     }, {
-      threshold: 0.2 // Trigger when 20% of the card is visible
+      threshold: 0.2 // Trigger whenF 20% of the card is visible
     });
 
     const cards = document.querySelectorAll('.process-card');

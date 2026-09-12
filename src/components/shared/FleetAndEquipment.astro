@@ -6,7 +6,7 @@
   <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
     
     <!-- Header -->
-    <div class="scroll-animate mb-16 text-center md:text-left opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+    <div class="repeat-animate mb-16 text-center md:text-left transition-all duration-1000 ease-out" data-transform="translateY(30px)">
       <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#FFC62F] mb-2">
         HARDWARE & SOFTWARE CAPABILITIES
       </p>
@@ -22,19 +22,20 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
       
       <!-- Card 1: Drone Platforms -->
-      <div class="scroll-animate opacity-0 translate-x-[-20px] transition-all duration-1000 ease-out" style="transition-delay: 150ms;">
-        {/* Uniform Image Sizing Container */}
-        <div class="relative h-[300px] xl:h-[350px] w-full rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group">
+      <div class="repeat-animate transition-all duration-1000 ease-out delay-100" data-transform="translateY(40px)">
+        {/* Uniform Image Sizing using aspect-[4/3] */}
+        <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group bg-gray-800">
           <img 
-            src="images/technologyFleet/drone.jpg" 
+            src="/images/technologyFleet/drone.jpg" 
             alt="Enterprise Industrial Drone" 
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-[#101820] to-transparent opacity-80"></div>
           <div class="absolute bottom-0 left-0 p-6 xl:p-8">
             <div class="flex items-center gap-3 mb-2">
-              <div class="w-10 h-10 rounded-full bg-[#FFC62F] flex items-center justify-center text-[#17212B] font-bold shadow-lg">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <div class="w-10 h-10 rounded-full bg-[#FFC62F] flex items-center justify-center shadow-lg p-2">
+                <!-- Using your custom PNG logo -->
+                <img src="/images/fleetandequipment/powerLineDRoneInspection.png" alt="Drone Icon" class="w-full h-full object-contain" />
               </div>
               <h3 class="text-xl xl:text-2xl font-bold text-white">Drone Platforms</h3>
             </div>
@@ -67,9 +68,9 @@
       </div>
 
       <!-- Card 2: Advanced Sensors -->
-      <div class="scroll-animate opacity-0 translate-y-[20px] transition-all duration-1000 ease-out" style="transition-delay: 300ms;">
-        {/* Uniform Image Sizing Container */}
-        <div class="relative h-[300px] xl:h-[350px] w-full rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group">
+      <div class="repeat-animate transition-all duration-1000 ease-out delay-300" data-transform="translateY(40px)">
+        {/* Uniform Image Sizing using aspect-[4/3] */}
+        <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group bg-gray-800">
           <img 
             src="https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?q=80&w=1000&auto=format&fit=crop" 
             alt="Advanced Drone Camera Payload" 
@@ -111,10 +112,10 @@
         </ul>
       </div>
 
-      <!-- Card 3: Software & Analytics (NEW) -->
-      <div class="scroll-animate opacity-0 translate-x-[20px] transition-all duration-1000 ease-out" style="transition-delay: 450ms;">
-        {/* Uniform Image Sizing Container */}
-        <div class="relative h-[300px] xl:h-[350px] w-full rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group">
+      <!-- Card 3: Software & Analytics -->
+      <div class="repeat-animate transition-all duration-1000 ease-out delay-500" data-transform="translateY(40px)">
+        {/* Uniform Image Sizing using aspect-[4/3] */}
+        <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group bg-gray-800">
           <img 
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
             alt="Data Analytics Interface" 

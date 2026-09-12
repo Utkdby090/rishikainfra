@@ -11,6 +11,9 @@ const SOLUTIONS = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  // 1. ADDED: State to manage mobile menu visibility
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
 
   // Add a slight dark background to the navbar when scrolling down
   useEffect(() => {
@@ -21,35 +24,44 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 2. ADDED: Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#17212B]/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-[#17212B]/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'}`}>
       <div className="mx-auto max-w-[1440px] px-6 lg:px-16 flex items-center justify-between">
         
         {/* LOGO AREA */}
-        <a href="/" className="flex items-center gap-4 group">
+        <a href="/" className="flex items-center gap-4 group relative z-[60]">
           <div className="relative flex items-center justify-center w-14 h-14">
-  <style>{`
-    @keyframes drone-float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-4px); }
-      100% { transform: translateY(0px); }
-    }
-    .animate-drone-float {
-      animation: drone-float 4s ease-in-out infinite;
-    }
-  `}</style>
-  <svg 
-    viewBox="0 0 200 250" 
-    className="w-full h-full animate-drone-float transition-all duration-500 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" 
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <line x1="20" y1="50" x2="180" y2="125" stroke="#2B79C2" strokeWidth="12" strokeDasharray="24 16" />
-    <polygon points="110,35 50,130 90,110 102,150" fill="#FFFFFF" />
-    <circle cx="98" cy="165" r="8" fill="#2B79C2" />
-    <text x="58" y="217" fontFamily="Arial, sans-serif" fontSize="60" fontWeight="900" fontStyle="italic" fill="#FFFFFF">r</text>
-    <polygon points="91,178 106,178 97,217" fill="#FFFFFF" />
-  </svg>
-</div>l̥
+            <style>{`
+              @keyframes drone-float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-4px); }
+                100% { transform: translateY(0px); }
+              }
+              .animate-drone-float {
+                animation: drone-float 4s ease-in-out infinite;
+              }
+            `}</style>
+            <svg 
+              viewBox="0 0 200 250" 
+              className="w-full h-full animate-drone-float transition-all duration-500 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line x1="20" y1="50" x2="180" y2="125" stroke="#2B79C2" strokeWidth="12" strokeDasharray="24 16" />
+              <polygon points="110,35 50,130 90,110 102,150" fill="#FFFFFF" />
+              <circle cx="98" cy="165" r="8" fill="#2B79C2" />
+              <text x="58" y="217" fontFamily="Arial, sans-serif" fontSize="60" fontWeight="900" fontStyle="italic" fill="#FFFFFF">r</text>
+              <polygon points="91,178 106,178 97,217" fill="#FFFFFF" />
+            </svg>
+          </div>
           <div>
             <div className="flex items-center gap-1.5">
               <span className="text-xl font-light tracking-[0.2em] text-white">RISHIKA</span>
@@ -92,8 +104,6 @@ export default function Navbar() {
             </div>
           </div>
 
-        
-
           {/* ABOUT */}
           <a href="/about" className="text-[13px] font tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors">
             About
@@ -105,11 +115,75 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* MOBILE MENU BUTTON (Hamburger) */}
-        <button className="lg:hidden text-white hover:text-[#FFC62F]">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        {/* 3. MODIFIED: Mobile Menu Button to trigger state and swap icons */}
+        <button 
+          className="lg:hidden relative z-[60] text-white hover:text-[#FFC62F] transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isMobileMenuOpen ? (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          ) : (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          )}
         </button>
 
+      </div>
+
+      {/* 4. ADDED: Mobile Menu Overlay JSX */}
+      <div 
+        className={`fixed inset-0 bg-[#17212B] z-50 lg:hidden flex flex-col pt-28 px-6 pb-6 overflow-y-auto transition-transform duration-500 ease-in-out ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col gap-2 border-t border-white/10 pt-6">
+          {/* Mobile Solutions Accordion */}
+          <div className="flex flex-col border-b border-white/10 py-4">
+            <button 
+              onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)}
+              className="flex items-center justify-between text-[15px] font tracking-widest uppercase text-white w-full text-left"
+            >
+              Our Solutions
+              <svg 
+                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                className={`transition-transform duration-300 ${isMobileSolutionsOpen ? 'rotate-180 text-[#FFC62F]' : ''}`}
+              >
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            
+            <div className={`flex flex-col gap-4 overflow-hidden transition-all duration-300 ${isMobileSolutionsOpen ? 'max-h-96 mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
+              {SOLUTIONS.map((item, idx) => (
+                <a 
+                  key={idx} 
+                  href={item.href} 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-[13px] text-gray-300 hover:text-[#FFC62F] pl-4 border-l-2 border-transparent hover:border-[#FFC62F] transition-all tracking-wide"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <a 
+            href="/about" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-[15px] font tracking-widest uppercase text-white border-b border-white/10 py-4 hover:text-[#FFC62F] transition-colors"
+          >
+            About
+          </a>
+        </div>
+
+        <div className="mt-8">
+          <a 
+            href="/contact" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex items-center justify-center w-full rounded-full bg-[#FFC62F] py-4 text-[13px] font tracking-widest text-[#17212B] uppercase hover:bg-[#FFD85C] transition-colors"
+          >
+            Contact us
+          </a>
+        </div>
       </div>
     </header>
   );

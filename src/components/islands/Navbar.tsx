@@ -71,7 +71,7 @@ export default function Navbar() {
                 <span className="text-xl font-extrabold tracking-[0.1em] text-white">INFRA</span>
               </div>
               <p className="text-[8px] font-bold tracking-[0.2em] uppercase text-gray-400 mt-0.5">
-                Your Assets. Better Decisions.
+                Delivering Safer, Smarter, and More Efficient Inspections.
               </p>
             </div>
           </a>

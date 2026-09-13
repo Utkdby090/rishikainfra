@@ -22,7 +22,7 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
       playsinline 
       webkit-playsinline
       aria-hidden="true"
-      poster="/images/powerline-hero-poster.jpg"
+     
     >
       <source src="/videos/powerlineinspection/powerinspection.mp4" type="video/mp4" />
     </video>
@@ -49,52 +49,130 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
   <!-- =========================================================
        SEE YOUR ASSETS (Custom Slanted Image Mask)
        ========================================================= -->
-  <section class="bg-white py-32 overflow-hidden">
-    <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+  <section class="bg-white py-32 overflow-hidden relative">
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-      <!-- TEXT CONTENT (Left) -->
-      <div class="repeat-animate" data-transform="translateX(-40px)">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight">
-          See your assets <br/>
-          <span class="text-[#FFC62F]">like never before</span>
-        </h2>
-        <p class="text-[17px] text-gray-600 leading-relaxed mb-6">
-          Aerial inspections deliver greater coverage and higher quality imagery, with fewer boots on the ground than traditional methods. This provides deeper insights into asset health, allowing for more accurate, data-driven decision-making, in a fraction of the time.
-        </p>
-        <p class="text-[17px] text-gray-600 leading-relaxed mb-10">
-          By using drones instead of people to inspect hazardous or inaccessible areas, we can reduce the need for scaffolding or rope-access, keeping team members safely out of harm's way. This all adds up to faster, safer and more informative inspections, resulting in fewer truck rolls, reduced asset down time, better repair prioritization, ultimately keeping costs down.
-        </p>
-        <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
-          Get in touch
-        </a>
-      </div>
-
-      <!-- CUSTOM GEOMETRIC IMAGE GRAPHIC (Right) -->
-      <div class="relative h-[500px] w-full flex justify-center items-center repeat-animate" data-transform="translateX(40px)">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border-2 border-dashed border-gray-400 z-0"></div>
-        <div class="absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-dashed border-[#FFC62F] z-0 opacity-50"></div>
-        <div class="absolute top-10 left-10 w-16 h-24 bg-[#FFC62F] -skew-x-[20deg] z-10"></div>
-        <div class="absolute bottom-10 right-20 w-12 h-16 bg-[#FFC62F] -skew-x-[20deg] z-10"></div>
-        <div class="absolute top-1/2 right-0 w-10 h-16 bg-[#17212B] -skew-x-[20deg] z-10"></div>
-
-        <div class="relative w-[350px] h-[450px] -skew-x-[20deg] overflow-hidden shadow-2xl z-20 border-8 border-white bg-gray-100">
-          <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
-            <img 
-              src="https://images.unsplash.com/photo-1548345680-f5475ea90f14?q=80&w=800&auto=format&fit=crop" 
-              alt="Drone Inspection" 
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <!-- Play Button intersecting the image -->
-        <button aria-label="Play promotional video" class="absolute top-1/2 left-1/2 -translate-x-[70%] -translate-y-1/2 w-20 h-20 bg-white rounded-full shadow-xl z-30 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
-          <div class="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-[#FFC62F] border-b-[10px] border-b-transparent ml-2"></div>
-        </button>
-      </div>
+    <!-- TEXT CONTENT (Left) -->
+    <div class="repeat-animate" data-transform="translateX(-40px)">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight">
+        See your assets <br/>
+        <span class="text-[#FFC62F]">like never before</span>
+      </h2>
+      <p class="text-[17px] text-gray-600 leading-relaxed mb-6">
+        Aerial inspections deliver greater coverage and higher quality imagery, with fewer boots on the ground than traditional methods. This provides deeper insights into asset health, allowing for more accurate, data-driven decision-making, in a fraction of the time.
+      </p>
+      <p class="text-[17px] text-gray-600 leading-relaxed mb-10">
+        By using drones instead of people to inspect hazardous or inaccessible areas, we can reduce the need for scaffolding or rope-access, keeping team members safely out of harm's way. This all adds up to faster, safer and more informative inspections, resulting in fewer truck rolls, reduced asset down time, better repair prioritization, ultimately keeping costs down.
+      </p>
+      <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+        Get in touch
+      </a>
     </div>
-  </section>
+
+    <!-- CUSTOM GEOMETRIC IMAGE GRAPHIC (Right) -->
+    <div class="relative h-[500px] w-full flex justify-center items-center repeat-animate" data-transform="translateX(40px)">
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border-2 border-dashed border-gray-400 z-0"></div>
+      <div class="absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-dashed border-[#FFC62F] z-0 opacity-50"></div>
+      <div class="absolute top-10 left-10 w-16 h-24 bg-[#FFC62F] -skew-x-[20deg] z-10"></div>
+      <div class="absolute bottom-10 right-20 w-12 h-16 bg-[#FFC62F] -skew-x-[20deg] z-10"></div>
+      <div class="absolute top-1/2 right-0 w-10 h-16 bg-[#17212B] -skew-x-[20deg] z-10"></div>
+
+      <div class="relative w-[350px] h-[450px] -skew-x-[20deg] overflow-hidden shadow-2xl z-20 border-8 border-white bg-gray-100">
+        <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
+          <img 
+            src="/images/our solutions/powerGridInspection/sectionimages/towerDrone.jpeg" 
+            alt="Drone Inspection" 
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- ADDED: id="play-video-btn" so Javascript can find it -->
+      <button 
+        id="play-video-btn" 
+        aria-label="Play promotional video" 
+        class="absolute top-1/2 left-1/2 -translate-x-[70%] -translate-y-1/2 w-20 h-20 bg-white rounded-full shadow-xl z-30 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
+      >
+        <div class="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-[#FFC62F] border-b-[10px] border-b-transparent ml-2 group-hover:border-l-[#17212B] transition-colors"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       THE VIDEO MODAL (Hidden by default)
+       ========================================================= -->
+  <dialog 
+    id="video-modal" 
+    class="backdrop:bg-[#17212B]/90 backdrop:backdrop-blur-sm bg-transparent p-0 max-w-5xl w-full mx-auto rounded-2xl shadow-2xl overflow-hidden m-auto"
+  >
+    <div class="relative w-full aspect-video bg-black">
+      <!-- Close Button -->
+      <button 
+        id="close-video-btn" 
+        class="absolute -top-12 right-0 z-50 text-white hover:text-[#FFC62F] transition-colors p-2"
+        aria-label="Close video"
+      >
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      
+      <!-- The Actual Video Element -->
+      <!-- Change the 'src' here to point to your actual video file -->
+      <video id="promo-video" class="w-full h-full" controls playsinline>
+        <source src="/images/our solutions/powerGridInspection/video/electicalgrid.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </dialog>
+</section>
+
+<!-- =========================================================
+     JAVASCRIPT TO MAKE THE MODAL WORK
+     ========================================================= -->
+<script>
+  function setupVideoModal() {
+    const playBtn = document.getElementById('play-video-btn');
+    const closeBtn = document.getElementById('close-video-btn');
+    const modal = document.getElementById('video-modal') as HTMLDialogElement;
+    const video = document.getElementById('promo-video') as HTMLVideoElement;
+
+    // Safety check in case the elements aren't found
+    if (!playBtn || !modal || !video) return;
+
+    // 1. Open the modal and play the video when the button is clicked
+    playBtn.addEventListener('click', () => {
+      modal.showModal();
+      video.play();
+    });
+
+    // 2. Pause the video and close the modal when the "X" is clicked
+    closeBtn?.addEventListener('click', () => {
+      video.pause();
+      modal.close();
+    });
+
+    // 3. Pause the video and close the modal if the user clicks outside the video (on the dark background)
+    modal.addEventListener('click', (e) => {
+      const dialogDimensions = modal.getBoundingClientRect();
+      if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+      ) {
+        video.pause();
+        modal.close();
+      }
+    });
+  }
+
+  // Run the setup script. (Using astro:page-load ensures it works if you use Astro View Transitions)
+  document.addEventListener('DOMContentLoaded', setupVideoModal);
+  document.addEventListener('astro:page-load', setupVideoModal);
+</script>
 
   <!-- =========================================================
        INTERACTIVE INSPECTION VIEWER
@@ -144,7 +222,7 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
             <img 
-              src="/images/our solutions/powerGridInspection/sectionimages/electricalgrid upclose.jpg" 
+              src="/images/our solutions/powerGridInspection/sectionimages/dronegrid.jpeg" 
               alt="High Voltage Electrical Grid" 
               class="w-full h-full object-cover"
               loading="lazy"

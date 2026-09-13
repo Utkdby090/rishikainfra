@@ -9,6 +9,9 @@ interface FormState {
   message: string;
   botcheck: string;
 }
+interface ContactFormProps {
+  formType?: string; 
+}
 
 const SERVICES_LIST = [
   "Power Grid & Transmission Inspection",
@@ -20,7 +23,7 @@ const SERVICES_LIST = [
   "Other / General Inquiry"
 ];
 
-export default function ContactForm() {
+export default function ContactForm({ formType = "contact" }: ContactFormProps) {
   const [formData, setFormData] = useState<FormState>({
     firstName: '',
     lastName: '',

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const SOLUTIONS = [
   { label: 'Powerline Inspection', href: '/services/powerline-inspection' },
-  { label: 'Solar Thermal Inspection', href: '/services/solar-inspection' },
-  { label: 'Geospatial Mapping', href: '/services/geospatial-mapping' },
-  { label: 'LiDAR Engineering', href: '#' },
-  { label: '3D Modeling (BIM)', href: '#' },
-  { label: 'Traffic Management (AI)', href: '#' },
+  { label: 'Renewables', href: '/services/solar-inspection' },
+  { label: 'Geospatial Mapping and LIDAR', href: '/services/geospatial-mapping' },
+  { label: 'Infrastructure and Roads', href: '/services/infrastructure-roads' },
+  { label: 'Telecom Tower Inspection', href: '/services/telecom-inspection' },
+  { label: 'Traffic Management With AI', href: '/services/traffic-ai' },
 ];
 
 export default function Navbar() {

@@ -14,8 +14,7 @@ const TAB_DATA = [
     ),
     image: '/images/our solutions/powerGridInspection/rotationimages/dronepowergridinspection.jpg',
     heading: 'External aerial inspections',
-    description: 'We utilize high-resolution RGB cameras with optical zoom to capture incredibly detailed visual data from safe standoff distances. This approach allows us to inspect conductors, jumper connections, and tower hardware fittings without requiring personnel to climb structures or work near energized equipment.',
-    citation: '[cite: 1, 2]'
+    description: 'We utilize high-resolution RGB cameras with optical zoom to capture incredibly detailed visual data from safe standoff distances. This approach allows us to inspect conductors, jumper connections, and tower hardware fittings without requiring personnel to climb structures or work near energized equipment.'
   },
   {
     id: 'thermal',
@@ -29,8 +28,7 @@ const TAB_DATA = [
     ),
     image: '/images/our solutions/powerGridInspection/rotationimages/ThermalInspectionDrone.png',
     heading: 'Thermography & Hotspot Detection',
-    description: 'Thermal imaging enables us to detect hidden faults that are not visible to the naked eye. By deploying radiometric thermal sensors, our drones can identify thermal anomalies in dead-end joints, mid-span compression joints, and transformer equipment, allowing for rapid preventive maintenance before critical failures occur.',
-    citation: '[cite: 1, 2]'
+    description: 'Thermal imaging enables us to detect hidden faults that are not visible to the naked eye. By deploying radiometric thermal sensors, our drones can identify thermal anomalies in dead-end joints, mid-span compression joints, and transformer equipment, allowing for rapid preventive maintenance before critical failures occur.'
   },
   {
     id: 'substation',
@@ -44,8 +42,7 @@ const TAB_DATA = [
     ),
     image: '/images/our solutions/powerGridInspection/rotationimages/substationInspectionDrone.jpg',
     heading: 'Substation condition monitoring',
-    description: 'Comprehensive structural inspections and equipment condition monitoring inside high-voltage substations. Our Type-Certified SURVEYXK platforms can safely navigate complex environments to deliver precise defect identification and actionable insights without requiring operational downtime.',
-    citation: '[cite: 1]'
+    description: 'Comprehensive structural inspections and equipment condition monitoring inside high-voltage substations. Our Type-Certified SURVEYXK platforms can safely navigate complex environments to deliver precise defect identification and actionable insights without requiring operational downtime.'
   }
 ];
 
@@ -136,7 +133,6 @@ export default function InteractiveInspectionTabs() {
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   {activeData.description}
-                  <span className="text-xs text-gray-400 ml-1">{activeData.citation}</span>
                 </p>
               </motion.div>
             </AnimatePresence>

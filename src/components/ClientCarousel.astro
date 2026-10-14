@@ -1,4 +1,5 @@
 ---
+import Img from './shared/Img.astro';
 const CLIENTS = [
   { name: 'PowerGrid', src: '/images/clients/powergrid.png' },
   { name: 'SpaGe', src: '/images/clients/spage.png' },
@@ -37,7 +38,7 @@ const VISIBLE = 5;
   <div data-track class="flex-1 flex items-center justify-center gap-12 md:gap-20 overflow-hidden px-16">
     {CLIENTS.map((client, i) => (
       <div class:list={['h-16 w-32 shrink-0 items-center justify-center', i < VISIBLE ? 'flex' : 'hidden']}>
-        <img
+        <Img sizes="128px"
           src={client.src}
           alt={client.name}
           class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"

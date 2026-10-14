@@ -1,4 +1,5 @@
 ---
+import Img from './shared/Img.astro';
 const ICON_DIR = '/images/our solutions/powerGridInspection/icons&images';
 
 const TAB_DATA = [
@@ -55,7 +56,7 @@ const first = TAB_DATA[0].id;
           >
             <!-- Node Icon -->
             <div class="w-16 h-16 rounded-full flex items-center justify-center text-2xl transition-all duration-300 mb-4 shadow-sm border-4 bg-white border-transparent text-gray-400 group-aria-[selected=false]:group-hover:border-gray-300 group-aria-selected:border-[#FFC62F] group-aria-selected:scale-110">
-              <img
+              <Img sizes="44px"
                 loading="lazy"
                 decoding="async"
                 src={tab.icon}
@@ -87,7 +88,7 @@ const first = TAB_DATA[0].id;
         <!-- Image inside Circular Mask (Left) -->
         <div class="relative w-full aspect-square max-w-[500px] mx-auto lg:ml-0 flex justify-center lg:justify-end">
           <div data-animate="animate-panel-turn" class="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-8 border-white">
-            <img
+            <Img sizes="(min-width: 1024px) 500px, 100vw"
               loading="lazy"
               decoding="async"
               src={tab.image}

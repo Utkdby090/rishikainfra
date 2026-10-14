@@ -11,11 +11,8 @@ const dist = process.argv[2] ?? 'dist';
 const base = process.env.BASE_URL ?? 'http://localhost:4321';
 // Impacts that fail the check; "moderate" and "minor" are reported only
 const BLOCKING = new Set(['serious', 'critical']);
-// Rules reported as warnings while known issues are worked through.
-// colour contrast: some brand text colours (grey labels, yellow on white) are
-// below WCAG AA and changing them is a design decision. Remove the rule from
-// this list once they are fixed so regressions fail CI.
-const WARN_ONLY = new Set(['color-contrast']);
+// Rules reported as warnings instead of failing (none at the moment)
+const WARN_ONLY = new Set([]);
 
 function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) =>

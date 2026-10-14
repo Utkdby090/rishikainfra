@@ -348,7 +348,7 @@ export default function ContactForm({ formType = "contact" }: ContactFormProps) 
                     : 'border-gray-200 bg-gray-50 hover:bg-white hover:border-gray-300'
                 }`}
               >
-                <span className={formData.service ? 'text-brand-ink font-medium' : 'text-gray-400'}>
+                <span className={formData.service ? 'text-brand-ink font-medium' : 'text-gray-500'}>
                   {formData.service || 'Select a primary service...'}
                 </span>
                 <svg 
@@ -443,7 +443,7 @@ export default function ContactForm({ formType = "contact" }: ContactFormProps) 
             </div>
           </form>
 
-          <p className="text-xs text-gray-400 text-center mt-8">
+          <p className="text-xs text-gray-500 text-center mt-8">
             By submitting this form, you agree to our privacy policy. Your information is kept strictly confidential.
           </p>
         </>

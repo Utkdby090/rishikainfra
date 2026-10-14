@@ -63,7 +63,10 @@ scripts/                Link and accessibility checkers used in CI
 - **JavaScript:** prefer plain Astro components with a small `<script>`. Use a
   React island only when a component needs real client-side state.
 - **Colours and fonts:** use the theme tokens defined in `src/styles/global.css`
-  (for example `bg-brand-yellow`, `text-brand-ink`) rather than hex values.
+  (for example `bg-brand-yellow`, `text-brand-ink`) rather than hex values. For
+  yellow-family text on a white background use `text-brand-amber`; plain
+  `brand-yellow` text is only readable on dark backgrounds. CI fails on contrast
+  below WCAG AA.
 - **SEO:** every page passes `title` and `description` to `Layout`. Service and
   news pages also pass `breadcrumbs` and `schema` for structured data.
 - **Security headers** live in `public/_headers`; the Content Security Policy is

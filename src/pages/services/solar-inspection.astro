@@ -1,0 +1,203 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/islands/Navbar';
+import Differentiators from '../../components/shared/Differentiators.astro';
+import AnimatedShowcase from '../../components/islands/AnimatedShowcase';
+
+// DATA ARRAY FOR THE INTERACTIVE SHOWCASE (Includes the new 3rd card)
+const renewablesData = [
+  {
+    id: 'solar',
+    tabLabel: 'Solar',
+    tagline: 'Utility-scale solar farms demand fast, full-coverage diagnostics.',
+    heading: 'Full array inspections to spot panel defects',
+    description: 'Manual ground checks miss defects and delay fault finding, while thermal anomalies silently erode yield. Rishika Infra\'s drone-mounted thermal and visual inspections provide rapid, full-array detection of hotspots, string failures, and panel degradation. Findings are centralized in digital twins where operators can track plant health and optimize maintenance planning.',
+    image: '/images/our solutions/solarinspection/solarpanel.jpg'
+  },
+  {
+    id: 'wind',
+    tabLabel: 'Wind',
+    tagline: 'Giving blades the attention they deserve.',
+    heading: 'Capturing ultra-high-res visual and thermal data',
+    description: 'Blades are where revenue is won or lost. Even sub-millimeter erosion can drain Annual Energy Production, while undetected cracks risk catastrophic failure. Our drone deployments replace traditional rope-access methods, capturing ultra-high-resolution visual and thermal data safely from the air to detect cracks, lightning strikes, and leading-edge erosion at scale.',
+    image: '/images/our solutions/solarinspection/windmills.jpg'
+  },
+  {
+    id: 'environmental',
+    tabLabel: 'Land Use', 
+    tagline: 'Environmental & Land Use Checks',
+    heading: 'Environmental & Land Use Checks',
+    description: 'Monitor tree cutting, land acquisition boundaries, and unauthorized encroachments. Track environmental compliance during highway and large-scale renewable projects with precise aerial mapping.',
+    image: '/images/our solutions/solarinspection/environmentaluse.jpg'
+  }
+];
+---
+
+<Layout title="Solar Power Plant Thermal Inspection | Rishika Infra">
+  <Navbar client:load />
+
+  <!-- =========================================================
+       HERO SECTION (Now Full-Screen Video)
+       ========================================================= -->
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#1D2630]">
+    {/* Video Background */}
+    <video 
+      class="absolute inset-0 h-full w-full object-cover  pointer-events-none" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      webkit-playsinline
+      aria-hidden="true"
+     
+    >
+      {/* You can replace this src with your actual solar drone video file */}
+      <source src="/videos/renewables/solarinspection.mp4" type="video/mp4" />
+    </video>
+    
+    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/90 to-transparent"></div>
+    
+    <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
+      <div class="max-w-[760px] repeat-animate" data-transform="translateY(30px)">
+        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-[#FFC62F] mb-6">
+          Renewable Energy Diagnostics
+        </p>
+        <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px] mb-6">
+          Solar Power Plant <br/>
+          <span class="text-[#FFC62F]">Thermal Inspection</span>
+        </h1>
+        <p class="text-[17px] leading-relaxed text-white/90 mb-8 max-w-[650px]">
+          Drone-based thermal inspection provides a safe, fast, and accurate solution for monitoring solar power plants, ensuring maximum energy output, operational safety, and long-term asset reliability.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VALUE PROP (Staggered Animation Logic Applied)
+       ========================================================= -->
+  <section class="bg-white py-32 overflow-hidden border-b border-gray-100">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      
+      {/* TEXT CONTENT (Left - Staggered Waterfall Animation) */}
+      <div class="flex flex-col items-start justify-center">
+        <h2 
+          class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight repeat-animate transition-all duration-700 delay-100" 
+          data-transform="translateX(-40px)"
+        >
+          Safe, fast, and <br/>
+          <span class="text-[#0070BA]">accurate monitoring</span>
+        </h2>
+        
+        <p 
+          class="text-[17px] text-gray-600 leading-relaxed mb-6 repeat-animate transition-all duration-700 delay-200" 
+          data-transform="translateX(-40px)"
+        >
+          Manual thermal auditing with handheld scanners is incredibly slow, inherently dangerous, and prone to human error. Large utility-scale solar farms demand a more efficient approach.
+        </p>
+        
+        <p 
+          class="text-[17px] text-gray-600 leading-relaxed mb-10 repeat-animate transition-all duration-700 delay-300" 
+          data-transform="translateX(-40px)"
+        >
+          Our automated drone flights capture complete radiometric thermal data across thousands of panels in a fraction of the time. This guarantees maximum energy output and operational safety by pinpointing exactly which cells, strings, or inverters require immediate attention.
+        </p>
+        
+        <ul class="space-y-4 font-bold text-[#17212B]">
+          <li 
+            class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-400" 
+            data-transform="translateX(-40px)"
+          >
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            Ensure long-term asset reliability
+          </li>
+          <li 
+            class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-500" 
+            data-transform="translateX(-40px)"
+          >
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            Maintain maximum energy output
+          </li>
+        </ul>
+      </div>
+
+      {/* CUSTOM GEOMETRIC IMAGE GRAPHIC (Right - Staggered Animations) */}
+      <div class="relative h-[550px] w-full flex justify-center items-center">
+        
+        {/* Dashed Background Circle */}
+        <div 
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border-2 border-dashed border-gray-400 z-0 repeat-animate transition-all duration-1000 delay-100" 
+          data-transform="translateY(40px)"
+        ></div>
+
+        {/* Floating Accents */}
+        <div 
+          class="absolute top-4 left-[20%] w-12 h-20 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-500" 
+          data-transform="translateY(-30px)"
+        ></div>
+        
+        <div 
+          class="absolute top-1/2 right-[5%] w-10 h-16 bg-[#17212B] -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-600" 
+          data-transform="translateX(30px)"
+        ></div>
+        
+        <div 
+          class="absolute bottom-4 right-[30%] w-8 h-12 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-700" 
+          data-transform="translateY(30px)"
+        ></div>
+
+        {/* Image 2 (Back Right - Thermal Camera Abstract) */}
+        <div 
+          class="absolute right-[10%] top-16 w-[280px] h-[350px] -skew-x-[20deg] overflow-hidden shadow-xl z-10 border-4 border-white bg-gray-900 group repeat-animate transition-all duration-1000 delay-200" 
+          data-transform="translateX(50px)"
+        >
+          <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-110">
+            <img 
+              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop" 
+              alt="Thermal Data" 
+              class="w-full h-full object-cover opacity-90"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* Image 1 (Front Left - Solar Array) */}
+        <div 
+          class="absolute left-[10%] bottom-8 w-[250px] h-[380px] -skew-x-[20deg] overflow-hidden shadow-[20px_0_40px_-15px_rgba(0,0,0,0.4)] z-20 border-[8px] border-white bg-gray-100 group repeat-animate transition-all duration-1000 delay-300" 
+          data-transform="translateY(60px)"
+        >
+          <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+            <img 
+              src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" 
+              alt="Solar Drone Inspection" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       INTERACTIVE RENEWABLES VIEWER (AnimatedShowcase)
+       ========================================================= -->
+  <AnimatedShowcase 
+    client:visible 
+    subtitle="Monitoring Solutions" 
+    title="Powering Renewables" 
+    data={renewablesData} 
+  />
+
+  <!-- =========================================================
+       SHARED SECTIONS
+       ========================================================= -->
+  <Differentiators />
+
+</Layout>

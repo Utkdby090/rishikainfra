@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/islands/Navbar';
+---
+
+<Layout hideCTA title="Page Not Found | Rishika Infra">
+  <Navbar client:load />
+
+  <section class="min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#1D2630] relative">
+    {/* Geometric Background Accents */}
+    <div class="absolute inset-0 bg-gradient-to-t from-[#17212B] to-transparent"></div>
+    <div class="absolute top-1/4 right-[10%] w-[500px] h-[500px] rounded-full border border-gray-700/30 border-dashed z-0"></div>
+    <div class="absolute bottom-1/4 left-[10%] w-32 h-32 bg-[#FFC62F]/5 rounded-full blur-3xl z-0"></div>
+
+    <div class="relative z-10 mx-auto max-w-2xl px-6 text-center repeat-animate" data-transform="translateY(30px)">
+      
+      <p class="text-[120px] md:text-[180px] font-extrabold leading-none tracking-tighter text-white/5 select-none relative">
+        404
+        <span class="absolute inset-0 flex items-center justify-center text-2xl font-bold tracking-[0.3em] text-[#FFC62F] uppercase top-1/2 -translate-y-1/2">
+          Signal Lost
+        </span>
+      </p>
+      
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mt-8 mb-6">
+        We couldn't map this coordinate.
+      </h1>
+      <p class="text-lg text-white/70 mb-10 leading-relaxed max-w-lg mx-auto">
+        The page you are looking for has been moved, deleted, or never existed. Let's get you back on the flight path.
+      </p>
+      
+      <a 
+        href="/" 
+        class="inline-flex items-center justify-center gap-2 rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1 shadow-lg"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Return to Headquarters
+      </a>
+
+    </div>
+  </section>
+</Layout>

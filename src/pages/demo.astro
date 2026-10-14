@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/islands/Navbar';
+import ContactForm from '../components/islands/ContactForm';
+import { SITE_CONFIG } from '../data/siteConfig';
+
+---
+
+
+<!-- Added hideCTA={true} so the global footer CTA doesn't show up here -->
+<Layout title="Book a Demo | Rishika Infra" hideCTA={true}>
+  
+  <!-- Solid Dark Background behind the Navbar (Protects the white logo on light background) -->
+  <div class="absolute top-0 left-0 w-full h-[92px] bg-[#17212B] z-20 border-b border-white/10"></div>
+  
+  <Navbar client:load />
+
+  <!-- Added pt-[92px] to push the split-screen content below the header -->
+  <div class="flex flex-col lg:flex-row min-h-screen bg-[#F8F9FA] pt-[92px]">
+    
+    <!-- =========================================================
+         LEFT COLUMN: Image & Office Info
+         ========================================================= -->
+    <div class="lg:w-1/2 flex flex-col border-r border-gray-200">
+      
+      <!-- Top Half: Crisp Image Background -->
+      <div class="relative px-8 lg:px-16 py-24 flex-grow flex items-center min-h-[500px] overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop" 
+          class="absolute inset-0 h-full w-full object-cover pointer-events-none" 
+          alt="Data platform dashboard" 
+        />
+        
+        <!-- FIXED HUE: Replaced muddy overlays with a crisp, responsive gradient -->
+        <div class="absolute inset-0 bg-[#17212B]/10 pointer-events-none"></div>
+        <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#17212B]/90 via-[#17212B]/40 to-transparent lg:bg-gradient-to-r lg:from-[#17212B]/90 lg:via-[#17212B]/50 lg:to-transparent"></div>
+        
+        <div class="relative z-10 repeat-animate" data-transform="translateY(30px)">
+          <h1 class="text-4xl lg:text-[54px] font-extrabold text-white mb-6 tracking-tight leading-[1.1]">
+            Book a demo
+          </h1>
+          <p class="text-lg text-white/90 leading-relaxed max-w-lg">
+            See the power of our geospatial data platform in action. Schedule a personalized walkthrough with our technical engineers to understand how Rishika Infra can digitize and protect your specific assets.
+          </p>
+          <p class="text-[15px] font-bold text-[#FFC62F] leading-relaxed mt-8 uppercase tracking-widest">
+            Fill out the form to request your tailored demonstration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Half: Office Locations -->
+      <div class="bg-white px-8 lg:px-16 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <div class="repeat-animate" data-transform="translateY(20px)">
+          <h3 class="text-[13px] font-bold text-gray-400 uppercase mb-3 tracking-widest">Corporate HQ</h3>
+          <p class="text-[#17212B] text-[15px] font-semibold leading-relaxed">
+            C-828, Tower C Alpha Thum,<br/>
+            Sec-90, Near Biodiversity Park,<br/>
+            Noida - 201305
+          </p>
+          {/* Added Optional Chaining (?) to prevent Astro build crashes */}
+          <a href={`tel:${SITE_CONFIG.contact?.phone?.replace(/\s+/g, '')}`} class="inline-block mt-4 text-[#17212B] font-bold hover:text-[#0070BA] transition-colors">
+            {SITE_CONFIG.contact?.phone}
+          </a>
+        </div>
+        <div class="repeat-animate" data-transform="translateY(20px)" style="transition-delay: 150ms;">
+          <h3 class="text-[13px] font-bold text-gray-400 uppercase mb-3 tracking-widest">Email Us</h3>
+          <p class="text-[#17212B] text-[15px] font-semibold leading-relaxed">
+            For general inquiries, RFQs, and enterprise support:
+          </p>
+          {/* Added Optional Chaining (?) to prevent Astro build crashes */}
+          <a href={`mailto:${SITE_CONFIG.contact?.email}`} class="inline-block mt-4 text-[#0070BA] font-bold hover:underline transition-colors">
+            {SITE_CONFIG.contact?.email}
+          </a>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- =========================================================
+         RIGHT COLUMN: The React Form
+         ========================================================= -->
+    <div class="lg:w-1/2 bg-[#F8F9FA] px-6 lg:px-16 py-16 flex items-center justify-center">
+      <div class="w-full max-w-xl mx-auto repeat-animate" data-transform="translateX(40px)">
+        <ContactForm formType="demo" client:load />
+      </div>
+    </div>
+    
+  </div>
+</Layout>

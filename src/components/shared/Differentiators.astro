@@ -1,0 +1,108 @@
+---
+// Reusable Differentiators Component
+---
+
+{/* Changed background to a soft gray so the white cards pop */}
+<section class="bg-gray-50 py-24 border-t border-gray-200 overflow-hidden">
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+    
+    {/* Header sliding in from the left */}
+    <div class="mb-16 pb-4 repeat-animate transition-all duration-700 ease-out" data-transform="translateX(-40px)">
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0070BA] mb-3">
+        Why Rishika Infra?
+      </p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#17212B]">
+        Our Differentiators
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Differentiator 1: Safety (Comes from left, 0ms delay) -->
+      <div class="repeat-animate transition-all duration-700 ease-out h-full" data-transform="translateX(-50px)" style="transition-delay: 0ms;">
+        {/* The Card */}
+        <div class="group h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col relative overflow-hidden">
+          {/* Subtle top border accent on hover */}
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFC62F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#FFC62F] bg-white transition-all duration-300 group-hover:bg-[#FFC62F] shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#0070BA] transition-colors duration-300 group-hover:text-[#17212B]">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-extrabold text-[#17212B]">Safety First</h3>
+          </div>
+          <p class="text-[15px] text-gray-600 leading-relaxed">
+            Eliminates the need for personnel to climb towers, enter hazardous environments, or work near energized equipment.
+          </p>
+        </div>
+      </div>
+
+      <!-- Differentiator 2: Advanced Tech (Comes from left, 150ms delay) -->
+      <div class="repeat-animate transition-all duration-700 ease-out h-full" data-transform="translateX(-50px)" style="transition-delay: 150ms;">
+        <div class="group h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFC62F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#FFC62F] bg-white transition-all duration-300 group-hover:bg-[#FFC62F] shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600 transition-colors duration-300 group-hover:text-[#17212B]">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                <rect x="9" y="9" width="6" height="6"/>
+                <path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/>
+                <path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-extrabold text-[#17212B]">Advanced Tech</h3>
+          </div>
+          <p class="text-[15px] text-gray-600 leading-relaxed">
+            Modern UAV platforms equipped with visual, thermal sensors, and LiDAR to deliver highly reliable inspection results.
+          </p>
+        </div>
+      </div>
+
+      <!-- Differentiator 3: Cost Efficiency (Comes from left, 300ms delay) -->
+      <div class="repeat-animate transition-all duration-700 ease-out h-full" data-transform="translateX(-50px)" style="transition-delay: 300ms;">
+        <div class="group h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFC62F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#FFC62F] bg-white transition-all duration-300 group-hover:bg-[#FFC62F] shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 transition-colors duration-300 group-hover:text-[#17212B]">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-extrabold text-[#17212B]">Cost Efficiency</h3>
+          </div>
+          <p class="text-[15px] text-gray-600 leading-relaxed">
+            Reduces inspection time, manpower requirements, and operational downtime, ultimately driving down costs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Differentiator 4: Improved Accuracy (Comes from left, 450ms delay) -->
+      <div class="repeat-animate transition-all duration-700 ease-out h-full" data-transform="translateX(-50px)" style="transition-delay: 450ms;">
+        <div class="group h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFC62F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#FFC62F] bg-white transition-all duration-300 group-hover:bg-[#FFC62F] shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 transition-colors duration-300 group-hover:text-[#17212B]">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-extrabold text-[#17212B]">Improved Accuracy</h3>
+          </div>
+          <p class="text-[15px] text-gray-600 leading-relaxed">
+            High-resolution imaging and thermal sensors enable precise defect identification and highly actionable insight.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

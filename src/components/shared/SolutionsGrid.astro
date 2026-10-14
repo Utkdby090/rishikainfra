@@ -1,0 +1,130 @@
+---
+// Reusable Core Solutions Grid Component
+const solutions = [
+  { 
+    id: "01",
+    name: "Powerline Inspection", 
+    tag: "EHV, HV & Substations",
+    href: "/services/powerline-inspection",
+    img: "images/solutions/powergridinspection.jpg"
+  },
+  { 
+    id: "02",
+    name: "Geospatial Mapping & LiDAR", 
+    tag: "3D Terrain & Modeling",
+    href: "/services/geospatial-mapping",
+    img: "images/solutions/Lidar.jpg"
+  },
+  { 
+    id: "03",
+    name: "Renewables", 
+    tag: "Renewable Energy",
+    href: "/services/solar-inspection",
+    img: "images/solutions/renewables.jpg"
+  },
+  { 
+    id: "04",
+    name: "Infrastructure & Roads", 
+    tag: "Construction Monitoring",
+    href: "/services/infrastructure-roads", 
+    img: "images/solutions/construction.jpg"
+  },
+  { 
+    id: "05",
+    name: "Traffic Mgmt with AI", 
+    tag: "Smart Analytics",
+    href: "/services/traffic-ai", 
+    img: "images/solutions/traffic ai.jpg"
+  },
+  { 
+    id: "06",
+    name: "Telecom Tower Inspection", 
+    tag: "Structural Assessment",
+    href: "/services/telecom-inspection", 
+    img: "images/solutions/telecom towerjpg.jpg"
+  }
+];
+---
+
+<section id="solutions" class="bg-white py-24 overflow-hidden border-t border-gray-100">
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+    
+    <!-- Header (Fades in on scroll) -->
+    <div class="scroll-animate mb-14 text-center md:text-left opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0070BA] mb-2">
+        WHAT WE DO
+      </p>
+      <h2 class="text-4xl font-bold text-[#17212B] md:text-5xl">
+        Our Core Solutions
+      </h2>
+      <p class="mt-5 text-lg text-gray-600 max-w-2xl">
+        From flight to insight, Rishika Infra delivers precise, actionable intelligence across all your industrial assets.
+      </p>
+    </div>
+
+    <!-- 3-Column Image Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {solutions.map((solution, index) => (
+        <a 
+          href={solution.href}
+          class="scroll-animate group relative h-[380px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          style={`transition-delay: ${index * 150}ms;`}
+        >
+          <!-- Background Image (Zooms on hover) -->
+          <img 
+            src={solution.img} 
+            alt={solution.name}
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+          />
+
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent transition-opacity duration-500 group-hover:opacity-90"></div>
+
+          <!-- Content -->
+          <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end h-full">
+            <div class="transform transition-transform duration-500 group-hover:-translate-y-4">
+              <div class="mb-3 text-[11px] font-bold uppercase tracking-widest text-[#FFC62F]">
+                {solution.tag}
+              </div>
+
+              <h3 class="text-2xl font-bold text-white leading-snug">
+                {solution.name}
+              </h3>
+
+              <!-- Glassmorphism Arrow Button (Appears on Hover) -->
+              <div class="mt-6 flex items-center gap-3 opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white transition-colors group-hover:bg-[#FFC62F] group-hover:text-[#17212B]">
+                  →
+                </div>
+                <span class="text-sm font-bold text-[#FFC62F] uppercase tracking-wider">Explore</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  function initAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-8', 'translate-y-12');
+          observer.unobserve(entry.target); 
+        }
+      });
+    }, {
+      threshold: 0.1, 
+      rootMargin: "0px 0px -50px 0px" 
+    });
+
+    const elementsToAnimate = document.querySelectorAll('.scroll-animate');
+    elementsToAnimate.forEach(el => observer.observe(el));
+  }
+
+  document.addEventListener('DOMContentLoaded', initAnimations);
+  document.addEventListener('astro:page-load', initAnimations);
+</script>

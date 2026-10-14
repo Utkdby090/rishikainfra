@@ -1,0 +1,34 @@
+---
+const links = [
+  { name: 'About', href: '/about' },
+  { name: 'News', href: '/news' },
+  { name: 'Careers', href: '/careers' },
+  { name: 'Contact', href: '/contact' },
+  { name: 'Privacy & Cookies', href: '/privacy' },
+  { name: 'Terms & Conditions', href: '/terms' },
+];
+---
+
+<footer class="bg-white py-10 border-t border-gray-200">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16 flex flex-col items-center">
+    
+    <ul class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 text-[15px] font-bold text-[#17212B]">
+      {links.map((link, index) => (
+        <li class="flex items-center gap-4">
+          <a href={link.href} class="hover:text-[#0070BA] transition-colors">
+            {link.name}
+          </a>
+          {/* Add the vertical pipe separator for all items except the last one */}
+          {index < links.length - 1 && (
+            <span class="text-gray-300 font-light text-sm">|</span>
+          )}
+        </li>
+      ))}
+    </ul>
+    
+    <p class="text-sm text-gray-400 mt-6 font-medium">
+      &copy; {new Date().getFullYear()} Rishika Infra Pvt. Ltd. All rights reserved.
+    </p>
+
+  </div>
+</footer>

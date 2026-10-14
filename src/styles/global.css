@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Skew utility for the Cyberhawk-style yellow parallelograms */
+.skew-card {
+  transform: skewX(-12deg);
+}
+
+.skew-content {
+  transform: skewX(12deg);
+}

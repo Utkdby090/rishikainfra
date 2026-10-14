@@ -84,7 +84,13 @@ export default function ContactForm({ formType = "contact" }: ContactFormProps) 
       return;
     }
 
-    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'a63f4cb2-893b-4940-bf36-bbe1565f0f24';
+    // Set PUBLIC_WEB3FORMS_ACCESS_KEY in .env locally and in the Cloudflare build variables
+    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setErrorMessage('The form is temporarily unavailable. Please email us at Anurag.singh@rishikainfra.com.');
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {

@@ -1,17 +1,91 @@
 ---
+// Google Analytics loads only after the visitor accepts cookies.
+// The choice is kept in localStorage under CONSENT_KEY.
 const trackingId = import.meta.env.PUBLIC_GA_TRACKING_ID;
-// Only render the script if we have an ID and we are in production
-const isProd = import.meta.env.PROD;
+// Only render in production builds that have an ID configured
+const enabled = Boolean(trackingId) && import.meta.env.PROD;
 ---
 
-{trackingId && isProd && (
-  <>
-    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}></script>
-    <script is:inline define:vars={{ trackingId }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', trackingId);
-    </script>
-  </>
+{enabled && (
+  <div
+    id="cookie-consent"
+    data-ga-id={trackingId}
+    role="dialog"
+    aria-live="polite"
+    aria-label="Cookie consent"
+    hidden
+    class="fixed inset-x-4 bottom-4 z-[100] mx-auto max-w-3xl rounded-2xl bg-[#17212B] p-6 text-white shadow-2xl md:flex md:items-center md:gap-6"
+  >
+    <p class="text-sm leading-relaxed text-white/80 md:flex-1">
+      We use analytics cookies to understand how visitors use this site. They are only set if you accept.
+      Read our <a href="/privacy-policy" class="underline hover:text-[#FFC62F]">privacy policy</a>.
+    </p>
+    <div class="mt-4 flex shrink-0 gap-3 md:mt-0">
+      <button type="button" data-consent="denied" class="rounded-full border border-white/30 px-5 py-2.5 text-sm font-bold hover:border-white">
+        Decline
+      </button>
+      <button type="button" data-consent="granted" class="rounded-full bg-[#FFC62F] px-5 py-2.5 text-sm font-bold text-[#17212B] hover:bg-[#FFD85C]">
+        Accept
+      </button>
+    </div>
+  </div>
 )}
+
+<script>
+  const CONSENT_KEY = 'ri-analytics-consent';
+
+  function readConsent(): string | null {
+    try {
+      return localStorage.getItem(CONSENT_KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function writeConsent(value: string) {
+    try {
+      localStorage.setItem(CONSENT_KEY, value);
+    } catch {
+      // Storage blocked: the choice applies to this page view only
+    }
+  }
+
+  let gaLoaded = false;
+
+  function loadAnalytics(id: string) {
+    if (gaLoaded) return;
+    gaLoaded = true;
+    const w = window as typeof window & { dataLayer: unknown[]; gtag: (...args: unknown[]) => void };
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = function gtag() {
+      // gtag.js expects the arguments object, not an array
+      // eslint-disable-next-line prefer-rest-params
+      w.dataLayer.push(arguments);
+    };
+    w.gtag('js', new Date());
+    w.gtag('config', id, { anonymize_ip: true });
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+    document.head.appendChild(s);
+  }
+
+  const banner = document.getElementById('cookie-consent');
+  const id = banner?.dataset.gaId;
+
+  if (banner && id) {
+    const consent = readConsent();
+    if (consent === 'granted') {
+      loadAnalytics(id);
+    } else if (consent !== 'denied') {
+      banner.hidden = false;
+      banner.addEventListener('click', (e) => {
+        const choice = (e.target as HTMLElement).closest<HTMLElement>('[data-consent]')?.dataset.consent;
+        if (!choice) return;
+        writeConsent(choice);
+        banner.hidden = true;
+        if (choice === 'granted') loadAnalytics(id);
+      });
+    }
+  }
+</script>

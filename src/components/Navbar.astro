@@ -1,0 +1,243 @@
+---
+const SOLUTIONS = [
+  { label: 'Powerline Inspection', href: '/services/powerline-inspection' },
+  { label: 'Renewables', href: '/services/solar-inspection' },
+  { label: 'Geospatial Mapping and LIDAR', href: '/services/geospatial-mapping' },
+  { label: 'Infrastructure and Roads', href: '/services/infrastructure-roads' },
+  { label: 'Telecom Tower Inspection', href: '/services/telecom-inspection' },
+  { label: 'Traffic Management With AI', href: '/services/traffic-ai' },
+];
+---
+
+<!-- =========================================================
+     1. THE HEADER (Stays on top at z-50)
+     ========================================================= -->
+<header
+  data-site-header
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4"
+>
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16 flex items-center justify-between">
+
+    <!-- LOGO AREA -->
+    <a href="/" class="flex items-center gap-4 group relative z-[60]">
+      <div class="relative flex items-center justify-center w-14 h-14">
+        <svg
+          viewBox="0 0 200 250"
+          class="w-full h-full animate-drone-float transition-all duration-500 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <line x1="20" y1="50" x2="180" y2="125" stroke="#2B79C2" stroke-width="12" stroke-dasharray="24 16" />
+          <polygon points="110,35 50,130 90,110 102,150" fill="#FFFFFF" />
+          <circle cx="98" cy="165" r="8" fill="#2B79C2" />
+          <text x="58" y="217" font-family="Arial, sans-serif" font-size="60" font-weight="900" font-style="italic" fill="#FFFFFF">r</text>
+          <polygon points="91,178 106,178 97,217" fill="#FFFFFF" />
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-xl font-light tracking-[0.2em] text-white">RISHIKA</span>
+          <span class="text-xl font-extrabold tracking-[0.1em] text-white">INFRA</span>
+        </div>
+        <p class="text-[8px] font-bold tracking-[0.2em] uppercase text-gray-400 mt-0.5">
+          Delivering Safer, Smarter, and More Efficient Inspections.
+        </p>
+      </div>
+    </a>
+
+    <!-- DESKTOP NAVIGATION -->
+    <nav class="hidden lg:flex items-center gap-10" aria-label="Main">
+
+      <!-- OUR SOLUTIONS - Dropdown (opens on hover or keyboard focus) -->
+      <div class="relative group py-4">
+        <button type="button" aria-haspopup="true" class="text-[13px] font tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors flex items-center gap-2">
+          Our Solutions
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="absolute top-full left-0 w-72 bg-[#FFC62F] shadow-2xl rounded-b-lg overflow-hidden origin-top transform scale-y-0 opacity-0 invisible transition-all duration-300 ease-out group-hover:scale-y-100 group-hover:opacity-100 group-hover:visible group-focus-within:scale-y-100 group-focus-within:opacity-100 group-focus-within:visible">
+          <div class="py-2">
+            {SOLUTIONS.map((item) => (
+              <a
+                href={item.href}
+                class="group/item flex items-center justify-between px-6 py-3.5 text-[#17212B] hover:bg-[#E5B22A] focus-visible:bg-[#E5B22A] transition-colors"
+              >
+                <span class="font text-[13px] tracking-wide transform transition-transform duration-300 group-hover/item:translate-x-2">
+                  {item.label}
+                </span>
+                <span class="opacity-0 -translate-x-4 transition-all duration-300 group-hover/item:opacity-100 group-hover/item:translate-x-0 font-bold" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT -->
+      <a href="/about" class="text-[13px] font tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors">
+        About
+      </a>
+
+      <!-- CONTACT BUTTON -->
+      <a href="/contact" class="ml-4 rounded-full bg-[#FFC62F] px-8 py-3 text-[13px] font tracking-widest text-[#17212B] uppercase transition-all hover:bg-[#FFD85C] hover:scale-105 hover:shadow-lg">
+        Contact us
+      </a>
+    </nav>
+
+    <!-- MOBILE MENU BUTTON (Hamburger) -->
+    <button
+      type="button"
+      data-menu-toggle
+      class="lg:hidden relative z-[60] text-white hover:text-[#FFC62F] transition-colors p-3 -mr-3"
+      aria-label="Toggle Menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg data-icon-open width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <svg data-icon-close class="hidden" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- =========================================================
+     2. THE MOBILE OVERLAY (Slides underneath the header at z-40)
+     ========================================================= -->
+<div
+  id="mobile-menu"
+  data-mobile-menu
+  class="fixed inset-0 bg-[#17212B] z-40 lg:hidden flex flex-col pt-28 px-6 pb-6 overflow-y-auto transition-all duration-500 ease-in-out opacity-0 invisible translate-x-full"
+>
+  <div class="flex flex-col gap-2 border-t border-white/10 pt-6">
+
+    <!-- Mobile Solutions Accordion -->
+    <div class="flex flex-col border-b border-white/10 py-4">
+      <button
+        type="button"
+        data-solutions-toggle
+        aria-expanded="false"
+        aria-controls="mobile-solutions"
+        class="flex items-center justify-between text-[15px] font tracking-widest uppercase text-white w-full text-left py-2"
+      >
+        Our Solutions
+        <svg
+          data-solutions-chevron
+          width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="transition-transform duration-300"
+          aria-hidden="true"
+        >
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+
+      <div id="mobile-solutions" data-solutions-list class="flex flex-col gap-4 overflow-hidden transition-all duration-300 max-h-0 opacity-0 invisible">
+        {SOLUTIONS.map((item) => (
+          <a
+            href={item.href}
+            data-menu-link
+            class="text-[13px] text-gray-300 hover:text-[#FFC62F] pl-4 border-l-2 border-transparent hover:border-[#FFC62F] transition-all tracking-wide py-2"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <a
+      href="/about"
+      data-menu-link
+      class="text-[15px] font tracking-widest uppercase text-white border-b border-white/10 py-5 hover:text-[#FFC62F] transition-colors block"
+    >
+      About
+    </a>
+  </div>
+
+  <div class="mt-8">
+    <a
+      href="/contact"
+      data-menu-link
+      class="flex items-center justify-center w-full rounded-full bg-[#FFC62F] py-4 text-[13px] font tracking-widest text-[#17212B] uppercase hover:bg-[#FFD85C] transition-colors"
+    >
+      Contact us
+    </a>
+  </div>
+</div>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]')!;
+  const toggle = header.querySelector<HTMLButtonElement>('[data-menu-toggle]')!;
+  const menu = document.querySelector<HTMLElement>('[data-mobile-menu]')!;
+  const solutionsToggle = menu.querySelector<HTMLButtonElement>('[data-solutions-toggle]')!;
+  const solutionsList = menu.querySelector<HTMLElement>('[data-solutions-list]')!;
+  const chevron = menu.querySelector<SVGElement>('[data-solutions-chevron]')!;
+
+  const SOLID = ['bg-[#17212B]/95', 'backdrop-blur-md', 'shadow-lg', 'py-2'];
+  const CLEAR = ['bg-transparent', 'py-4'];
+
+  let scrolled = false;
+  let menuOpen = false;
+
+  const paintHeader = () => {
+    const solid = scrolled || menuOpen;
+    header.classList.remove(...(solid ? CLEAR : SOLID));
+    header.classList.add(...(solid ? SOLID : CLEAR));
+  };
+
+  // Darken the header once the page has scrolled (checked at most once per frame)
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const next = window.scrollY > 20;
+      if (next !== scrolled) {
+        scrolled = next;
+        paintHeader();
+      }
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const setMenu = (open: boolean) => {
+    menuOpen = open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.querySelector('[data-icon-open]')!.classList.toggle('hidden', open);
+    toggle.querySelector('[data-icon-close]')!.classList.toggle('hidden', !open);
+    menu.classList.toggle('opacity-100', open);
+    menu.classList.toggle('visible', open);
+    menu.classList.toggle('translate-x-0', open);
+    menu.classList.toggle('opacity-0', !open);
+    menu.classList.toggle('invisible', !open);
+    menu.classList.toggle('translate-x-full', !open);
+    // Lock page scroll behind the open menu
+    document.body.classList.toggle('overflow-hidden', open);
+    paintHeader();
+  };
+
+  const setSolutions = (open: boolean) => {
+    solutionsToggle.setAttribute('aria-expanded', String(open));
+    solutionsList.classList.toggle('max-h-96', open);
+    solutionsList.classList.toggle('mt-4', open);
+    solutionsList.classList.toggle('opacity-100', open);
+    solutionsList.classList.toggle('max-h-0', !open);
+    solutionsList.classList.toggle('opacity-0', !open);
+    solutionsList.classList.toggle('invisible', !open);
+    chevron.classList.toggle('rotate-180', open);
+    chevron.classList.toggle('text-[#FFC62F]', open);
+  };
+
+  toggle.addEventListener('click', () => setMenu(!menuOpen));
+  solutionsToggle.addEventListener('click', () => setSolutions(solutionsToggle.getAttribute('aria-expanded') !== 'true'));
+  menu.querySelectorAll('[data-menu-link]').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuOpen) {
+      setMenu(false);
+      toggle.focus();
+    }
+  });
+  // Close the overlay if the window grows past the mobile breakpoint
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => e.matches && setMenu(false));
+</script>

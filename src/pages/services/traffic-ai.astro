@@ -1,10 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
+import Navbar from '../../components/Navbar.astro';
 import Differentiators from '../../components/shared/Differentiators.astro';
-import AnimatedShowcase from '../../components/islands/AnimatedShowcase';
-
-// DATA ARRAY FOR THE INTERACTIVE SHOWCASE
+import AnimatedShowcase from '../../components/AnimatedShowcase.astro';
 const trafficAnalyticsData = [
   {
     id: 'flow',
@@ -42,7 +40,7 @@ const trafficAnalyticsData = [
 ---
 
 <Layout title="Traffic Monitoring & Safety | Rishika Infra">
-  <Navbar client:load />
+  <Navbar />
 
   <!-- =========================================================
        HERO SECTION (Now Full-Screen Video)
@@ -186,7 +184,6 @@ const trafficAnalyticsData = [
        ========================================================= -->
        
   <AnimatedShowcase 
-    client:visible 
     subtitle="AI Capabilities" 
     title="Traffic Data Extraction" 
     data={trafficAnalyticsData} 

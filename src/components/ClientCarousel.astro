@@ -1,0 +1,118 @@
+---
+const CLIENTS = [
+  { name: 'PowerGrid', src: '/images/clients/powergrid.png' },
+  { name: 'SpaGe', src: '/images/clients/spage.png' },
+  { name: 'KEC', src: '/images/clients/kec.png' },
+  { name: 'L&T Construction', src: '/images/clients/lt.png' },
+  { name: 'Kalpataru', src: '/images/clients/kalpataru.png' },
+  { name: 'Skipper Limited', src: '/images/clients/skipper.png' },
+  { name: 'Bajel', src: '/images/clients/bajel.png' },
+];
+// How many logos are visible at once; the rest wait off-stage in the rotation
+const VISIBLE = 5;
+---
+
+<div
+  class="relative flex items-center w-full h-[120px] bg-white border-b border-gray-200 overflow-hidden"
+  data-client-carousel
+  data-visible={VISIBLE}
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Our clients"
+>
+
+  <!-- Left Arrow -->
+  <button
+    type="button"
+    data-prev
+    class="absolute left-0 z-20 flex h-full items-center justify-center bg-white px-4 lg:px-8 text-gray-400 transition-colors"
+    aria-label="Previous Clients"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </button>
+
+  <!-- Sliding Logos Container -->
+  <div data-track class="flex-1 flex items-center justify-center gap-12 md:gap-20 overflow-hidden px-16">
+    {CLIENTS.map((client, i) => (
+      <div class:list={['h-16 w-32 shrink-0 items-center justify-center', i < VISIBLE ? 'flex' : 'hidden']}>
+        <img
+          src={client.src}
+          alt={client.name}
+          class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+        />
+      </div>
+    ))}
+  </div>
+
+  <!-- Right Arrow -->
+  <button
+    type="button"
+    data-next
+    class="absolute right-0 lg:right-16 z-20 flex h-full items-center justify-center bg-white px-4 lg:px-8 text-gray-400 transition-colors"
+    aria-label="Next Clients"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  </button>
+
+  <!-- Yellow Diagonal Stripes on the extreme right -->
+  <div
+    class="hidden lg:block absolute right-0 top-0 h-full w-[4.5rem] z-30"
+    style="background: repeating-linear-gradient(-55deg, #FFC62F 0px, #FFC62F 18px, #FFFFFF 18px, #FFFFFF 28px)"
+  ></div>
+</div>
+
+<script>
+  const INTERVAL = 3000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll<HTMLElement>('[data-client-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]')!;
+    const visible = Number(root.dataset.visible);
+    let timer: number | undefined;
+
+    // Show the first `visible` logos, hide the rest
+    const syncVisibility = () => {
+      [...track.children].forEach((el, i) => {
+        el.classList.toggle('flex', i < visible);
+        el.classList.toggle('hidden', i >= visible);
+      });
+    };
+
+    // Rotate one step and glide logos from their old to new positions (FLIP)
+    const rotate = (dir: 1 | -1) => {
+      const items = [...track.children] as HTMLElement[];
+      const before = new Map(items.map((el) => [el, el.getBoundingClientRect().left]));
+      if (dir === 1) track.append(track.firstElementChild!);
+      else track.prepend(track.lastElementChild!);
+      syncVisibility();
+      if (reduceMotion) return;
+      for (const el of items) {
+        const from = before.get(el)!;
+        if (el.classList.contains('hidden') || !from) continue;
+        const dx = from - el.getBoundingClientRect().left;
+        if (dx) el.animate([{ transform: `translateX(${dx}px)` }, { transform: 'none' }], { duration: 350, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' });
+      }
+    };
+
+    const stop = () => window.clearInterval(timer);
+    const start = () => {
+      stop();
+      if (!reduceMotion) timer = window.setInterval(() => rotate(1), INTERVAL);
+    };
+
+    root.querySelector('[data-prev]')!.addEventListener('click', () => { rotate(-1); start(); });
+    root.querySelector('[data-next]')!.addEventListener('click', () => { rotate(1); start(); });
+    // Pause while the visitor is looking at or tabbing through the logos
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+    // No point rotating in a background tab
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+    start();
+  });
+</script>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
+import Navbar from '../../components/Navbar.astro';
 import { NEWS, type NewsArticle } from '../../data/news';
 
 // This function tells Astro which pages to generate at build time
@@ -15,7 +15,7 @@ const { article } = Astro.props as { article: NewsArticle };
 ---
 
 <Layout title={`${article.title} | Rishika Infra News`} description={article.excerpt}>
-  <Navbar client:load />
+  <Navbar />
 
   <article class="bg-gray-50 min-h-screen pt-40 pb-24">
     <div class="mx-auto max-w-[900px] px-6">

@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE_CONFIG } from "../data/siteConfig";
-import ClientCarousel from "../components/islands/ClientCarousel";
-import Navbar from "../components/islands/Navbar";
+import ClientCarousel from "../components/ClientCarousel.astro";
+import Navbar from "../components/Navbar.astro";
 import SolutionsGrid from "../components/shared/SolutionsGrid.astro";
 import FleetAndEquipment from "../components/shared/FleetAndEquipment.astro";
 import Differentiators from "../components/shared/Differentiators.astro";
-import NewsSlider from "../components/islands/NewsSlider";
+import NewsSlider from "../components/NewsSlider.astro";
 ---
 
 <Layout title="Rishika Infra | Aerial Inspection & GIS">
@@ -55,7 +55,7 @@ import NewsSlider from "../components/islands/NewsSlider";
     <!-- =======================================================
      NAVIGATION (REACT ISLAND)
      ======================================================= -->
-    <Navbar client:load />
+    <Navbar />
 
     <!-- =======================================================
          HERO CONTENT
@@ -131,7 +131,7 @@ import NewsSlider from "../components/islands/NewsSlider";
        CLIENTS (INTERACTIVE CAROUSEL)
        ========================================================= -->
   <section class="bg-white">
-    <ClientCarousel client:load />
+    <ClientCarousel />
   </section>
 
   <!-- =========================================================
@@ -279,9 +279,9 @@ import NewsSlider from "../components/islands/NewsSlider";
   <Differentiators />
 
   <!-- =========================================================
-       NEWS SLIDER (client:visible enables the interactive JS)
+       NEWS SLIDER
        ========================================================= -->
-  <NewsSlider client:visible />
+  <NewsSlider />
 
   <!-- =========================================================
        LOCAL STYLES

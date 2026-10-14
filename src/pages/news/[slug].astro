@@ -1,27 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/islands/Navbar';
+import { NEWS, type NewsArticle } from '../../data/news';
 
 // This function tells Astro which pages to generate at build time
-export async function getStaticPaths() {
-  // In a real app, you would fetch this from a CMS
-  const articles = [
-    { slug: "nhai-corridor-mapping", title: "What's the ROI of switching to UAS-based asset inspections?", date: "FEB 2026", img: "https://images.unsplash.com/photo-1545042746-ec9e5a59b359?q=80&w=1200&auto=format&fit=crop" },
-    { slug: "thermal-drones-solar", title: "The power of Radiometric Thermal Drones in Solar Inspections", date: "MAR 2026", img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200&auto=format&fit=crop" },
-  ];
-
-  return articles.map((article) => {
-    return {
-      params: { slug: article.slug },
-      props: { article },
-    };
-  });
+export function getStaticPaths() {
+  return NEWS.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
 }
 
-const { article } = Astro.props;
+const { article } = Astro.props as { article: NewsArticle };
 ---
 
-<Layout title={`${article.title} | Rishika Infra News`}>
+<Layout title={`${article.title} | Rishika Infra News`} description={article.excerpt}>
   <Navbar client:load />
 
   <article class="bg-gray-50 min-h-screen pt-40 pb-24">
@@ -35,9 +28,11 @@ const { article } = Astro.props;
         </h1>
         
         <!-- The Yellow Date Circle from the video -->
+        {article.date && (
         <div class="shrink-0 w-32 h-32 rounded-full bg-[#FFC62F] flex items-center justify-center text-center p-4">
           <span class="font-bold text-[#17212B] text-lg uppercase leading-tight">{article.date}</span>
         </div>
+        )}
       </div>
 
       <!-- Hero Image -->
@@ -48,15 +43,8 @@ const { article } = Astro.props;
       <!-- Article Content (Prose) -->
       <div class="prose prose-lg max-w-none text-gray-600 prose-headings:font-light prose-headings:text-[#17212B]">
         <p class="text-xl font-medium text-[#17212B] mb-8">
-          Switching from traditional to drone-based inspections feels like a transition for the modern age. But beyond the tech appeal lies a more strategic question: what's the actual return on investment?
+          {article.excerpt}
         </p>
-        
-        <h2>Cutting direct costs</h2>
-        <p>
-          The most immediate ROI comes from reducing the cost of traditional inspections. Rope access teams, scaffolding, cranes, and confined space entry protocols require labor, equipment, permits, and time...
-        </p>
-
-        <!-- More content goes here -->
       </div>
 
       <!-- Bottom Navigation -->

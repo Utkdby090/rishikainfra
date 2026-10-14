@@ -1,25 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/islands/Navbar';
+import { NEWS } from '../../data/news';
 
-// Data for the Hero Featured Article
-const featuredNews = {
-  slug: "vp-north-american-operations",
-  title: "Rishika Infra appoints Anna Dillé as VP of North American Operations to expand strategic growth",
-  excerpt: "Dillé's promotion marks the latest milestone in a notable fast-track career at Rishika Infra.",
-  img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop",
-  badge: "News Insight"
-};
-
-// Data for the Grid Articles
-const allNews = [
-  { slug: "nhai-corridor-mapping", title: "Ondas Completes Previously Announced Acquisition...", img: "https://images.unsplash.com/photo-1545042746-ec9e5a59b359?q=80&w=600&auto=format&fit=crop", excerpt: "Strategic relocation provides space for expansion..." },
-  { slug: "thermal-drones-solar", title: "The power of BVLOS in aerial operations", img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600&auto=format&fit=crop", excerpt: "Over the last five years rapid improvements in drone technology..." },
-  { slug: "dgca-surveyxk-fleet", title: "Rishika Infra appoints Anna Dillé as VP of North...", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=600&auto=format&fit=crop", excerpt: "The latest milestone in a notable fast-track career..." },
-  { slug: "grid-modernization", title: "Affordability vs. Modernization: the paradox...", img: "https://images.unsplash.com/photo-1517420879524-86d64ac2f339?q=80&w=600&auto=format&fit=crop", excerpt: "The US utilities are facing a defining paradox: the urgent need to..." },
-  { slug: "data-maturity", title: "Overcoming the inertia: building data maturity...", img: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=600&auto=format&fit=crop", excerpt: "Over the last decade, data has become the lifeblood of almost every..." },
-  { slug: "drone-optimization", title: "The right drone for the job: optimizing for mission...", img: "https://images.unsplash.com/photo-1581092335878-2d9fd86aecf3?q=80&w=600&auto=format&fit=crop", excerpt: "With real-world outcomes hanging in the balance, choosing the right..." },
-];
+const [featuredNews, ...allNews] = NEWS;
 ---
 
 <Layout title="Company News | Rishika Infra" hideCTA={true}>
@@ -84,7 +68,7 @@ const allNews = [
           <img src={featuredNews.img} alt={featuredNews.title} class="w-full h-full object-cover" />
           <!-- Floating Yellow Badge -->
           <div class="absolute bottom-6 left-6 bg-[#FFC62F] text-[#17212B] text-[11px] font-bold px-4 py-2 rounded-md uppercase tracking-widest shadow-md">
-            {featuredNews.badge}
+            News Insight
           </div>
         </div>
 
@@ -141,7 +125,7 @@ const allNews = [
                 data-title={article.title.toLowerCase()}
               >
                 <div class="h-48 overflow-hidden bg-gray-200">
-                  <img src={article.img} alt={article.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                  <img src={article.img.replace('w=1200', 'w=600')} alt={article.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
                 </div>
                 <div class="p-7 flex flex-col flex-grow">
                   <h3 class="font-bold text-[19px] text-[#17212B] mb-3 leading-snug group-hover:text-[#0070BA] transition-colors">

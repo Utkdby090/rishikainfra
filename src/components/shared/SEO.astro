@@ -1,4 +1,6 @@
 ---
+import { SITE_CONFIG } from '../../data/siteConfig';
+
 interface Props {
   title: string;
   description?: string;
@@ -11,8 +13,8 @@ const {
   title,
   // Default description if one isn't provided on the individual page
   description = "Rishika Infra provides enterprise-grade drone inspections, geospatial mapping, and AI-driven analytics for infrastructure and renewable energy.",
-  // Default sharing image (Create a cool 1200x630 banner and save it in the public folder later)
-  image = "/og-banner.jpg", 
+  // Default sharing image (1537x807 brand banner)
+  image = "/images/rishikainfra.png",
   canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://rishikainfra.com'),
   type = 'website',
 } = Astro.props;
@@ -23,18 +25,15 @@ const structuredData = {
   "@type": "Organization",
   "name": "Rishika Infra",
   "url": "https://rishikainfra.com",
-  "logo": "https://rishikainfra.com/logo.png",
+  "logo": "https://rishikainfra.com/images/Companylogo/rishikaLogo.png",
   "description": description,
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+91-123-456-7890", // Update with your actual number
+    "telephone": SITE_CONFIG.contact.phone,
     "contactType": "customer service",
     "areaServed": "IN",
     "availableLanguage": ["English", "Hindi"]
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/rishikainfra" // Add your LinkedIn here
-  ]
+  }
 };
 ---
 

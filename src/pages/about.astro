@@ -1,17 +1,15 @@
 ---
 import Img from '../components/shared/Img.astro';
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
 import Differentiators from '../components/shared/Differentiators.astro';
 ---
 
-<Layout title="About Us | Rishika Infra">
-  <Navbar />
+<Layout description="About Rishika Infra: a drone inspection and geospatial company helping utilities, renewables, telecom and road owners cut maintenance costs and improve asset reliability." title="About Us | Rishika Infra">
 
  <!-- =========================================================
        HERO SECTION
        ========================================================= -->
-  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#17212B]">
+  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-ink">
     {/* Background Image: Adjust the src to point to your actual dark drone image */}
     <Img fetchpriority="high" 
       src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2500&auto=format&fit=crop" 
@@ -20,14 +18,14 @@ import Differentiators from '../components/shared/Differentiators.astro';
     />
     
     {/* Dark Overlay Gradient to make text pop */}
-    <div class="absolute inset-0 bg-gradient-to-b from-[#17212B]/80 via-[#17212B]/50 to-[#17212B]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-ink/80 via-brand-ink/50 to-brand-ink"></div>
     
     <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full flex flex-col items-center text-center">
       <div class="max-w-[900px] repeat-animate" data-transform="translateY(30px)">
         
         <h1 class="text-[42px] font-extrabold leading-[1.1] tracking-tight text-white md:text-[56px] lg:text-[64px] mb-6">
           Expert pilots and advanced <br/>
-          drone technology, <span class="text-[#FFC62F]">working as one.</span>
+          drone technology, <span class="text-brand-yellow">working as one.</span>
         </h1>
         
         <p class="text-[17px] md:text-[19px] leading-relaxed text-white/80 mx-auto max-w-[700px]">
@@ -44,7 +42,7 @@ import Differentiators from '../components/shared/Differentiators.astro';
       aria-label="Scroll down"
     >
       <div
-        class="flex h-14 w-14 items-center justify-center rounded-full border border-[#FFC62F] bg-black/10 backdrop-blur-sm transition-colors hover:bg-[#FFC62F] hover:text-[#17212B]"
+        class="flex h-14 w-14 items-center justify-center rounded-full border border-brand-yellow bg-black/10 backdrop-blur-sm transition-colors hover:bg-brand-yellow hover:text-brand-ink"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-current">
           <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -57,7 +55,7 @@ import Differentiators from '../components/shared/Differentiators.astro';
   <section id="commitment" class="bg-white py-24 border-b border-gray-100">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-6">Our Commitment & Quality</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-ink mb-6">Our Commitment & Quality</h2>
         <p class="text-gray-600 mb-6 leading-relaxed">
           Rishika Infra is a leading provider of drone-based inspection and surveying services, delivering innovative solutions for power utilities, infrastructure, telecommunications, renewable energy, and industrial sectors.
         </p>
@@ -65,16 +63,16 @@ import Differentiators from '../components/shared/Differentiators.astro';
           Safety remains our highest priority. Our team follows strict standard operating procedures, aviation regulations, and risk assessment protocols during all operations.
         </p>
         
-        <h3 class="text-xl font-bold text-[#17212B] mb-4">Our Technology Fleet</h3>
+        <h3 class="text-xl font-bold text-brand-ink mb-4">Our Technology Fleet</h3>
         <ul class="space-y-3">
           <li class="flex items-center gap-3 text-gray-700 font-medium">
-            <span class="text-[#0070BA] font-bold">✓</span> DGCA Type-Certified SURVEYXK platforms
+            <span class="text-brand-blue font-bold">✓</span> DGCA Type-Certified SURVEYXK platforms
           </li>
           <li class="flex items-center gap-3 text-gray-700 font-medium">
-            <span class="text-[#0070BA] font-bold">✓</span> PPK and RTK-enabled sub-centimeter drones
+            <span class="text-brand-blue font-bold">✓</span> PPK and RTK-enabled sub-centimeter drones
           </li>
           <li class="flex items-center gap-3 text-gray-700 font-medium">
-            <span class="text-[#0070BA] font-bold">✓</span> High-resolution RGB, Thermal, and LiDAR sensors
+            <span class="text-brand-blue font-bold">✓</span> High-resolution RGB, Thermal, and LiDAR sensors
           </li>
         </ul>
       </div>
@@ -90,7 +88,7 @@ import Differentiators from '../components/shared/Differentiators.astro';
   <section class="bg-gray-50 py-24 border-y border-gray-200 overflow-hidden">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16 text-center">
       <p class="text-sm font-bold uppercase tracking-[0.25em] text-gray-500 mb-4">HOW WE WORK</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-20">Project Execution Process</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-ink mb-20">Project Execution Process</h2>
       
       <div class="grid md:grid-cols-4 gap-8 relative">
         <!-- Connecting Line -->
@@ -116,10 +114,10 @@ import Differentiators from '../components/shared/Differentiators.astro';
             class="process-card opacity-0 -translate-x-12 transition-all duration-700 ease-out relative z-10 bg-white p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] group"
             style={`transition-delay: ${index * 150}ms;`}
           >
-            <div class="w-20 h-20 mx-auto bg-white border-4 border-gray-50 text-[#17212B] rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-[0_4px_20px_rgba(255,198,47,0.4)] transition-colors duration-300 group-hover:bg-[#FFC62F] group-hover:border-white">
+            <div class="w-20 h-20 mx-auto bg-white border-4 border-gray-50 text-brand-ink rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-[0_4px_20px_rgba(255,198,47,0.4)] transition-colors duration-300 group-hover:bg-brand-yellow group-hover:border-white">
               {item.step}
             </div>
-            <h3 class="text-xl font-bold text-[#17212B] mb-4">{item.title}</h3>
+            <h3 class="text-xl font-bold text-brand-ink mb-4">{item.title}</h3>
             <p class="text-[15px] leading-relaxed text-gray-600">{item.desc}</p>
           </div>
         ))}

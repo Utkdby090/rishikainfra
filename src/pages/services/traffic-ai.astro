@@ -1,7 +1,6 @@
 ---
 import Img from '../../components/shared/Img.astro';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
 import Differentiators from '../../components/shared/Differentiators.astro';
 import AnimatedShowcase from '../../components/AnimatedShowcase.astro';
 const trafficAnalyticsData = [
@@ -40,13 +39,26 @@ const trafficAnalyticsData = [
 ];
 ---
 
-<Layout title="Traffic Monitoring & Safety | Rishika Infra">
-  <Navbar />
+<Layout
+  title="Traffic Monitoring & Safety | Rishika Infra"
+  description="AI-powered drone traffic surveys that capture peak-hour and event traffic flow so highway authorities can study congestion and plan diversions."
+  breadcrumbs={[{ name: 'Traffic Management with AI', path: '/services/traffic-ai' }]}
+  schema={[
+    {
+      '@type': 'Service',
+      name: 'Traffic Management with AI',
+      serviceType: 'Traffic Management with AI',
+      description: 'AI-powered drone traffic surveys that capture peak-hour and event traffic flow so highway authorities can study congestion and plan diversions.',
+      provider: { '@id': 'https://rishikainfra.com/#organization' },
+      areaServed: 'IN',
+    },
+  ]}
+>
 
   <!-- =========================================================
        HERO SECTION (Now Full-Screen Video)
        ========================================================= -->
-  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#1D2630]">
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-slate">
     {/* Video Background */}
     <Img fetchpriority="high"
       src="/images/cards/highway.jpg"
@@ -55,22 +67,22 @@ const trafficAnalyticsData = [
       class="absolute inset-0 h-full w-full object-cover opacity-30 pointer-events-none scale-105"
     />
 
-    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/90 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/90 to-transparent"></div>
     
     <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
       <div class="max-w-[800px] repeat-animate" data-transform="translateY(30px)">
-        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-[#FFC62F] mb-6">
+        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-brand-yellow mb-6">
           Smart Analytics
         </p>
         <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px] mb-6">
           Traffic Monitoring <br/>
-          <span class="text-[#FFC62F]">& Safety</span>
+          <span class="text-brand-yellow">& Safety</span>
         </h1>
         <p class="text-[17px] leading-relaxed text-white/90 mb-8 max-w-[650px]">
           AI-based drones can give quick results. We capture high-altitude aerial data during peak periods and major events to observe traffic flow, enabling highway authorities to study congestion patterns and plan diversions effectively.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+          <a href="/contact" class="inline-flex rounded-full bg-brand-yellow px-8 py-3.5 font-bold text-brand-ink transition-all hover:bg-brand-yellow-light hover:-translate-y-1">
             Get in touch
           </a>
         </div>
@@ -87,11 +99,11 @@ const trafficAnalyticsData = [
       {/* TEXT CONTENT (Left - Staggered Waterfall Animation) */}
       <div class="flex flex-col items-start justify-center">
         <h2 
-          class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight repeat-animate transition-all duration-700 delay-100" 
+          class="text-4xl md:text-5xl font-extrabold text-brand-ink mb-8 leading-tight repeat-animate transition-all duration-700 delay-100" 
           data-transform="translateX(-40px)"
         >
           Study patterns, <br/>
-          <span class="text-[#0070BA]">plan diversions</span>
+          <span class="text-brand-blue">plan diversions</span>
         </h2>
         
         <p 
@@ -108,19 +120,19 @@ const trafficAnalyticsData = [
           Our AI-based drones give quick, actionable results. We process the footage to help you study deep congestion patterns and plan safer, more efficient road diversions.
         </p>
         
-        <ul class="space-y-4 font-bold text-[#17212B]">
+        <ul class="space-y-4 font-bold text-brand-ink">
           <li 
             class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-400" 
             data-transform="translateX(-40px)"
           >
-            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-brand-yellow/20 text-brand-yellow">✓</span> 
             Get speed, acceleration, and gap time data
           </li>
           <li 
             class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-500" 
             data-transform="translateX(-40px)"
           >
-            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-brand-yellow/20 text-brand-yellow">✓</span> 
             Safety analysis including time to collision and PET
           </li>
         </ul>
@@ -137,12 +149,12 @@ const trafficAnalyticsData = [
 
         {/* Floating Accents */}
         <div 
-          class="absolute top-8 left-[15%] w-12 h-20 bg-[#0070BA] -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-500" 
+          class="absolute top-8 left-[15%] w-12 h-20 bg-brand-blue -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-500" 
           data-transform="translateY(-30px)"
         ></div>
         
         <div 
-          class="absolute bottom-12 right-[15%] w-16 h-12 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-600" 
+          class="absolute bottom-12 right-[15%] w-16 h-12 bg-brand-yellow -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-600" 
           data-transform="translateY(30px)"
         ></div>
 

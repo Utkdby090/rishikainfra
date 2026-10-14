@@ -35,6 +35,9 @@ export default defineConfig({
   },
   integrations: [
     react(),
-    sitemap()
+    sitemap({
+      // Keep utility pages out of search engines' crawl list
+      filter: (page) => !/\/(thank-you|404)\/?$/.test(new URL(page).pathname),
+    })
   ]
 });

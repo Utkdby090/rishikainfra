@@ -1,20 +1,31 @@
 ---
 import Img from '../../components/shared/Img.astro';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import SolutionsGrid from '../../components/shared/SolutionsGrid.astro';
 import Differentiators from '../../components/shared/Differentiators.astro';
 import NewsSlider from '../../components/NewsSlider.astro';
 import InteractiveInspectionTabs from '../../components/InteractiveInspectionTabs.astro';
 ---
 
-<Layout title="Powerline Inspection | Rishika Infra">
-  <Navbar />
+<Layout
+  title="Powerline Inspection | Rishika Infra"
+  description="Drone-based EHV, HV and MV powerline and substation inspections with visual, thermal and GIS analysis to find defects and prioritise repairs."
+  breadcrumbs={[{ name: 'Powerline Inspection', path: '/services/powerline-inspection' }]}
+  schema={[
+    {
+      '@type': 'Service',
+      name: 'Powerline Inspection',
+      serviceType: 'Powerline Inspection',
+      description: 'Drone-based EHV, HV and MV powerline and substation inspections with visual, thermal and GIS analysis to find defects and prioritise repairs.',
+      provider: { '@id': 'https://rishikainfra.com/#organization' },
+      areaServed: 'IN',
+    },
+  ]}
+>
 
   <!-- =========================================================
        HERO (Video Background)
        ========================================================= -->
-  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#17212B]">
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-ink">
     <video
       poster="/videos/powerlineinspection/powerinspection-poster.webp"
       data-autopause
@@ -30,19 +41,19 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
       <source src="/videos/powerlineinspection/powerinspection.mp4" type="video/mp4" />
     </video>
     
-    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/80 to-transparent"></div>
 
     <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
       <div class="max-w-[760px] repeat-animate" data-transform="translateY(30px)">
         <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px]">
           Powerline inspections that go<br/>
-          <span class="text-[#FFC62F]">beyond the drone</span>
+          <span class="text-brand-yellow">beyond the drone</span>
         </h1>
         <p class="mt-6 max-w-[600px] text-[17px] leading-relaxed text-white/90">
           Effective aerial asset inspections go far beyond flying a drone. Our teams use advanced thermal sensors and GIS mapping to identify defects, evaluate severity, and inform repair prioritization across EHV, HV, and MV networks.
         </p>
         <div class="mt-8">
-          <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1 focus:ring-2 focus:ring-[#FFC62F] focus:ring-offset-2 focus:ring-offset-[#17212B]">
+          <a href="/contact" class="inline-flex rounded-full bg-brand-yellow px-8 py-3.5 font-bold text-brand-ink transition-all hover:bg-brand-yellow-light hover:-translate-y-1 focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-ink">
             Get in touch
           </a>
         </div>
@@ -57,9 +68,9 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
 
     <!-- TEXT CONTENT (Left) -->
     <div class="repeat-animate" data-transform="translateX(-40px)">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-brand-ink mb-8 leading-tight">
         See your assets <br/>
-        <span class="text-[#FFC62F]">like never before</span>
+        <span class="text-brand-yellow">like never before</span>
       </h2>
       <p class="text-[17px] text-gray-600 leading-relaxed mb-6">
         Aerial inspections deliver greater coverage and higher quality imagery, with fewer boots on the ground than traditional methods. This provides deeper insights into asset health, allowing for more accurate, data-driven decision-making, in a fraction of the time.
@@ -67,7 +78,7 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
       <p class="text-[17px] text-gray-600 leading-relaxed mb-10">
         By using drones instead of people to inspect hazardous or inaccessible areas, we can reduce the need for scaffolding or rope-access, keeping team members safely out of harm's way. This all adds up to faster, safer and more informative inspections, resulting in fewer truck rolls, reduced asset down time, better repair prioritization, ultimately keeping costs down.
       </p>
-      <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+      <a href="/contact" class="inline-flex rounded-full bg-brand-yellow px-8 py-3 font-bold text-brand-ink transition-all hover:bg-brand-yellow-light hover:-translate-y-1">
         Get in touch
       </a>
     </div>
@@ -75,10 +86,10 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
     <!-- CUSTOM GEOMETRIC IMAGE GRAPHIC (Right) -->
     <div class="relative h-[500px] w-full flex justify-center items-center repeat-animate" data-transform="translateX(40px)">
       <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border-2 border-dashed border-gray-400 z-0"></div>
-      <div class="absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-dashed border-[#FFC62F] z-0 opacity-50"></div>
-      <div class="absolute top-10 left-10 w-16 h-24 bg-[#FFC62F] -skew-x-[20deg] z-10"></div>
-      <div class="absolute bottom-10 right-20 w-12 h-16 bg-[#FFC62F] -skew-x-[20deg] z-10"></div>
-      <div class="absolute top-1/2 right-0 w-10 h-16 bg-[#17212B] -skew-x-[20deg] z-10"></div>
+      <div class="absolute right-12 top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-dashed border-brand-yellow z-0 opacity-50"></div>
+      <div class="absolute top-10 left-10 w-16 h-24 bg-brand-yellow -skew-x-[20deg] z-10"></div>
+      <div class="absolute bottom-10 right-20 w-12 h-16 bg-brand-yellow -skew-x-[20deg] z-10"></div>
+      <div class="absolute top-1/2 right-0 w-10 h-16 bg-brand-ink -skew-x-[20deg] z-10"></div>
 
       <div class="relative w-[350px] h-[450px] -skew-x-[20deg] overflow-hidden shadow-2xl z-20 border-8 border-white bg-gray-100">
         <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
@@ -97,7 +108,7 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
         aria-label="Play promotional video" 
         class="absolute top-1/2 left-1/2 -translate-x-[70%] -translate-y-1/2 w-20 h-20 bg-white rounded-full shadow-xl z-30 flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group"
       >
-        <div class="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-[#FFC62F] border-b-[10px] border-b-transparent ml-2 group-hover:border-l-[#17212B] transition-colors"></div>
+        <div class="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-brand-yellow border-b-[10px] border-b-transparent ml-2 group-hover:border-l-brand-ink transition-colors"></div>
       </button>
     </div>
   </div>
@@ -107,13 +118,13 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
        ========================================================= -->
   <dialog 
     id="video-modal" 
-    class="backdrop:bg-[#17212B]/90 backdrop:backdrop-blur-sm bg-transparent p-0 max-w-5xl w-full mx-auto rounded-2xl shadow-2xl overflow-hidden m-auto"
+    class="backdrop:bg-brand-ink/90 backdrop:backdrop-blur-sm bg-transparent p-0 max-w-5xl w-full mx-auto rounded-2xl shadow-2xl overflow-hidden m-auto"
   >
     <div class="relative w-full aspect-video bg-black">
       <!-- Close Button -->
       <button 
         id="close-video-btn" 
-        class="absolute -top-12 right-0 z-50 text-white hover:text-[#FFC62F] transition-colors p-2"
+        class="absolute -top-12 right-0 z-50 text-white hover:text-brand-yellow transition-colors p-2"
         aria-label="Close video"
       >
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -188,7 +199,7 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
   <!-- =========================================================
        EXPERT EYES
        ========================================================= -->
-  <section class="bg-[#17212B] py-32 overflow-hidden border-t border-white/10">
+  <section class="bg-brand-ink py-32 overflow-hidden border-t border-white/10">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
       <!-- CUSTOM COMPOSITE GRAPHIC (Left - Staggered Animations) -->
@@ -196,19 +207,19 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
         
         <!-- Dashed Circle -->
         <div 
-          class="absolute right-[5%] top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-2 border-dashed border-[#FFC62F] opacity-40 z-0 repeat-animate transition-all duration-1000 delay-100" 
+          class="absolute right-[5%] top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-2 border-dashed border-brand-yellow opacity-40 z-0 repeat-animate transition-all duration-1000 delay-100" 
           data-transform="translateY(40px)"
         ></div>
         
         <!-- Top Yellow Accent -->
         <div 
-          class="absolute top-4 left-[15%] w-16 h-24 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-500" 
+          class="absolute top-4 left-[15%] w-16 h-24 bg-brand-yellow -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-500" 
           data-transform="translateY(-30px)"
         ></div>
 
         <!-- Back Image (Computer) -->
         <div 
-          class="absolute right-[5%] top-12 w-[300px] h-[320px] -skew-x-[20deg] overflow-hidden shadow-2xl z-10 opacity-90 border-4 border-[#17212B] group repeat-animate transition-all duration-1000 delay-200" 
+          class="absolute right-[5%] top-12 w-[300px] h-[320px] -skew-x-[20deg] overflow-hidden shadow-2xl z-10 opacity-90 border-4 border-brand-ink group repeat-animate transition-all duration-1000 delay-200" 
           data-transform="translateX(50px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] bg-gray-800 transition-transform duration-[1.5s] ease-out group-hover:scale-110">
@@ -238,7 +249,7 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
 
         <!-- Bottom Yellow Accent -->
         <div 
-          class="absolute bottom-8 right-[20%] w-12 h-16 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-700" 
+          class="absolute bottom-8 right-[20%] w-12 h-16 bg-brand-yellow -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-700" 
           data-transform="translateY(30px)"
         ></div>
       </div>
@@ -247,7 +258,7 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
       <div class="order-1 lg:order-2 flex flex-col items-start justify-center">
         
         <p 
-          class="text-sm font-bold uppercase tracking-[0.25em] text-[#FFC62F] mb-4 repeat-animate transition-all duration-700 delay-100" 
+          class="text-sm font-bold uppercase tracking-[0.25em] text-brand-yellow mb-4 repeat-animate transition-all duration-700 delay-100" 
           data-transform="translateX(40px)"
         >
           ENGINEERING INSPECTIONS
@@ -280,7 +291,7 @@ import InteractiveInspectionTabs from '../../components/InteractiveInspectionTab
         >
           <a 
             href="/contact" 
-            class="inline-flex rounded-full border-2 border-white px-8 py-3 font-bold text-white transition-all hover:bg-white hover:text-[#17212B] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1"
+            class="inline-flex rounded-full border-2 border-white px-8 py-3 font-bold text-white transition-all hover:bg-white hover:text-brand-ink hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1"
           >
             Learn about our process
           </a>

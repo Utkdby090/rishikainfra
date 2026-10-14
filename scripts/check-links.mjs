@@ -4,7 +4,7 @@ import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const dist = process.argv[2] ?? 'dist';
-const ATTR = /\b(?:href|src|poster)="([^"]*)"/g;
+const ATTR = /\b(?:href|src|poster|srcset)="([^"]*)"/g;
 
 function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
@@ -32,10 +32,15 @@ const pages = walk(dist).filter((f) => f.endsWith('.html'));
 
 for (const page of pages) {
   const html = readFileSync(page, 'utf8');
-  for (const [, raw] of html.matchAll(ATTR)) {
-    // Only site-absolute paths; external URLs, anchors, mailto: and tel: are skipped
-    if (!raw.startsWith('/') || raw.startsWith('//')) continue;
-    const path = decode(raw.split(/[?#]/)[0]);
+  // URL the page is served at, so relative links resolve the way a browser would
+  const pageUrl = new URL('/' + relative(dist, page).replace(/(^|\/)index\.html$/, '$1'), 'http://site');
+  const urls = [...html.matchAll(ATTR)].flatMap(([attr, value]) =>
+    attr.startsWith('srcset') ? value.split(',').map((c) => c.trim().split(/\s+/)[0]) : [value],
+  );
+  for (const raw of urls) {
+    // External URLs, protocol-relative URLs, anchors, mailto: and tel: are skipped
+    if (!raw || raw.startsWith('#') || raw.startsWith('//') || /^[a-z][a-z0-9+.-]*:/i.test(raw)) continue;
+    const path = decode(new URL(decode(raw), pageUrl).pathname);
     if (!resolves(path)) {
       const from = relative(dist, page);
       missing.set(path, [...(missing.get(path) ?? []), from]);

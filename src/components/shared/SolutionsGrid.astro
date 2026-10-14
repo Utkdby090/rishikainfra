@@ -1,4 +1,5 @@
 ---
+import Img from './Img.astro';
 // Reusable Core Solutions Grid Component
 const solutions = [
   { 
@@ -6,42 +7,42 @@ const solutions = [
     name: "Powerline Inspection", 
     tag: "EHV, HV & Substations",
     href: "/services/powerline-inspection",
-    img: "images/solutions/powergridinspection.jpg"
+    img: "/images/solutions/powergridinspection.jpg"
   },
   { 
     id: "02",
     name: "Geospatial Mapping & LiDAR", 
     tag: "3D Terrain & Modeling",
     href: "/services/geospatial-mapping",
-    img: "images/solutions/Lidar.jpg"
+    img: "/images/solutions/Lidar.jpg"
   },
   { 
     id: "03",
     name: "Renewables", 
     tag: "Renewable Energy",
     href: "/services/solar-inspection",
-    img: "images/solutions/renewables.jpg"
+    img: "/images/solutions/renewables.jpg"
   },
   { 
     id: "04",
     name: "Infrastructure & Roads", 
     tag: "Construction Monitoring",
     href: "/services/infrastructure-roads", 
-    img: "images/solutions/construction.jpg"
+    img: "/images/solutions/construction.jpg"
   },
   { 
     id: "05",
     name: "Traffic Mgmt with AI", 
     tag: "Smart Analytics",
     href: "/services/traffic-ai", 
-    img: "images/solutions/traffic ai.jpg"
+    img: "/images/solutions/traffic ai.jpg"
   },
   { 
     id: "06",
     name: "Telecom Tower Inspection", 
     tag: "Structural Assessment",
     href: "/services/telecom-inspection", 
-    img: "images/solutions/telecom towerjpg.jpg"
+    img: "/images/solutions/telecom towerjpg.jpg"
   }
 ];
 ---
@@ -71,7 +72,7 @@ const solutions = [
           style={`transition-delay: ${index * 150}ms;`}
         >
           <!-- Background Image (Zooms on hover) -->
-          <img loading="lazy" decoding="async" 
+          <Img sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" loading="lazy" decoding="async" 
             src={solution.img} 
             alt={solution.name}
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"

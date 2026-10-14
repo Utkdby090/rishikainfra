@@ -1,4 +1,5 @@
 ---
+import Img from '../../components/shared/Img.astro';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import { NEWS } from '../../data/news';
@@ -14,7 +15,7 @@ const [featuredNews, ...allNews] = NEWS;
        ========================================================= -->
   <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#17212B]">
     {/* Subtle Corporate/Tech Background Image */}
-    <img fetchpriority="high" 
+    <Img fetchpriority="high" 
       src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2500&auto=format&fit=crop" 
       class="absolute inset-0 h-full w-full object-cover opacity-20" 
       alt="Corporate News Background" 
@@ -65,7 +66,7 @@ const [featuredNews, ...allNews] = NEWS;
 
         <!-- Image Side -->
         <div class="w-full md:w-1/2 lg:w-[45%] h-72 md:h-auto relative">
-          <img loading="lazy" decoding="async" src={featuredNews.img} alt={featuredNews.title} class="w-full h-full object-cover" />
+          <Img loading="lazy" decoding="async" src={featuredNews.img} alt={featuredNews.title} class="w-full h-full object-cover" />
           <!-- Floating Yellow Badge -->
           <div class="absolute bottom-6 left-6 bg-[#FFC62F] text-[#17212B] text-[11px] font-bold px-4 py-2 rounded-md uppercase tracking-widest shadow-md">
             News Insight
@@ -125,7 +126,7 @@ const [featuredNews, ...allNews] = NEWS;
                 data-title={article.title.toLowerCase()}
               >
                 <div class="h-48 overflow-hidden bg-gray-200">
-                  <img loading="lazy" decoding="async" src={article.img.replace('w=1200', 'w=600')} alt={article.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                  <Img loading="lazy" decoding="async" src={article.img.replace('w=1200', 'w=600')} alt={article.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
                 </div>
                 <div class="p-7 flex flex-col flex-grow">
                   <h3 class="font-bold text-[19px] text-[#17212B] mb-3 leading-snug group-hover:text-[#0070BA] transition-colors">

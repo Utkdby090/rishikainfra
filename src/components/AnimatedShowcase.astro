@@ -1,4 +1,5 @@
 ---
+import Img from './shared/Img.astro';
 interface TabItem {
   id: string;
   tabLabel: string;
@@ -84,7 +85,7 @@ const progress = (index: number) => (data.length > 1 ? (index / (data.length - 1
             <!-- Left Image Section -->
             <div class="lg:col-span-5 h-[300px] lg:h-[450px] p-4 lg:p-6">
               <div class="w-full h-full rounded-xl overflow-hidden relative">
-                <img
+                <Img sizes="(min-width: 1024px) 480px, 100vw"
                   loading="lazy"
                   decoding="async"
                   src={tab.image}

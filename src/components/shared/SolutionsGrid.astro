@@ -71,7 +71,7 @@ const solutions = [
           style={`transition-delay: ${index * 150}ms;`}
         >
           <!-- Background Image (Zooms on hover) -->
-          <img 
+          <img loading="lazy" decoding="async" 
             src={solution.img} 
             alt={solution.name}
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"

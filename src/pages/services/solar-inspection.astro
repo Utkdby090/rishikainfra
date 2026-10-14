@@ -41,7 +41,9 @@ const renewablesData = [
        ========================================================= -->
   <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#1D2630]">
     {/* Video Background */}
-    <video 
+    <video
+      poster="/videos/renewables/solarinspection-poster.webp"
+      data-autopause
       class="absolute inset-0 h-full w-full object-cover  pointer-events-none" 
       autoplay 
       muted 
@@ -157,7 +159,7 @@ const renewablesData = [
           data-transform="translateX(50px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-110">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop" 
               alt="Thermal Data" 
               class="w-full h-full object-cover opacity-90"
@@ -172,7 +174,7 @@ const renewablesData = [
           data-transform="translateY(60px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" 
               alt="Solar Drone Inspection" 
               class="w-full h-full object-cover"

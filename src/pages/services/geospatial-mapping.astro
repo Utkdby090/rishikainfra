@@ -47,7 +47,7 @@ const outputData = [
     tagline: 'Digital Terrain Models mapping bare-earth topography.',
     heading: 'Digital Terrain Modeling',
     description: 'We filter out above-ground features like vegetation, vehicles, and buildings to provide a continuous surface of the bare earth. This pure topographic baseline is critical for hydrological modeling, road design, and foundational engineering.',
-    image: '/images/our solutions/LidarEngineering/sectionimage/dtm.png'
+    image: '/images/our solutions/LidarEngineering/sectionimage/dtm.webp'
   },
   {
     id: 'dsm',
@@ -55,7 +55,7 @@ const outputData = [
     tagline: 'Surface models including buildings and canopies.',
     heading: 'Digital Surface Modeling',
     description: 'A comprehensive 3D elevation model that includes everything on the earth’s surface. DSMs are essential for telecommunications line-of-sight analysis, urban planning, and vegetation encroachment monitoring.',
-    image: '/images/our solutions/LidarEngineering/sectionimage/dsm.png'
+    image: '/images/our solutions/LidarEngineering/sectionimage/dsm.webp'
   },
   {
     id: 'contour',
@@ -71,7 +71,7 @@ const outputData = [
     tagline: 'Distortion-free stitched 2D aerial maps.',
     heading: 'High-Res Orthomosaics',
     description: 'Thousands of individual drone photos seamlessly stitched together and geometrically corrected to scale. Measurements taken from these 2D maps are as accurate as those taken on the ground.',
-    image: '/images/our solutions/LidarEngineering/sectionimage/ortho.png'
+    image: '/images/our solutions/LidarEngineering/sectionimage/ortho.webp'
   }
 ];
 ---
@@ -84,8 +84,8 @@ const outputData = [
        ========================================================= -->
   <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#1D2630]">
     {/* Video Background */}
-    <img
-      src="/images/our solutions/LidarEngineering/sectionimage/lidarPhoto.png"
+    <img fetchpriority="high"
+      src="/images/our solutions/LidarEngineering/sectionimage/lidarPhoto.webp"
       alt=""
       aria-hidden="true"
       class="absolute inset-0 h-full w-full object-cover pointer-events-none contrast-125"
@@ -188,7 +188,7 @@ const outputData = [
           data-transform="translateX(50px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-110">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="/images/our solutions/LidarEngineering/sectionimage/softwarelidar.jpg" 
               alt="Digital Terrain Model" 
               class="w-full h-full object-cover opacity-80"
@@ -202,8 +202,8 @@ const outputData = [
           data-transform="translateY(60px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
-            <img 
-              src="/images/our solutions/LidarEngineering/sectionimage/lidarPhoto.png" 
+            <img loading="lazy" decoding="async" 
+              src="/images/our solutions/LidarEngineering/sectionimage/lidarPhoto.webp" 
               alt="UAV Mapping" 
               class="w-full h-full object-cover"
             />

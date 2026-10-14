@@ -82,7 +82,7 @@ export default function RenewablesTabs() {
               {/* Left Image Section */}
               <div className="lg:col-span-5 h-[300px] lg:h-auto p-4 lg:p-6">
                 <div className="w-full h-full rounded-xl overflow-hidden relative">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={activeData.image} 
                     alt={activeData.heading}
                     className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"

@@ -69,7 +69,7 @@ export default function ClientCarousel() {
               Displays the logo. If the image is missing from the folder, 
               it gracefully falls back to displaying the company name in text. 
             */}
-            <img 
+            <img loading="lazy" decoding="async" 
               src={client.src} 
               alt={client.name} 
               className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"

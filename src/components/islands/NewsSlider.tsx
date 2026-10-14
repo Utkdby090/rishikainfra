@@ -72,7 +72,7 @@ export default function NewsSlider() {
                 className="min-w-[340px] md:min-w-[400px] bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden snap-start cursor-pointer group/card flex flex-col hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-64 overflow-hidden relative">
-                  <img src={item.img.replace('w=1200', 'w=600')} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-105" />
+                  <img loading="lazy" decoding="async" src={item.img.replace('w=1200', 'w=600')} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-105" />
                   <div className="absolute inset-0 bg-black/10 group-hover/card:bg-black/0 transition-colors duration-300"/>
                   {/* Arrow on image */}
                   <div className="absolute right-4 bottom-4 w-10 h-10 border border-white flex items-center justify-center rounded transition-transform group-hover/card:translate-x-1">

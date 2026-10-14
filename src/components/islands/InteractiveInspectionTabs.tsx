@@ -6,7 +6,7 @@ const TAB_DATA = [
     id: 'visual',
     title: 'Power Grid Inspection',
     icon: (
-      <img 
+      <img loading="lazy" decoding="async" 
         src="/images/our solutions/powerGridInspection/icons&images/powerLineDRoneInspection.png" 
         alt="Visual Inspection" 
         className="w-11 h-11 object-contain opacity-80 group-hover:opacity-100 transition-opacity" 
@@ -20,13 +20,13 @@ const TAB_DATA = [
     id: 'thermal',
     title: 'Thermal Inspection',
     icon: (
-      <img 
+      <img loading="lazy" decoding="async" 
         src="/images/our solutions/powerGridInspection/icons&images/ThermalInspection.png" 
         alt="Thermal Diagnostics" 
         className="w-11 h-11 object-contain opacity-80 group-hover:opacity-100 transition-opacity" 
       />
     ),
-    image: '/images/our solutions/powerGridInspection/rotationimages/ThermalInspectionDrone.png',
+    image: '/images/our solutions/powerGridInspection/rotationimages/ThermalInspectionDrone.webp',
     heading: 'Thermography & Hotspot Detection',
     description: 'Thermal imaging enables us to detect hidden faults that are not visible to the naked eye. By deploying radiometric thermal sensors, our drones can identify thermal anomalies in dead-end joints, mid-span compression joints, and transformer equipment, allowing for rapid preventive maintenance before critical failures occur.'
   },
@@ -34,7 +34,7 @@ const TAB_DATA = [
     id: 'substation',
     title: 'Substation Inspections',
     icon: (
-      <img 
+      <img loading="lazy" decoding="async" 
         src="/images/our solutions/powerGridInspection/icons&images/substationInspection.png" 
         alt="Substation Inspections" 
         className="w-11 h-11 object-contain opacity-80 group-hover:opacity-100 transition-opacity" 
@@ -104,7 +104,7 @@ export default function InteractiveInspectionTabs() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-8 border-white"
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={activeData.image} 
                   alt={activeData.title}
                   className="w-full h-full object-cover"

@@ -14,7 +14,9 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
        HERO (Video Background)
        ========================================================= -->
   <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#17212B]">
-    <video 
+    <video
+      poster="/videos/powerlineinspection/powerinspection-poster.webp"
+      data-autopause
       class="absolute inset-0 h-full w-full object-cover  pointer-events-none" 
       autoplay 
       muted 
@@ -79,7 +81,7 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
 
       <div class="relative w-[350px] h-[450px] -skew-x-[20deg] overflow-hidden shadow-2xl z-20 border-8 border-white bg-gray-100">
         <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%]">
-          <img 
+          <img loading="lazy" decoding="async" 
             src="/images/our solutions/powerGridInspection/sectionimages/towerDrone.jpeg" 
             alt="Drone Inspection" 
             class="w-full h-full object-cover"
@@ -121,7 +123,7 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
       
       <!-- The Actual Video Element -->
       <!-- Change the 'src' here to point to your actual video file -->
-      <video id="promo-video" class="w-full h-full" controls playsinline>
+      <video id="promo-video" class="w-full h-full" controls playsinline preload="none" poster="/images/our solutions/powerGridInspection/video/electicalgrid-poster.webp">
         <source src="/images/our solutions/powerGridInspection/video/electicalgrid.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -145,8 +147,11 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
     // 1. Open the modal and play the video when the button is clicked
     playBtn.addEventListener('click', () => {
       modal.showModal();
-      video.play();
+      video.play().catch(() => {});
     });
+
+    // Pause whenever the dialog closes, including via the Esc key
+    modal.addEventListener('close', () => video.pause());
 
     // 2. Pause the video and close the modal when the "X" is clicked
     closeBtn?.addEventListener('click', () => {
@@ -206,7 +211,7 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
           data-transform="translateX(50px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] bg-gray-800 transition-transform duration-[1.5s] ease-out group-hover:scale-110">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="/images/our solutions/powerGridInspection/sectionimages/computer.jpg" 
               alt="Engineers processing drone data" 
               class="w-full h-full object-cover opacity-80"
@@ -221,7 +226,7 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
           data-transform="translateY(60px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="/images/our solutions/powerGridInspection/sectionimages/dronegrid.jpeg" 
               alt="High Voltage Electrical Grid" 
               class="w-full h-full object-cover"

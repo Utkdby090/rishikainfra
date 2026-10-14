@@ -246,6 +246,36 @@ const { title,description, hideCTA = false } = Astro.props;
       document.addEventListener("DOMContentLoaded", initRepeatAnimations);
       document.addEventListener("astro:page-load", initRepeatAnimations);
     </script>
+    <!-- Background videos: stop decoding when off-screen; show only the poster
+         for reduced-motion or data-saver visitors -->
+    <script>
+      const bgVideos = document.querySelectorAll<HTMLVideoElement>('video[data-autopause]');
+      const nav = navigator as Navigator & { connection?: { saveData?: boolean } };
+      const stillOnly =
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches || nav.connection?.saveData === true;
+
+      if (stillOnly) {
+        bgVideos.forEach((v) => {
+          v.autoplay = false;
+          v.pause();
+          v.preload = 'none';
+        });
+      } else if (bgVideos.length && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          for (const entry of entries) {
+            const v = entry.target as HTMLVideoElement;
+            if (entry.isIntersecting) {
+              // play() rejects when autoplay is blocked; the poster stays visible then
+              v.play().catch(() => {});
+            } else {
+              v.pause();
+            }
+          }
+        });
+        bgVideos.forEach((v) => observer.observe(v));
+      }
+    </script>
+
     <!-- Cookie consent banner + consent-gated analytics -->
     <Analytics />
   </body>

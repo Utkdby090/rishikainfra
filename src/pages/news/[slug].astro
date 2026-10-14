@@ -37,7 +37,7 @@ const { article } = Astro.props as { article: NewsArticle };
 
       <!-- Hero Image -->
       <div class="w-full h-[400px] md:h-[500px] overflow-hidden mb-16 shadow-lg">
-        <img src={article.img} alt={article.title} class="w-full h-full object-cover" />
+        <img loading="lazy" decoding="async" src={article.img} alt={article.title} class="w-full h-full object-cover" />
       </div>
 
       <!-- Article Content (Prose) -->

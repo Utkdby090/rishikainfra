@@ -5,6 +5,8 @@
   --color-brand-yellow: #ffc62f;
   --color-brand-yellow-light: #ffd85c;
   --color-brand-yellow-dark: #e5b22a;
+  /* Yellow-family text colour that stays readable on white (5.2:1) */
+  --color-brand-amber: #8f6600;
   --color-brand-ink: #17212b;
   --color-brand-ink-deep: #101820;
   --color-brand-ink-darker: #0b1117;

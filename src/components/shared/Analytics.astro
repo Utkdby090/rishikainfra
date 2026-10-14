@@ -14,17 +14,17 @@ const enabled = Boolean(trackingId) && import.meta.env.PROD;
     aria-live="polite"
     aria-label="Cookie consent"
     hidden
-    class="fixed inset-x-4 bottom-4 z-[100] mx-auto max-w-3xl rounded-2xl bg-[#17212B] p-6 text-white shadow-2xl md:flex md:items-center md:gap-6"
+    class="fixed inset-x-4 bottom-4 z-[100] mx-auto max-w-3xl rounded-2xl bg-brand-ink p-6 text-white shadow-2xl md:flex md:items-center md:gap-6"
   >
     <p class="text-sm leading-relaxed text-white/80 md:flex-1">
       We use analytics cookies to understand how visitors use this site. They are only set if you accept.
-      Read our <a href="/privacy-policy" class="underline hover:text-[#FFC62F]">privacy policy</a>.
+      Read our <a href="/privacy-policy" class="underline hover:text-brand-yellow">privacy policy</a>.
     </p>
     <div class="mt-4 flex shrink-0 gap-3 md:mt-0">
       <button type="button" data-consent="denied" class="rounded-full border border-white/30 px-5 py-2.5 text-sm font-bold hover:border-white">
         Decline
       </button>
-      <button type="button" data-consent="granted" class="rounded-full bg-[#FFC62F] px-5 py-2.5 text-sm font-bold text-[#17212B] hover:bg-[#FFD85C]">
+      <button type="button" data-consent="granted" class="rounded-full bg-brand-yellow px-5 py-2.5 text-sm font-bold text-brand-ink hover:bg-brand-yellow-light">
         Accept
       </button>
     </div>

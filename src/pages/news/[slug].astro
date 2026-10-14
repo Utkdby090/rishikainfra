@@ -1,7 +1,6 @@
 ---
 import Img from '../../components/shared/Img.astro';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
 import { NEWS, type NewsArticle } from '../../data/news';
 
 // This function tells Astro which pages to generate at build time
@@ -15,8 +14,27 @@ export function getStaticPaths() {
 const { article } = Astro.props as { article: NewsArticle };
 ---
 
-<Layout title={`${article.title} | Rishika Infra News`} description={article.excerpt}>
-  <Navbar />
+<Layout solidHeader
+  title={`${article.title} | Rishika Infra News`}
+  description={article.excerpt}
+  type="article"
+  image={article.img}
+  breadcrumbs={[
+    { name: 'News', path: '/news' },
+    { name: article.title, path: `/news/${article.slug}` },
+  ]}
+  schema={[
+    {
+      '@type': 'NewsArticle',
+      headline: article.title,
+      description: article.excerpt,
+      image: [article.img],
+      author: { '@id': 'https://rishikainfra.com/#organization' },
+      publisher: { '@id': 'https://rishikainfra.com/#organization' },
+      mainEntityOfPage: new URL(`/news/${article.slug}/`, Astro.site).href,
+    },
+  ]}
+>
 
   <article class="bg-gray-50 min-h-screen pt-40 pb-24">
     <div class="mx-auto max-w-[900px] px-6">
@@ -24,14 +42,14 @@ const { article } = Astro.props as { article: NewsArticle };
       <p class="text-sm font-medium text-gray-500 mb-4">News and blogs</p>
       
       <div class="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12">
-        <h1 class="text-4xl md:text-5xl font-light text-[#17212B] leading-tight max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-light text-brand-ink leading-tight max-w-2xl">
           {article.title}
         </h1>
         
         <!-- The Yellow Date Circle from the video -->
         {article.date && (
-        <div class="shrink-0 w-32 h-32 rounded-full bg-[#FFC62F] flex items-center justify-center text-center p-4">
-          <span class="font-bold text-[#17212B] text-lg uppercase leading-tight">{article.date}</span>
+        <div class="shrink-0 w-32 h-32 rounded-full bg-brand-yellow flex items-center justify-center text-center p-4">
+          <span class="font-bold text-brand-ink text-lg uppercase leading-tight">{article.date}</span>
         </div>
         )}
       </div>
@@ -42,8 +60,8 @@ const { article } = Astro.props as { article: NewsArticle };
       </div>
 
       <!-- Article Content (Prose) -->
-      <div class="prose prose-lg max-w-none text-gray-600 prose-headings:font-light prose-headings:text-[#17212B]">
-        <p class="text-xl font-medium text-[#17212B] mb-8">
+      <div class="prose prose-lg max-w-none text-gray-600 prose-headings:font-light prose-headings:text-brand-ink">
+        <p class="text-xl font-medium text-brand-ink mb-8">
           {article.excerpt}
         </p>
       </div>
@@ -51,10 +69,10 @@ const { article } = Astro.props as { article: NewsArticle };
       <!-- Bottom Navigation -->
       <div class="mt-24 pt-12 border-t border-gray-200 flex flex-col items-center justify-center">
         <a href="/news" class="group flex flex-col items-center gap-4">
-          <div class="w-24 h-24 rounded-full border border-gray-300 flex items-center justify-center text-xs font-bold tracking-widest uppercase text-gray-500 group-hover:border-[#0070BA] group-hover:text-[#0070BA] transition-colors">
+          <div class="w-24 h-24 rounded-full border border-gray-300 flex items-center justify-center text-xs font-bold tracking-widest uppercase text-gray-500 group-hover:border-brand-blue group-hover:text-brand-blue transition-colors">
             All News
           </div>
-          <div class="h-16 w-px bg-gray-300 group-hover:bg-[#0070BA] transition-colors"></div>
+          <div class="h-16 w-px bg-gray-300 group-hover:bg-brand-blue transition-colors"></div>
         </a>
       </div>
 

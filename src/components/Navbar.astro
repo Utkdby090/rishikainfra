@@ -1,4 +1,10 @@
 ---
+interface Props {
+  /** Keep the dark bar even at the top of the page (for pages with a light top section) */
+  solid?: boolean;
+}
+const { solid = false } = Astro.props;
+
 const SOLUTIONS = [
   { label: 'Powerline Inspection', href: '/services/powerline-inspection' },
   { label: 'Renewables', href: '/services/solar-inspection' },
@@ -14,7 +20,11 @@ const SOLUTIONS = [
      ========================================================= -->
 <header
   data-site-header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4"
+  data-solid={solid ? '' : undefined}
+  class:list={[
+    'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+    solid ? 'bg-brand-ink/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4',
+  ]}
 >
   <div class="mx-auto max-w-[1440px] px-6 lg:px-16 flex items-center justify-between">
 
@@ -50,17 +60,17 @@ const SOLUTIONS = [
 
       <!-- OUR SOLUTIONS - Dropdown (opens on hover or keyboard focus) -->
       <div class="relative group py-4">
-        <button type="button" aria-haspopup="true" class="text-[13px] font tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors flex items-center gap-2">
+        <button type="button" aria-haspopup="true" class="text-[13px] font tracking-widest uppercase text-white hover:text-brand-yellow transition-colors flex items-center gap-2">
           Our Solutions
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
 
-        <div class="absolute top-full left-0 w-72 bg-[#FFC62F] shadow-2xl rounded-b-lg overflow-hidden origin-top transform scale-y-0 opacity-0 invisible transition-all duration-300 ease-out group-hover:scale-y-100 group-hover:opacity-100 group-hover:visible group-focus-within:scale-y-100 group-focus-within:opacity-100 group-focus-within:visible">
+        <div class="absolute top-full left-0 w-72 bg-brand-yellow shadow-2xl rounded-b-lg overflow-hidden origin-top transform scale-y-0 opacity-0 invisible transition-all duration-300 ease-out group-hover:scale-y-100 group-hover:opacity-100 group-hover:visible group-focus-within:scale-y-100 group-focus-within:opacity-100 group-focus-within:visible">
           <div class="py-2">
             {SOLUTIONS.map((item) => (
               <a
                 href={item.href}
-                class="group/item flex items-center justify-between px-6 py-3.5 text-[#17212B] hover:bg-[#E5B22A] focus-visible:bg-[#E5B22A] transition-colors"
+                class="group/item flex items-center justify-between px-6 py-3.5 text-brand-ink hover:bg-brand-yellow-dark focus-visible:bg-brand-yellow-dark transition-colors"
               >
                 <span class="font text-[13px] tracking-wide transform transition-transform duration-300 group-hover/item:translate-x-2">
                   {item.label}
@@ -75,12 +85,12 @@ const SOLUTIONS = [
       </div>
 
       <!-- ABOUT -->
-      <a href="/about" class="text-[13px] font tracking-widest uppercase text-white hover:text-[#FFC62F] transition-colors">
+      <a href="/about" class="text-[13px] font tracking-widest uppercase text-white hover:text-brand-yellow transition-colors">
         About
       </a>
 
       <!-- CONTACT BUTTON -->
-      <a href="/contact" class="ml-4 rounded-full bg-[#FFC62F] px-8 py-3 text-[13px] font tracking-widest text-[#17212B] uppercase transition-all hover:bg-[#FFD85C] hover:scale-105 hover:shadow-lg">
+      <a href="/contact" class="ml-4 rounded-full bg-brand-yellow px-8 py-3 text-[13px] font tracking-widest text-brand-ink uppercase transition-all hover:bg-brand-yellow-light hover:scale-105 hover:shadow-lg">
         Contact us
       </a>
     </nav>
@@ -89,7 +99,7 @@ const SOLUTIONS = [
     <button
       type="button"
       data-menu-toggle
-      class="lg:hidden relative z-[60] text-white hover:text-[#FFC62F] transition-colors p-3 -mr-3"
+      class="lg:hidden relative z-[60] text-white hover:text-brand-yellow transition-colors p-3 -mr-3"
       aria-label="Toggle Menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -107,7 +117,7 @@ const SOLUTIONS = [
 <div
   id="mobile-menu"
   data-mobile-menu
-  class="fixed inset-0 bg-[#17212B] z-40 lg:hidden flex flex-col pt-28 px-6 pb-6 overflow-y-auto transition-all duration-500 ease-in-out opacity-0 invisible translate-x-full"
+  class="fixed inset-0 bg-brand-ink z-40 lg:hidden flex flex-col pt-28 px-6 pb-6 overflow-y-auto transition-all duration-500 ease-in-out opacity-0 invisible translate-x-full"
 >
   <div class="flex flex-col gap-2 border-t border-white/10 pt-6">
 
@@ -136,7 +146,7 @@ const SOLUTIONS = [
           <a
             href={item.href}
             data-menu-link
-            class="text-[13px] text-gray-300 hover:text-[#FFC62F] pl-4 border-l-2 border-transparent hover:border-[#FFC62F] transition-all tracking-wide py-2"
+            class="text-[13px] text-gray-300 hover:text-brand-yellow pl-4 border-l-2 border-transparent hover:border-brand-yellow transition-all tracking-wide py-2"
           >
             {item.label}
           </a>
@@ -147,7 +157,7 @@ const SOLUTIONS = [
     <a
       href="/about"
       data-menu-link
-      class="text-[15px] font tracking-widest uppercase text-white border-b border-white/10 py-5 hover:text-[#FFC62F] transition-colors block"
+      class="text-[15px] font tracking-widest uppercase text-white border-b border-white/10 py-5 hover:text-brand-yellow transition-colors block"
     >
       About
     </a>
@@ -157,7 +167,7 @@ const SOLUTIONS = [
     <a
       href="/contact"
       data-menu-link
-      class="flex items-center justify-center w-full rounded-full bg-[#FFC62F] py-4 text-[13px] font tracking-widest text-[#17212B] uppercase hover:bg-[#FFD85C] transition-colors"
+      class="flex items-center justify-center w-full rounded-full bg-brand-yellow py-4 text-[13px] font tracking-widest text-brand-ink uppercase hover:bg-brand-yellow-light transition-colors"
     >
       Contact us
     </a>
@@ -172,14 +182,15 @@ const SOLUTIONS = [
   const solutionsList = menu.querySelector<HTMLElement>('[data-solutions-list]')!;
   const chevron = menu.querySelector<SVGElement>('[data-solutions-chevron]')!;
 
-  const SOLID = ['bg-[#17212B]/95', 'backdrop-blur-md', 'shadow-lg', 'py-2'];
+  const SOLID = ['bg-brand-ink/95', 'backdrop-blur-md', 'shadow-lg', 'py-2'];
   const CLEAR = ['bg-transparent', 'py-4'];
 
+  const alwaysSolid = header.hasAttribute('data-solid');
   let scrolled = false;
   let menuOpen = false;
 
   const paintHeader = () => {
-    const solid = scrolled || menuOpen;
+    const solid = alwaysSolid || scrolled || menuOpen;
     header.classList.remove(...(solid ? CLEAR : SOLID));
     header.classList.add(...(solid ? SOLID : CLEAR));
   };
@@ -226,7 +237,7 @@ const SOLUTIONS = [
     solutionsList.classList.toggle('opacity-0', !open);
     solutionsList.classList.toggle('invisible', !open);
     chevron.classList.toggle('rotate-180', open);
-    chevron.classList.toggle('text-[#FFC62F]', open);
+    chevron.classList.toggle('text-brand-yellow', open);
   };
 
   toggle.addEventListener('click', () => setMenu(!menuOpen));

@@ -3,9 +3,9 @@ import Img from './shared/Img.astro';
 import { NEWS } from '../data/news';
 ---
 
-<section class="bg-[#F8F9FA] py-24 overflow-hidden relative" data-news-slider>
+<section class="bg-brand-mist py-24 overflow-hidden relative" data-news-slider>
   <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
-    <h2 class="text-4xl md:text-5xl font-light text-[#17212B] mb-12 tracking-tight">
+    <h2 class="text-4xl md:text-5xl font-light text-brand-ink mb-12 tracking-tight">
       Latest news
     </h2>
 
@@ -16,7 +16,7 @@ import { NEWS } from '../data/news';
         data-prev
         disabled
         aria-label="Previous news item"
-        class="absolute -left-6 top-[40%] z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md bg-[#FFC62F] text-[#17212B] opacity-100 enabled:hover:scale-105 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:opacity-0"
+        class="absolute -left-6 top-[40%] z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md bg-brand-yellow text-brand-ink opacity-100 enabled:hover:scale-105 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:opacity-0"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
@@ -42,7 +42,7 @@ import { NEWS } from '../data/news';
             </div>
 
             <div class="p-8 flex flex-col flex-grow bg-white">
-              <h3 class="font-semibold text-lg text-[#17212B] leading-snug group-hover/card:text-[#0070BA] transition-colors">
+              <h3 class="font-semibold text-lg text-brand-ink leading-snug group-hover/card:text-brand-blue transition-colors">
                 {item.title}
               </h3>
             </div>
@@ -55,7 +55,7 @@ import { NEWS } from '../data/news';
         type="button"
         data-next
         aria-label="Next news item"
-        class="absolute -right-6 top-[40%] z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md bg-[#FFC62F] text-[#17212B] opacity-100 enabled:hover:scale-105 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:opacity-0"
+        class="absolute -right-6 top-[40%] z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md bg-brand-yellow text-brand-ink opacity-100 enabled:hover:scale-105 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:opacity-0"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
       </button>
@@ -69,7 +69,7 @@ import { NEWS } from '../data/news';
           data-dot={index}
           aria-label={`Jump to news item ${index + 1}`}
           aria-current={index === 0 ? 'true' : 'false'}
-          class="h-1.5 transition-all duration-300 rounded-full w-3 bg-gray-300 cursor-pointer aria-[current=false]:hover:bg-gray-400 aria-[current=true]:w-8 aria-[current=true]:bg-[#FFC62F] aria-[current=true]:cursor-default"
+          class="h-1.5 transition-all duration-300 rounded-full w-3 bg-gray-300 cursor-pointer aria-[current=false]:hover:bg-gray-400 aria-[current=true]:w-8 aria-[current=true]:bg-brand-yellow aria-[current=true]:cursor-default"
         ></button>
       ))}
     </div>

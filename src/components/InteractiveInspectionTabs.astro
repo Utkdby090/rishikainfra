@@ -34,7 +34,7 @@ const TAB_DATA = [
 const first = TAB_DATA[0].id;
 ---
 
-<div class="w-full bg-[#F8F9FA] py-20 border-y border-gray-200" data-tabs>
+<div class="w-full bg-brand-mist py-20 border-y border-gray-200" data-tabs>
   <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
 
     <!-- Navigation Diagram -->
@@ -55,7 +55,7 @@ const first = TAB_DATA[0].id;
             class="flex flex-col items-center group w-1/4"
           >
             <!-- Node Icon -->
-            <div class="w-16 h-16 rounded-full flex items-center justify-center text-2xl transition-all duration-300 mb-4 shadow-sm border-4 bg-white border-transparent text-gray-400 group-aria-[selected=false]:group-hover:border-gray-300 group-aria-selected:border-[#FFC62F] group-aria-selected:scale-110">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-2xl transition-all duration-300 mb-4 shadow-sm border-4 bg-white border-transparent text-gray-400 group-aria-[selected=false]:group-hover:border-gray-300 group-aria-selected:border-brand-yellow group-aria-selected:scale-110">
               <Img sizes="44px"
                 loading="lazy"
                 decoding="async"
@@ -65,11 +65,11 @@ const first = TAB_DATA[0].id;
               />
             </div>
             <!-- Node Label -->
-            <span class="text-sm font-semibold transition-colors duration-300 text-center px-2 text-gray-500 group-aria-[selected=false]:group-hover:text-gray-700 group-aria-selected:text-[#17212B]">
+            <span class="text-sm font-semibold transition-colors duration-300 text-center px-2 text-gray-500 group-aria-[selected=false]:group-hover:text-gray-700 group-aria-selected:text-brand-ink">
               {tab.title}
             </span>
             <!-- Active Indicator Line -->
-            <div class="h-1 w-8 mt-2 transition-colors duration-300 bg-transparent group-aria-selected:bg-[#FFC62F]"></div>
+            <div class="h-1 w-8 mt-2 transition-colors duration-300 bg-transparent group-aria-selected:bg-brand-yellow"></div>
           </button>
         ))}
       </div>
@@ -96,7 +96,7 @@ const first = TAB_DATA[0].id;
               class="w-full h-full object-cover"
             />
             <!-- Subtle gradient overlay for depth -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-[#17212B]/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-brand-ink/40 to-transparent"></div>
           </div>
 
           <!-- Decorative semi-circle outline -->
@@ -106,7 +106,7 @@ const first = TAB_DATA[0].id;
         <!-- Text Content (Right) -->
         <div class="text-center lg:text-left min-h-[250px] flex flex-col justify-center">
           <div data-animate="animate-panel-slide">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-ink mb-6">
               {tab.heading}
             </h2>
             <p class="text-lg text-gray-600 leading-relaxed">

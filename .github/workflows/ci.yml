@@ -35,3 +35,51 @@ jobs:
 
       - name: Check internal links
         run: npm run check:links
+
+      - name: Save build for quality checks
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 3
+
+  quality:
+    name: Accessibility and Lighthouse
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Accessibility (axe, WCAG 2.1 AA)
+        run: |
+          npx astro preview --port 4321 &
+          for i in $(seq 1 30); do curl -sf http://localhost:4321/ > /dev/null && break; sleep 1; done
+          npm run check:a11y
+
+      - name: Lighthouse budgets
+        run: npm run check:lighthouse
+
+      - name: Keep Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci
+          retention-days: 14
+          if-no-files-found: ignore

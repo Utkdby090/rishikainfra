@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand palette: use as bg-brand-yellow, text-brand-ink, border-brand-blue/20 ... */
+  --color-brand-yellow: #ffc62f;
+  --color-brand-yellow-light: #ffd85c;
+  --color-brand-yellow-dark: #e5b22a;
+  --color-brand-ink: #17212b;
+  --color-brand-ink-deep: #101820;
+  --color-brand-ink-darker: #0b1117;
+  --color-brand-slate: #1d2630;
+  --color-brand-slate-light: #24313c;
+  --color-brand-blue: #0070ba;
+  --color-brand-mist: #f8f9fa;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
 @layer base {
   body {
     @apply bg-white text-gray-900 antialiased;

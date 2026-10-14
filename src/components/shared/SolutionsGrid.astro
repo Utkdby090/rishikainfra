@@ -52,10 +52,10 @@ const solutions = [
     
     <!-- Header (Fades in on scroll) -->
     <div class="scroll-animate mb-14 text-center md:text-left opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-      <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#0070BA] mb-2">
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-brand-blue mb-2">
         WHAT WE DO
       </p>
-      <h2 class="text-4xl font-bold text-[#17212B] md:text-5xl">
+      <h2 class="text-4xl font-bold text-brand-ink md:text-5xl">
         Our Core Solutions
       </h2>
       <p class="mt-5 text-lg text-gray-600 max-w-2xl">
@@ -68,7 +68,7 @@ const solutions = [
       {solutions.map((solution, index) => (
         <a 
           href={solution.href}
-          class="scroll-animate group relative h-[380px] overflow-hidden rounded-xl bg-[#24313C] transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+          class="scroll-animate group relative h-[380px] overflow-hidden rounded-xl bg-brand-slate-light transition-all duration-700 ease-out opacity-0 translate-y-12 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
           style={`transition-delay: ${index * 150}ms;`}
         >
           <!-- Background Image (Zooms on hover) -->
@@ -79,12 +79,12 @@ const solutions = [
           />
 
           <!-- Gradient Overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] via-[#101820]/60 to-transparent transition-opacity duration-500 group-hover:opacity-90"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-ink-deep via-brand-ink-deep/60 to-transparent transition-opacity duration-500 group-hover:opacity-90"></div>
 
           <!-- Content -->
           <div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end h-full">
             <div class="transform transition-transform duration-500 group-hover:-translate-y-4">
-              <div class="mb-3 text-[11px] font-bold uppercase tracking-widest text-[#FFC62F]">
+              <div class="mb-3 text-[11px] font-bold uppercase tracking-widest text-brand-yellow">
                 {solution.tag}
               </div>
 
@@ -94,10 +94,10 @@ const solutions = [
 
               <!-- Glassmorphism Arrow Button (Appears on Hover) -->
               <div class="mt-6 flex items-center gap-3 opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
-                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white transition-colors group-hover:bg-[#FFC62F] group-hover:text-[#17212B]">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white transition-colors group-hover:bg-brand-yellow group-hover:text-brand-ink">
                   →
                 </div>
-                <span class="text-sm font-bold text-[#FFC62F] uppercase tracking-wider">Explore</span>
+                <span class="text-sm font-bold text-brand-yellow uppercase tracking-wider">Explore</span>
               </div>
             </div>
           </div>

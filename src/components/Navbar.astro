@@ -1,4 +1,10 @@
 ---
+interface Props {
+  /** Keep the dark bar even at the top of the page (for pages with a light top section) */
+  solid?: boolean;
+}
+const { solid = false } = Astro.props;
+
 const SOLUTIONS = [
   { label: 'Powerline Inspection', href: '/services/powerline-inspection' },
   { label: 'Renewables', href: '/services/solar-inspection' },
@@ -14,7 +20,11 @@ const SOLUTIONS = [
      ========================================================= -->
 <header
   data-site-header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4"
+  data-solid={solid ? '' : undefined}
+  class:list={[
+    'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+    solid ? 'bg-brand-ink/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4',
+  ]}
 >
   <div class="mx-auto max-w-[1440px] px-6 lg:px-16 flex items-center justify-between">
 
@@ -175,11 +185,12 @@ const SOLUTIONS = [
   const SOLID = ['bg-brand-ink/95', 'backdrop-blur-md', 'shadow-lg', 'py-2'];
   const CLEAR = ['bg-transparent', 'py-4'];
 
+  const alwaysSolid = header.hasAttribute('data-solid');
   let scrolled = false;
   let menuOpen = false;
 
   const paintHeader = () => {
-    const solid = scrolled || menuOpen;
+    const solid = alwaysSolid || scrolled || menuOpen;
     header.classList.remove(...(solid ? CLEAR : SOLID));
     header.classList.add(...(solid ? SOLID : CLEAR));
   };

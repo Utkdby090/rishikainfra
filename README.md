@@ -32,6 +32,8 @@ In production these are set as build variables in the Cloudflare dashboard
 | `npm run check` | Type-check `.astro`, `.ts` and `.tsx` files |
 | `npm run check:links` | Fail if any built page links to a missing page or file (run after `build`) |
 | `npm run ci` | `check`, `build` and `check:links` in one go, as CI runs them |
+| `npm run check:a11y` | Run axe (WCAG 2.1 AA) on every built page; needs `npm run preview` running |
+| `npm run check:lighthouse` | Lighthouse CI against `dist/` with the budgets in `lighthouserc.json` |
 
 ## Project layout
 
@@ -48,7 +50,7 @@ src/
   pages/                One file per route; news/[slug].astro builds each article
   scripts/              Small browser scripts shared by components (tabs)
   styles/global.css     Tailwind entry point, theme tokens and keyframes
-scripts/check-links.mjs Link checker used in CI
+scripts/                Link and accessibility checkers used in CI
 ```
 
 ## Conventions
@@ -72,4 +74,6 @@ scripts/check-links.mjs Link checker used in CI
 
 Pushes to `Local_Develop` and pull requests build automatically in Cloudflare
 Workers Builds using `wrangler.jsonc`; each PR gets a preview URL. GitHub Actions
-(`.github/workflows/ci.yml`) runs `npm run ci` on every pull request.
+(`.github/workflows/ci.yml`) runs the type check, build and link check on every
+pull request, then an accessibility check (axe) and Lighthouse score budgets on the
+built site. Lighthouse reports are kept as a downloadable artifact on each run.

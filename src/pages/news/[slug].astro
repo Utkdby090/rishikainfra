@@ -14,7 +14,7 @@ export function getStaticPaths() {
 const { article } = Astro.props as { article: NewsArticle };
 ---
 
-<Layout
+<Layout solidHeader
   title={`${article.title} | Rishika Infra News`}
   description={article.excerpt}
   type="article"

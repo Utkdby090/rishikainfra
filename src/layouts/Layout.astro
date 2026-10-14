@@ -9,8 +9,10 @@ import type { ComponentProps } from 'astro/types';
 
 interface Props extends ComponentProps<typeof SEO> {
   hideCTA?: boolean;
+  /** Page starts on a light background, so the navbar needs its dark bar from the top */
+  solidHeader?: boolean;
 }
-const { hideCTA = false, ...seo } = Astro.props;
+const { hideCTA = false, solidHeader = false, ...seo } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,7 +30,7 @@ const { hideCTA = false, ...seo } = Astro.props;
       Skip to content
     </a>
 
-    <Navbar />
+    <Navbar solid={solidHeader} />
 
     <!-- Render the Page Content -->
     <main id="main" tabindex="-1" class="outline-none">

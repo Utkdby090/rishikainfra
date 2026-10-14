@@ -102,21 +102,22 @@ const [featuredNews, ...allNews] = NEWS;
           </p>
           
           <!-- Search Bar -->
-          <div class="relative mt-2">
+          <form role="search" class="relative mt-2" data-news-search>
+            <label for="news-search" class="sr-only">Search news</label>
             <input 
               id="news-search"
-              type="text" 
+              type="search" 
               placeholder="Search" 
               class="w-full border border-gray-300 rounded-md py-3 pl-4 pr-10 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors bg-white"
             />
-            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-ink">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <button type="submit" aria-label="Search news" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-ink">
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             </button>
-          </div>
+          </form>
         </aside>
 
         <!-- Right Grid -->
-        <main class="w-full lg:w-3/4">
+        <div class="w-full lg:w-3/4">
           <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {allNews.map((article) => (
               <div 
@@ -143,16 +144,35 @@ const [featuredNews, ...allNews] = NEWS;
             ))}
           </div>
           
-          <div class="mt-12 text-center lg:text-left">
-            <button class="rounded-full bg-brand-yellow px-10 py-3.5 text-[13px] uppercase tracking-widest font-extrabold text-brand-ink hover:bg-brand-yellow-light transition-colors shadow-md">
-              Load More
-            </button>
-          </div>
-        </main>
+          <p data-news-empty hidden class="mt-8 text-gray-600" role="status">No news matches your search.</p>
+        </div>
 
       </div>
     </div>
   </section>
+
+  <script>
+    // Filter the news cards by title as the visitor types
+    const form = document.querySelector<HTMLFormElement>('[data-news-search]');
+    const input = form?.querySelector<HTMLInputElement>('input');
+    const cards = [...document.querySelectorAll<HTMLElement>('.news-card')];
+    const empty = document.querySelector<HTMLElement>('[data-news-empty]');
+    const filter = () => {
+      const query = (input?.value ?? '').trim().toLowerCase();
+      let shown = 0;
+      for (const card of cards) {
+        const match = !query || (card.dataset.title ?? '').includes(query);
+        card.hidden = !match;
+        if (match) shown++;
+      }
+      if (empty) empty.hidden = shown > 0;
+    };
+    input?.addEventListener('input', filter);
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      filter();
+    });
+  </script>
 
   <style>
     html {

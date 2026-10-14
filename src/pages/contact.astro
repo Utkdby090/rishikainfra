@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/islands/Navbar';
-import NewsSlider from '../components/islands/NewsSlider'; // Import your new component
+import Navbar from '../components/Navbar.astro';
+import NewsSlider from '../components/NewsSlider.astro';
 import ContactForm from '../components/islands/ContactForm';
 ---
 
 <Layout hideCTA title="Contact Us | Rishika Infra">
-  <Navbar client:load />
+  <Navbar />
 
   <!-- =========================================================
        HERO SECTION
@@ -126,7 +126,7 @@ import ContactForm from '../components/islands/ContactForm';
   <!-- =========================================================
        NEWS SLIDER
        ========================================================= -->
-  <NewsSlider client:visible />
+  <NewsSlider />
 
   {/* CHANGE 2 (continued): Smooth Scroll CSS for the arrow */}
   <style>

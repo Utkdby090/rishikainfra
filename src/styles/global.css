@@ -19,3 +19,38 @@ html {
 .skew-content {
   transform: skewX(12deg);
 }
+/* Floating logo mark (navbar + footer) */
+@keyframes drone-float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+.animate-drone-float {
+  animation: drone-float 4s ease-in-out infinite;
+}
+
+/* Tab panel entrance animations (replace framer-motion) */
+@keyframes panel-rise {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes panel-slide {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes panel-turn {
+  from { opacity: 0; transform: scale(0.95) rotate(-5deg); }
+  to { opacity: 1; transform: none; }
+}
+.animate-panel-rise { animation: panel-rise 0.3s ease-out; }
+.animate-panel-slide { animation: panel-slide 0.4s ease-out; }
+.animate-panel-turn { animation: panel-turn 0.5s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drone-float,
+  .animate-panel-rise,
+  .animate-panel-slide,
+  .animate-panel-turn {
+    animation: none;
+  }
+}

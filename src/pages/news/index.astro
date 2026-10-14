@@ -1,13 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
+import Navbar from '../../components/Navbar.astro';
 import { NEWS } from '../../data/news';
 
 const [featuredNews, ...allNews] = NEWS;
 ---
 
 <Layout title="Company News | Rishika Infra" hideCTA={true}>
-  <Navbar client:load />
+  <Navbar />
 
   <!-- =========================================================
        HERO SECTION (Dark Theme to fix Navbar Contrast)

@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/islands/Navbar';
+import Navbar from '../components/Navbar.astro';
 import ContactForm from '../components/islands/ContactForm';
 import { SITE_CONFIG } from '../data/siteConfig';
 
@@ -13,7 +13,7 @@ import { SITE_CONFIG } from '../data/siteConfig';
   <!-- Solid Dark Background behind the Navbar (Protects the white logo on light background) -->
   <div class="absolute top-0 left-0 w-full h-[92px] bg-[#17212B] z-20 border-b border-white/10"></div>
   
-  <Navbar client:load />
+  <Navbar />
 
   <!-- Added pt-[92px] to push the split-screen content below the header -->
   <div class="flex flex-col lg:flex-row min-h-screen bg-[#F8F9FA] pt-[92px]">

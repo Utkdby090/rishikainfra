@@ -1,0 +1,132 @@
+---
+interface TabItem {
+  id: string;
+  tabLabel: string;
+  heading: string;
+  tagline: string;
+  description: string;
+  image: string;
+}
+
+interface Props {
+  subtitle: string;
+  title: string;
+  data: TabItem[];
+}
+
+const { subtitle, title, data } = Astro.props;
+const first = data[0]?.id;
+// Width of the yellow progress line for a given step (0 when there is only one)
+const progress = (index: number) => (data.length > 1 ? (index / (data.length - 1)) * 100 : 0);
+---
+
+<div class="w-full bg-[#17212B] py-24 relative overflow-hidden border-t border-white/10" data-tabs data-showcase>
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-[#FFC62F] font-bold text-sm tracking-[0.25em] uppercase mb-4">
+        {subtitle}
+      </p>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-20">
+        {title}
+      </h2>
+
+      <!-- Interactive Progress Navigation -->
+      <div class="relative max-w-4xl mx-auto mb-16">
+        <!-- Background Track Line -->
+        <div class="absolute top-[11px] left-8 right-8 h-[2px] bg-gray-700 z-0"></div>
+
+        <!-- Animated Yellow Fill Line -->
+        <div
+          data-progress
+          class="absolute top-[11px] left-8 h-[2px] bg-[#FFC62F] z-0 transition-all duration-500 ease-out"
+          style={`width: calc(${progress(0)}% - 4rem)`}
+        ></div>
+
+        <div class="flex justify-between relative z-10" role="tablist" aria-label={title}>
+          {data.map((tab, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`${tab.id}-tab`}
+              aria-controls={`${tab.id}-panel`}
+              aria-selected={tab.id === first ? 'true' : 'false'}
+              tabindex={tab.id === first ? 0 : -1}
+              data-tab={tab.id}
+              data-progress-value={progress(i)}
+              class="group flex flex-col items-center"
+            >
+              <!-- Node Dot -->
+              <div class="w-6 h-6 rounded-full border-4 flex items-center justify-center mb-4 transition-colors duration-300 border-[#17212B] bg-gray-700 group-aria-[selected=false]:group-hover:bg-gray-500 group-aria-selected:bg-[#FFC62F] group-aria-selected:shadow-[0_0_15px_rgba(255,198,47,0.5)]"></div>
+
+              <!-- Node Label -->
+              <span class="text-sm font-bold tracking-widest uppercase transition-colors duration-300 text-gray-500 group-aria-[selected=false]:group-hover:text-gray-300 group-aria-selected:text-[#FFC62F]">
+                {tab.tabLabel}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Card -->
+    <div class="bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden max-w-6xl mx-auto min-h-[400px]">
+      {data.map((tab) => (
+        <div
+          id={`${tab.id}-panel`}
+          role="tabpanel"
+          aria-labelledby={`${tab.id}-tab`}
+          data-panel={tab.id}
+          hidden={tab.id !== first}
+        >
+          <div class="grid lg:grid-cols-12 gap-0 h-full" data-animate="animate-panel-rise">
+            <!-- Left Image Section -->
+            <div class="lg:col-span-5 h-[300px] lg:h-[450px] p-4 lg:p-6">
+              <div class="w-full h-full rounded-xl overflow-hidden relative">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={tab.image}
+                  alt={tab.heading}
+                  class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </div>
+
+            <!-- Right Text Section -->
+            <div class="lg:col-span-7 p-8 lg:p-14 flex flex-col justify-center">
+              <p class="text-[#FFC62F] font-bold text-sm tracking-widest uppercase mb-4">
+                {tab.tabLabel}
+              </p>
+              <h3 class="text-3xl lg:text-4xl font-extrabold text-[#17212B] mb-4 leading-tight">
+                {tab.heading}
+              </h3>
+              <h4 class="text-[17px] font-bold text-gray-800 mb-6">
+                {tab.tagline}
+              </h4>
+              <p class="text-[16px] text-gray-600 leading-relaxed">
+                {tab.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  import { initTabs } from '../scripts/tabs';
+
+  initTabs();
+  document.querySelectorAll<HTMLElement>('[data-showcase]').forEach((root) => {
+    const line = root.querySelector<HTMLElement>('[data-progress]');
+    root.addEventListener('tabchange', (e) => {
+      const tab = root.querySelector<HTMLElement>(`[data-tab="${(e as CustomEvent<string>).detail}"]`);
+      if (line && tab) line.style.width = `calc(${tab.dataset.progressValue}% - 4rem)`;
+    });
+  });
+</script>

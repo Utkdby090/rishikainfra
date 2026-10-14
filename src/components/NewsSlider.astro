@@ -1,0 +1,140 @@
+---
+import { NEWS } from '../data/news';
+---
+
+<section class="bg-[#F8F9FA] py-24 overflow-hidden relative" data-news-slider>
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+    <h2 class="text-4xl md:text-5xl font-light text-[#17212B] mb-12 tracking-tight">
+      Latest news
+    </h2>
+
+    <div class="relative group">
+      <!-- Left Arrow -->
+      <button
+        type="button"
+        data-prev
+        disabled
+        aria-label="Previous news item"
+        class="absolute -left-6 top-[40%] z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md bg-[#FFC62F] text-[#17212B] opacity-100 enabled:hover:scale-105 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:opacity-0"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+
+      <!-- Cards Container -->
+      <div
+        data-track
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 relative"
+        style="scrollbar-width: none; -ms-overflow-style: none;"
+      >
+        {NEWS.map((item) => (
+          <a
+            href={`/news/${item.slug}`}
+            class="min-w-[340px] md:min-w-[400px] bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden snap-start cursor-pointer group/card flex flex-col hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="h-64 overflow-hidden relative">
+              <img loading="lazy" decoding="async" src={item.img.replace('w=1200', 'w=600')} alt={item.title} class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-105" />
+              <div class="absolute inset-0 bg-black/10 group-hover/card:bg-black/0 transition-colors duration-300"></div>
+              <!-- Arrow on image -->
+              <div class="absolute right-4 bottom-4 w-10 h-10 border border-white flex items-center justify-center rounded transition-transform group-hover/card:translate-x-1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </div>
+            </div>
+
+            <div class="p-8 flex flex-col flex-grow bg-white">
+              <h3 class="font-semibold text-lg text-[#17212B] leading-snug group-hover/card:text-[#0070BA] transition-colors">
+                {item.title}
+              </h3>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Right Arrow -->
+      <button
+        type="button"
+        data-next
+        aria-label="Next news item"
+        class="absolute -right-6 top-[40%] z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md bg-[#FFC62F] text-[#17212B] opacity-100 enabled:hover:scale-105 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:opacity-0"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <!-- Straight Segmented Dash Indicators -->
+    <div class="flex justify-center items-center gap-1.5 mt-8">
+      {NEWS.map((_, index) => (
+        <button
+          type="button"
+          data-dot={index}
+          aria-label={`Jump to news item ${index + 1}`}
+          aria-current={index === 0 ? 'true' : 'false'}
+          class="h-1.5 transition-all duration-300 rounded-full w-3 bg-gray-300 cursor-pointer aria-[current=false]:hover:bg-gray-400 aria-[current=true]:w-8 aria-[current=true]:bg-[#FFC62F] aria-[current=true]:cursor-default"
+        ></button>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Card width + the 24px (gap-6) between cards
+  const GAP = 24;
+
+  document.querySelectorAll<HTMLElement>('[data-news-slider]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]')!;
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]')!;
+    const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-dot]')];
+    const count = dots.length;
+    let active = 0;
+    // Index we are smooth-scrolling to; scroll events don't override it until we arrive
+    let target: number | null = null;
+    let frame = 0;
+
+    const step = () => {
+      const card = track.firstElementChild as HTMLElement | null;
+      return card ? card.offsetWidth + GAP : 1;
+    };
+
+    const render = (index: number) => {
+      if (index === active) return;
+      active = index;
+      prev.disabled = active === 0;
+      next.disabled = active >= count - 1;
+      dots.forEach((d, i) => d.setAttribute('aria-current', String(i === active)));
+    };
+
+    const go = (index: number) => {
+      const clamped = Math.max(0, Math.min(count - 1, index));
+      target = clamped;
+      track.scrollTo({ left: clamped * step(), behavior: 'smooth' });
+      render(clamped);
+    };
+
+    track.addEventListener(
+      'scroll',
+      () => {
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
+          frame = 0;
+          const index = Math.min(count - 1, Math.round(track.scrollLeft / step()));
+          if (target !== null) {
+            if (index === target) target = null;
+            return;
+          }
+          render(index);
+        });
+      },
+      { passive: true },
+    );
+    // A user drag/swipe cancels any pending programmatic target
+    track.addEventListener('pointerdown', () => (target = null), { passive: true });
+    track.addEventListener('wheel', () => (target = null), { passive: true });
+    // The last cards may not be able to scroll fully into place
+    track.addEventListener('scrollend', () => (target = null));
+
+    prev.addEventListener('click', () => go(active - 1));
+    next.addEventListener('click', () => go(active + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+  });
+</script>

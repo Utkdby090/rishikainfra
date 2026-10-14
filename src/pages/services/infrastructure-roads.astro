@@ -1,10 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
+import Navbar from '../../components/Navbar.astro';
 import Differentiators from '../../components/shared/Differentiators.astro';
-import AnimatedShowcase from '../../components/islands/AnimatedShowcase';
-
-// DATA ARRAY FOR THE INTERACTIVE SHOWCASE (Updated with screenshot data)
+import AnimatedShowcase from '../../components/AnimatedShowcase.astro';
 const roadServicesData = [
   {
     id: 'planning',
@@ -42,7 +40,7 @@ const roadServicesData = [
 ---
 
 <Layout title="Infrastructure & Roads | Rishika Infra">
-  <Navbar client:load />
+  <Navbar />
 
   <!-- =========================================================
        HERO SECTION (Now Full-Screen Video)
@@ -194,7 +192,6 @@ const roadServicesData = [
        ========================================================= -->
        
   <AnimatedShowcase 
-    client:visible 
     subtitle="Project Lifecycle" 
     title="Core Deliverables" 
     data={roadServicesData} 

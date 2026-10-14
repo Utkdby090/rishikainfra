@@ -1,10 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
+import Navbar from '../../components/Navbar.astro';
 import Differentiators from '../../components/shared/Differentiators.astro';
-import AnimatedShowcase from '../../components/islands/AnimatedShowcase';
-
-// DATA ARRAYS FOR THE INTERACTIVE SHOWCASES
+import AnimatedShowcase from '../../components/AnimatedShowcase.astro';
 const applicationsData = [
   {
     id: 'highway',
@@ -77,7 +75,7 @@ const outputData = [
 ---
 
 <Layout title="Geospatial Mapping & LiDAR | Rishika Infra">
-  <Navbar client:load />
+  <Navbar />
 
   <!-- =========================================================
        HERO SECTION (Now Full-Screen Video)
@@ -219,14 +217,12 @@ const outputData = [
        ========================================================= -->
        
   <AnimatedShowcase 
-    client:visible 
     subtitle="Industries Served" 
     title="Key Applications" 
     data={applicationsData} 
   />
 
   <AnimatedShowcase 
-    client:visible 
     subtitle="Deliverables" 
     title="Output Data" 
     data={outputData} 

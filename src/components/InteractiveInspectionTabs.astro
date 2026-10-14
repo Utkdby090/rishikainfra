@@ -1,0 +1,126 @@
+---
+const ICON_DIR = '/images/our solutions/powerGridInspection/icons&images';
+
+const TAB_DATA = [
+  {
+    id: 'visual',
+    title: 'Power Grid Inspection',
+    icon: `${ICON_DIR}/powerLineDRoneInspection.png`,
+    iconAlt: 'Visual Inspection',
+    image: '/images/our solutions/powerGridInspection/rotationimages/dronepowergridinspection.jpg',
+    heading: 'External aerial inspections',
+    description: 'We utilize high-resolution RGB cameras with optical zoom to capture incredibly detailed visual data from safe standoff distances. This approach allows us to inspect conductors, jumper connections, and tower hardware fittings without requiring personnel to climb structures or work near energized equipment.',
+  },
+  {
+    id: 'thermal',
+    title: 'Thermal Inspection',
+    icon: `${ICON_DIR}/ThermalInspection.png`,
+    iconAlt: 'Thermal Diagnostics',
+    image: '/images/our solutions/powerGridInspection/rotationimages/ThermalInspectionDrone.webp',
+    heading: 'Thermography & Hotspot Detection',
+    description: 'Thermal imaging enables us to detect hidden faults that are not visible to the naked eye. By deploying radiometric thermal sensors, our drones can identify thermal anomalies in dead-end joints, mid-span compression joints, and transformer equipment, allowing for rapid preventive maintenance before critical failures occur.',
+  },
+  {
+    id: 'substation',
+    title: 'Substation Inspections',
+    icon: `${ICON_DIR}/substationInspection.png`,
+    iconAlt: 'Substation Inspections',
+    image: '/images/our solutions/powerGridInspection/rotationimages/substationInspectionDrone.jpg',
+    heading: 'Substation condition monitoring',
+    description: 'Comprehensive structural inspections and equipment condition monitoring inside high-voltage substations. Our Type-Certified SURVEYXK platforms can safely navigate complex environments to deliver precise defect identification and actionable insights without requiring operational downtime.',
+  },
+];
+const first = TAB_DATA[0].id;
+---
+
+<div class="w-full bg-[#F8F9FA] py-20 border-y border-gray-200" data-tabs>
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+
+    <!-- Navigation Diagram -->
+    <div class="relative mb-20 max-w-5xl mx-auto">
+      <!-- Connecting Line -->
+      <div class="absolute top-8 left-[10%] right-[10%] h-[2px] bg-gray-300 z-0 border-t border-dashed border-gray-400"></div>
+
+      <div class="flex justify-between relative z-10" role="tablist" aria-label="Inspection types">
+        {TAB_DATA.map((tab) => (
+          <button
+            type="button"
+            role="tab"
+            id={`${tab.id}-tab`}
+            aria-controls={`${tab.id}-panel`}
+            aria-selected={tab.id === first ? 'true' : 'false'}
+            tabindex={tab.id === first ? 0 : -1}
+            data-tab={tab.id}
+            class="flex flex-col items-center group w-1/4"
+          >
+            <!-- Node Icon -->
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-2xl transition-all duration-300 mb-4 shadow-sm border-4 bg-white border-transparent text-gray-400 group-aria-[selected=false]:group-hover:border-gray-300 group-aria-selected:border-[#FFC62F] group-aria-selected:scale-110">
+              <img
+                loading="lazy"
+                decoding="async"
+                src={tab.icon}
+                alt={tab.iconAlt}
+                class="w-11 h-11 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <!-- Node Label -->
+            <span class="text-sm font-semibold transition-colors duration-300 text-center px-2 text-gray-500 group-aria-[selected=false]:group-hover:text-gray-700 group-aria-selected:text-[#17212B]">
+              {tab.title}
+            </span>
+            <!-- Active Indicator Line -->
+            <div class="h-1 w-8 mt-2 transition-colors duration-300 bg-transparent group-aria-selected:bg-[#FFC62F]"></div>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    {TAB_DATA.map((tab) => (
+      <div
+        id={`${tab.id}-panel`}
+        role="tabpanel"
+        aria-labelledby={`${tab.id}-tab`}
+        data-panel={tab.id}
+        hidden={tab.id !== first}
+        class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto"
+      >
+        <!-- Image inside Circular Mask (Left) -->
+        <div class="relative w-full aspect-square max-w-[500px] mx-auto lg:ml-0 flex justify-center lg:justify-end">
+          <div data-animate="animate-panel-turn" class="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-8 border-white">
+            <img
+              loading="lazy"
+              decoding="async"
+              src={tab.image}
+              alt={tab.title}
+              class="w-full h-full object-cover"
+            />
+            <!-- Subtle gradient overlay for depth -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#17212B]/40 to-transparent"></div>
+          </div>
+
+          <!-- Decorative semi-circle outline -->
+          <div class="absolute -inset-6 border-2 border-dashed border-gray-300 rounded-full opacity-50 pointer-events-none -z-10"></div>
+        </div>
+
+        <!-- Text Content (Right) -->
+        <div class="text-center lg:text-left min-h-[250px] flex flex-col justify-center">
+          <div data-animate="animate-panel-slide">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#17212B] mb-6">
+              {tab.heading}
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              {tab.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+
+  </div>
+</div>
+
+<script>
+  import { initTabs } from '../scripts/tabs';
+
+  initTabs();
+</script>

@@ -1,14 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
+import Navbar from '../../components/Navbar.astro';
 import SolutionsGrid from '../../components/shared/SolutionsGrid.astro';
 import Differentiators from '../../components/shared/Differentiators.astro';
-import NewsSlider from '../../components/islands/NewsSlider';
-import InteractiveInspectionTabs from '../../components/islands/InteractiveInspectionTabs';
+import NewsSlider from '../../components/NewsSlider.astro';
+import InteractiveInspectionTabs from '../../components/InteractiveInspectionTabs.astro';
 ---
 
 <Layout title="Powerline Inspection | Rishika Infra">
-  <Navbar client:load />
+  <Navbar />
 
   <!-- =========================================================
        HERO (Video Background)
@@ -182,7 +182,7 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
   <!-- =========================================================
        INTERACTIVE INSPECTION VIEWER
        ========================================================= -->
-  <InteractiveInspectionTabs client:visible />
+  <InteractiveInspectionTabs />
 
   <!-- =========================================================
        EXPERT EYES
@@ -294,6 +294,6 @@ import InteractiveInspectionTabs from '../../components/islands/InteractiveInspe
        SHARED SECTIONS
        ========================================================= -->
   <Differentiators />
-  <NewsSlider client:visible />
+  <NewsSlider />
 
 </Layout>

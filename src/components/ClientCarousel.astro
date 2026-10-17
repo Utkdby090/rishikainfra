@@ -5,19 +5,18 @@ const CLIENTS = [
   { name: 'SpaGe', src: '/images/clients/spage.png' },
   { name: 'KEC', src: '/images/clients/kec.png' },
   { name: 'L&T Construction', src: '/images/clients/lt.png' },
-  { name: 'Kalpataru', src: '/images/clients/kalpataru.png' },
   { name: 'Skipper Limited', src: '/images/clients/skipper.png' },
   { name: 'Bajel', src: '/images/clients/bajel.png' },
 ];
 ---
 
-<!-- Logos glide continuously (pure CSS). The list is rendered four times so that half
+<!-- Logos glide continuously (pure CSS). The list is rendered six times so that half
      the track is wider than any screen and the loop is seamless; the extra copies
      are hidden from screen readers. Hovering or focusing
      pauses it, and reduced-motion visitors get a static, wrapping row. -->
 <div class="client-marquee relative flex h-[120px] w-full items-center overflow-hidden border-b border-gray-200 bg-white" role="region" aria-label="Our clients">
   <div class="marquee-track flex w-max items-center">
-    {[0, 1, 2, 3].map((copy) => (
+    {[0, 1, 2, 3, 4, 5].map((copy) => (
       <ul class="flex shrink-0 items-center gap-12 pr-12 md:gap-20 md:pr-20" aria-hidden={copy > 0 ? 'true' : undefined}>
         {CLIENTS.map((client) => (
           <li class="flex h-16 w-32 shrink-0 items-center justify-center">
@@ -64,7 +63,7 @@ const CLIENTS = [
   .client-marquee[data-paused] .marquee-track {
     animation-play-state: paused;
   }
-  /* Copies are identical (logos plus trailing gap), so -50% lands exactly where copy 3 starts */
+  /* Copies are identical (logos plus trailing gap), so -50% lands exactly where copy 4 starts */
   @keyframes marquee {
     to { transform: translateX(-50%); }
   }

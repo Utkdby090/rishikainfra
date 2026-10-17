@@ -72,3 +72,58 @@ html {
     animation: none;
   }
 }
+
+/* Card hover depth: a soft yellow edge glow (also on keyboard focus). The card's own
+   transition utilities animate it, so entrance animations on the same element still work. */
+.card-glow:hover,
+.card-glow:focus-visible {
+  box-shadow:
+    0 24px 48px -16px rgb(0 0 0 / 0.45),
+    0 0 0 1px rgb(255 198 47 / 0.55),
+    0 0 36px -6px rgb(255 198 47 / 0.45);
+}
+
+/* Reading progress bar along the top edge. Driven by scroll position in CSS, so
+   it costs no JavaScript; browsers without scroll-driven animations just don't show it. */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 70;
+  pointer-events: none;
+  background: var(--color-brand-yellow);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  view-transition-name: scroll-progress;
+}
+@supports (animation-timeline: scroll()) {
+  /* Longhands on purpose: the CSS minifier folds a shorthand + animation-timeline
+     into one shorthand, which Chrome rejects. */
+  .scroll-progress {
+    animation-name: grow-progress;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-duration: auto;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes grow-progress {
+  to { transform: scaleX(1); }
+}
+
+/* Smooth page-to-page cross-fade (cross-document view transitions, no JavaScript).
+   Browsers without support navigate as before. The header keeps its own name so it
+   stays put instead of fading. */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

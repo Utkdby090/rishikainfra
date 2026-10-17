@@ -1,0 +1,89 @@
+---
+interface Props {
+  src: string;
+  poster?: string;
+  /** Button text, also used as the dialog's accessible name */
+  label?: string;
+}
+
+const { src, poster, label = 'Watch showreel' } = Astro.props;
+---
+
+<!-- "Play" button that opens the video full-screen in a native <dialog>: Escape,
+     the close button or a click on the backdrop closes it, and focus returns to
+     the button. The video only downloads once the visitor asks for it. -->
+<div data-lightbox class="contents">
+  <button
+    type="button"
+    data-lightbox-open
+    class="group inline-flex items-center gap-3 rounded-full px-2 py-2 pr-5 text-[15px] font-bold text-white transition-colors hover:text-brand-yellow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
+  >
+    <span class="relative flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand-yellow bg-black/20 backdrop-blur-sm transition-colors group-hover:bg-brand-yellow group-hover:text-brand-ink">
+      <span class="lightbox-ring absolute inset-0 rounded-full border-2 border-brand-yellow" aria-hidden="true"></span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9.5-5.5z"/></svg>
+    </span>
+    {label}
+  </button>
+
+  <dialog
+    data-lightbox-dialog
+    aria-label={label}
+    class="m-auto w-[min(92vw,1100px)] overflow-visible bg-transparent p-0 backdrop:bg-brand-ink-darker/90 backdrop:backdrop-blur-sm"
+  >
+    <div class="relative">
+      <button
+        type="button"
+        data-lightbox-close
+        class="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand-yellow hover:text-brand-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
+        aria-label="Close video"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <video
+        data-lightbox-video
+        class="aspect-video w-full rounded-2xl bg-black shadow-2xl"
+        controls
+        playsinline
+        preload="none"
+        poster={poster}
+        data-src={src}
+      ></video>
+    </div>
+  </dialog>
+</div>
+
+<style>
+  .lightbox-ring {
+    animation: lightbox-ring 2s ease-out infinite;
+  }
+  @keyframes lightbox-ring {
+    from { scale: 1; opacity: 0.8; }
+    to { scale: 1.5; opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lightbox-ring {
+      animation: none;
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-lightbox]').forEach((root) => {
+    const dialog = root.querySelector<HTMLDialogElement>('[data-lightbox-dialog]')!;
+    const video = root.querySelector<HTMLVideoElement>('[data-lightbox-video]')!;
+
+    root.querySelector('[data-lightbox-open]')!.addEventListener('click', () => {
+      // Attach the source on first open so the page never downloads the video up front
+      if (!video.getAttribute('src')) video.src = video.dataset.src!;
+      dialog.showModal();
+      video.play().catch(() => {});
+    });
+    root.querySelector('[data-lightbox-close]')!.addEventListener('click', () => dialog.close());
+    // A click outside the video lands on the dialog element itself (its backdrop)
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', () => video.pause());
+  });
+</script>

@@ -40,9 +40,10 @@ const first = TAB_DATA[0].id;
     <!-- Navigation Diagram -->
     <div class="relative mb-20 max-w-5xl mx-auto">
       <!-- Connecting Line -->
-      <div class="absolute top-8 left-[10%] right-[10%] h-[2px] bg-gray-300 z-0 border-t border-dashed border-gray-400"></div>
+      <!-- Runs from the first icon's centre to the last (three equal columns) -->
+      <div class="absolute top-8 left-[16.667%] right-[16.667%] h-[2px] bg-gray-300 z-0 border-t border-dashed border-gray-400"></div>
 
-      <div class="flex justify-between relative z-10" role="tablist" aria-label="Inspection types">
+      <div class="grid grid-cols-3 relative z-10" role="tablist" aria-label="Inspection types">
         {TAB_DATA.map((tab) => (
           <button
             type="button"
@@ -52,7 +53,7 @@ const first = TAB_DATA[0].id;
             aria-selected={tab.id === first ? 'true' : 'false'}
             tabindex={tab.id === first ? 0 : -1}
             data-tab={tab.id}
-            class="flex flex-col items-center group w-1/4"
+            class="flex flex-col items-center group"
           >
             <!-- Node Icon -->
             <div class="w-16 h-16 rounded-full flex items-center justify-center text-2xl transition-all duration-300 mb-4 shadow-sm border-4 bg-white border-transparent text-gray-400 group-aria-[selected=false]:group-hover:border-gray-300 group-aria-selected:border-brand-yellow group-aria-selected:scale-110">

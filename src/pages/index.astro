@@ -5,6 +5,10 @@ import ClientCarousel from "../components/ClientCarousel.astro";
 import SolutionsGrid from "../components/shared/SolutionsGrid.astro";
 import FleetAndEquipment from "../components/shared/FleetAndEquipment.astro";
 import Differentiators from "../components/shared/Differentiators.astro";
+import StatsBand from "../components/StatsBand.astro";
+import ProjectMap from "../components/ProjectMap.astro";
+import CaseStudies from "../components/CaseStudies.astro";
+import VideoLightbox from "../components/VideoLightbox.astro";
 ---
 
 <Layout description="Rishika Infra delivers drone inspections, LiDAR mapping and AI analytics for power grids, renewables, roads and telecom towers across India." title="Rishika Infra | Aerial Inspection & GIS">
@@ -57,7 +61,7 @@ import Differentiators from "../components/shared/Differentiators.astro";
     <div
       class="relative z-10 mx-auto flex min-h-screen max-w-[1440px] items-center px-6 pb-24 pt-28 lg:px-16 pointer-events-none"
     >
-      <div class="max-w-[760px] pointer-events-auto">
+      <div class="min-w-0 max-w-[760px] pointer-events-auto">
         <h1
           class="max-w-[730px] text-[48px] font-extrabold leading-[1.02] tracking-[-0.035em] text-white sm:text-[58px] md:text-[68px] lg:text-[72px]"
         >
@@ -80,13 +84,14 @@ import Differentiators from "../components/shared/Differentiators.astro";
           reduced downtime, enhanced safety, and smarter decisions.
         </p>
 
-        <div class="mt-9">
+        <div class="mt-9 flex flex-wrap items-center gap-6">
           <a
             href="/contact"
             class="inline-flex items-center justify-center rounded-full bg-brand-yellow px-9 py-4 text-[15px] font-bold text-brand-ink transition-all hover:bg-brand-yellow-light hover:shadow-xl hover:-translate-y-0.5"
           >
             Get in touch
           </a>
+          <VideoLightbox src="/videos/WebsiteVideo.mp4" poster="/videos/WebsiteVideo-poster.webp" />
         </div>
       </div>
     </div>
@@ -153,6 +158,11 @@ import Differentiators from "../components/shared/Differentiators.astro";
       
     </div>
   </section>
+
+  <!-- =========================================================
+       IN NUMBERS
+       ========================================================= -->
+  <StatsBand />
 
   <!-- =========================================================
        SOLUTIONS
@@ -266,6 +276,12 @@ import Differentiators from "../components/shared/Differentiators.astro";
 
     </div>
   </section>
+
+  <!-- =========================================================
+       PROJECT MAP + CASE STUDIES
+       ========================================================= -->
+  <ProjectMap />
+  <CaseStudies />
 
   <!-- =========================================================
        DIFFERENTIATORS (WHY RISHIKA)

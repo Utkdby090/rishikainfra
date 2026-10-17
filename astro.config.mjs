@@ -8,6 +8,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://rishikainfra.com',
   output: 'static',
+  // Serve hashed build files from /assets/ rather than the default /_astro/
+  build: { assets: 'assets' },
   security: {
     // Emits a per-page CSP <meta> with hashes for Astro's scripts.
     // Styles keep 'unsafe-inline' because React islands use inline style attributes.

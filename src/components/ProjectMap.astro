@@ -1,14 +1,6 @@
 ---
-import { PROJECTS, type Sector } from '../data/highlights';
+import { PROJECTS } from '../data/highlights';
 import { INDIA_OUTLINE, toMapPercent } from '../data/indiaOutline';
-
-const SECTOR_LABEL: Record<Sector, string> = {
-  Power: 'Power & transmission',
-  Renewables: 'Renewables',
-  Roads: 'Roads & infrastructure',
-  Telecom: 'Telecom',
-  Mapping: 'Geospatial & LiDAR',
-};
 
 const pins = PROJECTS.map((project, i) => ({ ...project, id: `project-${i}`, ...toMapPercent(project.lon, project.lat) }));
 ---
@@ -22,12 +14,13 @@ const pins = PROJECTS.map((project, i) => ({ ...project, id: `project-${i}`, ...
         Projects across India
       </h2>
       <p class="text-[17px] leading-relaxed text-white/70 mb-8">
-        From transmission corridors in the north to telecom networks in the north-east, our crews deliver
-        inspection and mapping data wherever your assets are. Hover or tap a pin to see the project.
+        From 765 kV corridors across Rajasthan and Gujarat to the lines around Kurnool and Hyderabad, our crews
+        deliver visual and thermal inspection data wherever your assets are. Hover or tap a pin to see the project.
       </p>
 
       <!-- The same projects as a list, for keyboard and screen-reader users and small screens -->
-      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+      <!-- Scrolls on large screens so the list stays beside the map -->
+      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 lg:max-h-[520px] lg:overflow-y-auto lg:pr-2 project-list">
         {pins.map((pin) => (
           <li>
             <button
@@ -38,6 +31,7 @@ const pins = PROJECTS.map((project, i) => ({ ...project, id: `project-${i}`, ...
               <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-yellow" aria-hidden="true"></span>
               <span>
                 <span class="block text-sm font-bold text-white">{pin.title}</span>
+                <span class="block text-xs text-brand-yellow">{pin.service}{pin.client && ` · ${pin.client}`}</span>
                 <span class="block text-xs text-white/70">{pin.place} · {pin.metric}</span>
               </span>
             </button>
@@ -63,11 +57,11 @@ const pins = PROJECTS.map((project, i) => ({ ...project, id: `project-${i}`, ...
             <span class="map-pin-pulse absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-yellow/40" aria-hidden="true"></span>
             <span class="absolute left-1/2 top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand-ink bg-brand-yellow shadow-[0_0_12px_rgba(255,198,47,0.9)]" aria-hidden="true"></span>
             <!-- Card shown while the pin (or its list entry) is hovered or focused -->
-            <div class:list={['map-card pointer-events-none absolute bottom-5 z-10 w-56 rounded-xl bg-white p-4 text-left shadow-2xl', pin.left > 60 ? 'right-0 translate-x-4' : 'left-0 -translate-x-4']} aria-hidden="true">
-              <p class="text-[11px] font-bold uppercase tracking-widest text-brand-amber">{SECTOR_LABEL[pin.sector]}</p>
+            <div class:list={['map-card pointer-events-none absolute bottom-5 z-10 w-64 rounded-xl bg-white p-4 text-left shadow-2xl', pin.left > 60 ? 'right-0 translate-x-4' : 'left-0 -translate-x-4']} aria-hidden="true">
+              <p class="text-[11px] font-bold uppercase tracking-widest text-brand-amber">{pin.service}{pin.code && ` · ${pin.code}`}</p>
               <p class="mt-1 text-sm font-bold text-brand-ink">{pin.title}</p>
-              <p class="mt-1 text-xs text-gray-600">{pin.place}</p>
-              <p class="mt-2 text-lg font-extrabold text-brand-ink">{pin.metric}</p>
+              <p class="mt-1 text-xs text-gray-600">{pin.client ? `${pin.client} · ${pin.place}` : pin.place}</p>
+              <p class="mt-2 text-base font-extrabold text-brand-ink">{pin.metric}</p>
             </div>
           </div>
         ))}
@@ -80,6 +74,10 @@ const pins = PROJECTS.map((project, i) => ({ ...project, id: `project-${i}`, ...
 </section>
 
 <style>
+  .project-list {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.25) transparent;
+  }
   .map-pin {
     width: 0;
     height: 0;

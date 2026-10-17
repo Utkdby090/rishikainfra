@@ -3,9 +3,9 @@ export const SITE_CONFIG = {
   tagline: "Professional Aerial Inspection, GIS & Asset Management Solutions",
   description: "Enterprise drone inspections, LiDAR geospatial mapping, and radiometric thermal diagnostics for powerlines, renewables, and civil infrastructure.",
   contact: {
-    address: "C-828, Tower C Alpha Thum, Sec-90, Near Biodiversity Park, Noida - 201305",
+    address: "C-914, Bhutani Alphathum, Sector-90, Noida, Uttar Pradesh, 201304",
     phone: "+91 9811331744",
-    email: "Anurag.singh@rishikainfra.com",
+    email: "info@rishikainfra.com",
     website: "https://rishikainfra.com",
   },
   clients: [

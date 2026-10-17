@@ -6,7 +6,7 @@
         "http://localhost/",
         "http://localhost/services/powerline-inspection/",
         "http://localhost/contact/",
-        "http://localhost/news/grid-modernization/"
+        "http://localhost/about/"
       ],
       "numberOfRuns": 1,
       "settings": {

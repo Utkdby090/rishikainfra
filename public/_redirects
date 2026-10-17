@@ -1,0 +1,3 @@
+# The news section is archived on the archive/news-section branch; send old links home
+/news / 301
+/news/* / 301

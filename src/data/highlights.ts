@@ -43,17 +43,17 @@ export interface Project {
 // Pins on the same line are spread along its corridor so they do not overlap.
 const REAL_PROJECTS: Project[] = [
   { code: 'VI-01', title: '765 kV D/C Bhadla-II to Sikar-II (2nd)', client: 'L&T Construction', service: 'Visual inspection', place: 'Rajasthan', sector: 'Power', metric: '818 towers · 201 km', lon: 72.4, lat: 27.6 },
-  { code: 'TI-01', title: '765 kV D/C Bhadla-II to Sikar-II (2nd)', client: 'L&T Construction', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '526 towers, 231 MSJ & RS · 201 km', lon: 73.1, lat: 28.1 },
-  { code: 'TI-06', title: '765 kV D/C Bhadla-III to Sikar-II (Part I)', client: 'Bajel Projects', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '48 towers, 115 MSJ & RS · 109.37 km', lon: 73.4, lat: 27.2 },
-  { code: 'TI-08', title: '765 kV D/C Bhadla-III to Sikar-II (Part I)', client: 'Skipper Limited', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '136 towers, 137 MSJ & RS · 109.47 km', lon: 74.1, lat: 27.8 },
-  { code: 'TI-07', title: '765 kV D/C Bhadla-III to Sikar-II (Part II)', client: 'KEC International', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '71 towers, 131 MSJ & RS · 106.3 km', lon: 74.8, lat: 27.3 },
+  { code: 'TI-01', title: '765 kV D/C Bhadla-II to Sikar-II (2nd)', client: 'L&T Construction', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '526 towers · 201 km', lon: 73.1, lat: 28.1 },
+  { code: 'TI-06', title: '765 kV D/C Bhadla-III to Sikar-II (Part I)', client: 'Bajel Projects', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '48 towers · 109.37 km', lon: 73.4, lat: 27.2 },
+  { code: 'TI-08', title: '765 kV D/C Bhadla-III to Sikar-II (Part I)', client: 'Skipper Limited', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '136 towers · 109.47 km', lon: 74.1, lat: 27.8 },
+  { code: 'TI-07', title: '765 kV D/C Bhadla-III to Sikar-II (Part II)', client: 'KEC International', service: 'Thermal inspection', place: 'Rajasthan', sector: 'Power', metric: '71 towers · 106.3 km', lon: 74.8, lat: 27.3 },
   { code: 'VI-03', title: '765 kV Navsari to Padghe line', client: 'L&T Construction', service: 'Visual inspection', place: 'Valsad, Gujarat', sector: 'Power', metric: '357 towers · 129.19 km', lon: 72.5, lat: 21.0 },
-  { code: 'TI-03', title: '765 kV Navsari to Padghe line', client: 'L&T Construction', service: 'Thermal inspection', place: 'Valsad, Gujarat', sector: 'Power', metric: '357 towers, 69 MSJ, RS & EW · 129.19 km', lon: 73.3, lat: 20.6 },
+  { code: 'TI-03', title: '765 kV Navsari to Padghe line', client: 'L&T Construction', service: 'Thermal inspection', place: 'Valsad, Gujarat', sector: 'Power', metric: '357 towers · 129.19 km', lon: 73.3, lat: 20.6 },
   { code: 'VI-02', title: '765 kV Navsari to Padghe line', client: 'Bajel Projects', service: 'Visual inspection', place: 'Maharashtra', sector: 'Power', metric: '263 towers · 96.71 km', lon: 72.6, lat: 19.6 },
-  { code: 'TI-02', title: '765 kV Navsari to Padghe line', client: 'Bajel Projects', service: 'Thermal inspection', place: 'Maharashtra', sector: 'Power', metric: '263 towers, 88 MSJ & RS · 96.71 km', lon: 73.5, lat: 19.2 },
+  { code: 'TI-02', title: '765 kV Navsari to Padghe line', client: 'Bajel Projects', service: 'Thermal inspection', place: 'Maharashtra', sector: 'Power', metric: '263 towers · 96.71 km', lon: 73.5, lat: 19.2 },
   { code: 'VI-05', title: '765 kV D/C Kurnool-II PS to Maheshwaram SS (TW-03)', client: 'L&T Construction', service: 'Visual inspection', place: 'Telangana', sector: 'Power', metric: '336 towers · 125.6 km', lon: 77.9, lat: 17.0 },
-  { code: 'TI-05', title: '765 kV D/C Kurnool-II PS to Maheshwaram SS (TW-03)', client: 'L&T Construction', service: 'Thermal inspection', place: 'Telangana', sector: 'Power', metric: '336 towers, 168 MSJ & RS · 124.97 km', lon: 78.8, lat: 16.6 },
-  { code: 'TI-04', title: '765 kV Kurnool-III to Oravakal SS (TW-01)', client: 'Skipper Limited', service: 'Thermal inspection', place: 'Kurnool, Andhra Pradesh', sector: 'Power', metric: '301 towers, MSJ, RS & EW · 112.76 km', lon: 77.6, lat: 15.6 },
+  { code: 'TI-05', title: '765 kV D/C Kurnool-II PS to Maheshwaram SS (TW-03)', client: 'L&T Construction', service: 'Thermal inspection', place: 'Telangana', sector: 'Power', metric: '336 towers · 124.97 km', lon: 78.8, lat: 16.6 },
+  { code: 'TI-04', title: '765 kV Kurnool-III to Oravakal SS (TW-01)', client: 'Skipper Limited', service: 'Thermal inspection', place: 'Kurnool, Andhra Pradesh', sector: 'Power', metric: '301 towers · 112.76 km', lon: 77.6, lat: 15.6 },
   { code: 'TI-04', title: '765 kV Kurnool-III to Oravakal SS (TW-02)', client: 'Skipper Limited', service: 'Thermal inspection', place: 'Kurnool, Andhra Pradesh', sector: 'Power', metric: '128.92 km', lon: 78.5, lat: 15.2 },
 ];
 

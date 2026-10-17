@@ -17,8 +17,11 @@ interface Props {
 
 const { subtitle, title, data } = Astro.props;
 const first = data[0]?.id;
-// Width of the yellow progress line for a given step (0 when there is only one)
-const progress = (index: number) => (data.length > 1 ? (index / (data.length - 1)) * 100 : 0);
+// Each step gets an equal-width column with its dot centred, so dot i sits at
+// (i + 0.5) / n of the row. The track runs from the first dot to the last and
+// the yellow fill is i / n of the row wide, ending exactly on the active dot.
+const steps = Math.max(data.length, 1);
+const fill = (index: number) => `${(index / steps) * 100}%`;
 ---
 
 <div class="w-full bg-brand-ink py-24 relative overflow-hidden border-t border-white/10" data-tabs data-showcase>
@@ -34,18 +37,18 @@ const progress = (index: number) => (data.length > 1 ? (index / (data.length - 1
       </h2>
 
       <!-- Interactive Progress Navigation -->
-      <div class="relative max-w-4xl mx-auto mb-16">
+      <div class="relative max-w-4xl mx-auto mb-16" style={`--edge: ${50 / steps}%`}>
         <!-- Background Track Line -->
-        <div class="absolute top-[11px] left-8 right-8 h-[2px] bg-gray-700 z-0"></div>
+        <div class="absolute top-[11px] left-(--edge) right-(--edge) h-[2px] bg-gray-700 z-0"></div>
 
         <!-- Animated Yellow Fill Line -->
         <div
           data-progress
-          class="absolute top-[11px] left-8 h-[2px] bg-brand-yellow z-0 transition-all duration-500 ease-out"
-          style={`width: calc(${progress(0)}% - 4rem)`}
+          class="absolute top-[11px] left-(--edge) h-[2px] bg-brand-yellow z-0 transition-[width] duration-500 ease-out"
+          style={`width: ${fill(0)}`}
         ></div>
 
-        <div class="flex justify-between relative z-10" role="tablist" aria-label={title}>
+        <div class="grid relative z-10" style={`grid-template-columns: repeat(${steps}, minmax(0, 1fr))`} role="tablist" aria-label={title}>
           {data.map((tab, i) => (
             <button
               type="button"
@@ -55,14 +58,14 @@ const progress = (index: number) => (data.length > 1 ? (index / (data.length - 1
               aria-selected={tab.id === first ? 'true' : 'false'}
               tabindex={tab.id === first ? 0 : -1}
               data-tab={tab.id}
-              data-progress-value={progress(i)}
-              class="group flex flex-col items-center"
+              data-fill={fill(i)}
+              class="group flex flex-col items-center px-1"
             >
               <!-- Node Dot -->
               <div class="w-6 h-6 rounded-full border-4 flex items-center justify-center mb-4 transition-colors duration-300 border-brand-ink bg-gray-700 group-aria-[selected=false]:group-hover:bg-gray-500 group-aria-selected:bg-brand-yellow group-aria-selected:shadow-[0_0_15px_rgba(255,198,47,0.5)]"></div>
 
               <!-- Node Label -->
-              <span class="text-sm font-bold tracking-widest uppercase transition-colors duration-300 text-gray-400 group-aria-[selected=false]:group-hover:text-gray-200 group-aria-selected:text-brand-yellow">
+              <span class="text-[9px] leading-tight sm:text-sm text-center font-bold tracking-normal sm:tracking-widest [overflow-wrap:anywhere] uppercase transition-colors duration-300 text-gray-400 group-aria-[selected=false]:group-hover:text-gray-200 group-aria-selected:text-brand-yellow">
                 {tab.tabLabel}
               </span>
             </button>
@@ -127,7 +130,7 @@ const progress = (index: number) => (data.length > 1 ? (index / (data.length - 1
     const line = root.querySelector<HTMLElement>('[data-progress]');
     root.addEventListener('tabchange', (e) => {
       const tab = root.querySelector<HTMLElement>(`[data-tab="${(e as CustomEvent<string>).detail}"]`);
-      if (line && tab) line.style.width = `calc(${tab.dataset.progressValue}% - 4rem)`;
+      if (line && tab) line.style.width = tab.dataset.fill!;
     });
   });
 </script>

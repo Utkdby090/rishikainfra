@@ -1,5 +1,6 @@
 ---
 import Img from '../../components/shared/Img.astro';
+import CompareSlider from '../../components/CompareSlider.astro';
 import Layout from '../../layouts/Layout.astro';
 import Differentiators from '../../components/shared/Differentiators.astro';
 import AnimatedShowcase from '../../components/AnimatedShowcase.astro';
@@ -206,6 +207,28 @@ const renewablesData = [
     title="Powering Renewables" 
     data={renewablesData} 
   />
+
+  <!-- =========================================================
+       VISUAL VS THERMAL COMPARISON
+       SAMPLE IMAGE PAIR: the thermal view is a false-colour render of the same
+       photo. Replace both with a real RGB + radiometric capture of one scene.
+       ========================================================= -->
+  <section class="bg-white py-24" aria-labelledby="thermal-compare-title">
+    <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+      <div class="mx-auto mb-12 max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-brand-amber mb-4">See what the eye misses</p>
+        <h2 id="thermal-compare-title" class="text-4xl md:text-5xl font-extrabold text-brand-ink mb-5">Visual vs thermal, side by side</h2>
+        <p class="text-lg text-gray-600">Drag the handle across the array. Thermal imaging shows hotspots, failed bypass diodes and soiling that look perfectly normal in a standard photo.</p>
+      </div>
+      <div class="mx-auto max-w-5xl">
+        <CompareSlider
+          label="Compare the visual and thermal views of the solar array"
+          before={{ src: '/images/our solutions/solarinspection/solarpanel.jpg', alt: 'Solar array in a standard photo', label: 'Visual' }}
+          after={{ src: '/images/our solutions/solarinspection/solarpanel-thermal-sample.jpg', alt: 'The same solar array in a thermal view', label: 'Thermal' }}
+        />
+      </div>
+    </div>
+  </section>
 
   <!-- =========================================================
        SHARED SECTIONS

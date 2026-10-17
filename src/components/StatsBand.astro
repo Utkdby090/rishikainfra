@@ -1,0 +1,51 @@
+---
+import { STATS } from '../data/highlights';
+const format = (n: number) => n.toLocaleString('en-IN');
+---
+
+<section class="bg-brand-ink border-y border-white/10" aria-label="Rishika Infra in numbers">
+  <dl class="mx-auto grid max-w-[1440px] grid-cols-2 gap-y-10 px-6 py-14 lg:grid-cols-4 lg:px-16">
+    {STATS.map((stat) => (
+      <div class="flex flex-col items-center text-center lg:border-l lg:border-white/10 lg:first:border-l-0">
+        <dt class="order-2 mt-2 text-xs font-bold uppercase tracking-[0.2em] text-white/70 sm:text-sm">{stat.label}</dt>
+        <dd class="order-1 text-4xl font-extrabold tracking-tight text-brand-yellow tabular-nums sm:text-5xl">
+          <!-- Final value is in the HTML; the script counts up to it once the band is on screen -->
+          <span data-count={stat.value}>{format(stat.value)}</span>{stat.suffix}
+        </dd>
+      </div>
+    ))}
+  </dl>
+</section>
+
+<script>
+  const DURATION = 1600;
+  const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (counters.length && !reduceMotion && 'IntersectionObserver' in window) {
+    const format = new Intl.NumberFormat('en-IN');
+    const countUp = (el: HTMLElement) => {
+      const target = Number(el.dataset.count);
+      const start = performance.now();
+      const tick = (now: number) => {
+        const t = Math.min((now - start) / DURATION, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = format.format(Math.round(target * eased));
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          observer.unobserve(entry.target);
+          countUp(entry.target as HTMLElement);
+        }
+      },
+      { threshold: 0.6 },
+    );
+    counters.forEach((el) => observer.observe(el));
+  }
+</script>

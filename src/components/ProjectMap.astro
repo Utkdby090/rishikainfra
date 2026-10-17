@@ -1,0 +1,142 @@
+---
+import { PROJECTS, type Sector } from '../data/highlights';
+import { INDIA_OUTLINE, toMapPercent } from '../data/indiaOutline';
+
+const SECTOR_LABEL: Record<Sector, string> = {
+  Power: 'Power & transmission',
+  Renewables: 'Renewables',
+  Roads: 'Roads & infrastructure',
+  Telecom: 'Telecom',
+  Mapping: 'Geospatial & LiDAR',
+};
+
+const pins = PROJECTS.map((project, i) => ({ ...project, id: `project-${i}`, ...toMapPercent(project.lon, project.lat) }));
+---
+
+<section class="bg-brand-ink-deep py-24 overflow-hidden border-t border-white/10" aria-labelledby="project-map-title">
+  <div class="mx-auto grid max-w-[1440px] items-center gap-14 px-6 lg:grid-cols-12 lg:px-16">
+
+    <div class="lg:col-span-5">
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-brand-yellow mb-4">Where we fly</p>
+      <h2 id="project-map-title" class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+        Projects across India
+      </h2>
+      <p class="text-[17px] leading-relaxed text-white/70 mb-8">
+        From transmission corridors in the north to telecom networks in the north-east, our crews deliver
+        inspection and mapping data wherever your assets are. Hover or tap a pin to see the project.
+      </p>
+
+      <!-- The same projects as a list, for keyboard and screen-reader users and small screens -->
+      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+        {pins.map((pin) => (
+          <li>
+            <button
+              type="button"
+              data-pin-target={pin.id}
+              class="group flex w-full items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left transition-colors hover:border-brand-yellow/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-yellow"
+            >
+              <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-yellow" aria-hidden="true"></span>
+              <span>
+                <span class="block text-sm font-bold text-white">{pin.title}</span>
+                <span class="block text-xs text-white/70">{pin.place} · {pin.metric}</span>
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="lg:col-span-7">
+      <div class="project-map relative mx-auto w-full max-w-[620px]" style={`aspect-ratio: ${INDIA_OUTLINE.width} / ${INDIA_OUTLINE.height}`} data-project-map>
+        <svg viewBox={`0 0 ${INDIA_OUTLINE.width} ${INDIA_OUTLINE.height}`} class="absolute inset-0 h-full w-full" role="img" aria-label="Map of India showing Rishika Infra project locations">
+          <defs>
+            <pattern id="map-dots" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="7" cy="7" r="1.6" fill="rgb(255 255 255 / 0.18)" />
+            </pattern>
+          </defs>
+          <path d={INDIA_OUTLINE.path} fill="#1d2630" stroke="rgb(255 198 47 / 0.55)" stroke-width="2" stroke-linejoin="round" />
+          <path d={INDIA_OUTLINE.path} fill="url(#map-dots)" />
+        </svg>
+
+        {pins.map((pin) => (
+          <div class="map-pin absolute" style={`left: ${pin.left.toFixed(2)}%; top: ${pin.top.toFixed(2)}%`} data-pin={pin.id}>
+            <span class="map-pin-pulse absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-yellow/40" aria-hidden="true"></span>
+            <span class="absolute left-1/2 top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-brand-ink bg-brand-yellow shadow-[0_0_12px_rgba(255,198,47,0.9)]" aria-hidden="true"></span>
+            <!-- Card shown while the pin (or its list entry) is hovered or focused -->
+            <div class:list={['map-card pointer-events-none absolute bottom-5 z-10 w-56 rounded-xl bg-white p-4 text-left shadow-2xl', pin.left > 60 ? 'right-0 translate-x-4' : 'left-0 -translate-x-4']} aria-hidden="true">
+              <p class="text-[11px] font-bold uppercase tracking-widest text-brand-amber">{SECTOR_LABEL[pin.sector]}</p>
+              <p class="mt-1 text-sm font-bold text-brand-ink">{pin.title}</p>
+              <p class="mt-1 text-xs text-gray-600">{pin.place}</p>
+              <p class="mt-2 text-lg font-extrabold text-brand-ink">{pin.metric}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="mt-4 text-center text-[11px] text-white/50">
+        Map outline: <a class="underline hover:text-white" href="https://github.com/datameet/maps">DataMeet India community</a>, CC BY 4.0
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-pin {
+    width: 0;
+    height: 0;
+  }
+  .map-card {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .map-pin:hover .map-card,
+  .map-pin[data-active] .map-card {
+    opacity: 1;
+    transform: none;
+  }
+  .map-pin:hover,
+  .map-pin[data-active] {
+    z-index: 20;
+  }
+  /* Invisible hit area so the small pin is easy to hover */
+  .map-pin::before {
+    content: '';
+    position: absolute;
+    inset: -14px;
+  }
+  .map-pin-pulse {
+    animation: pin-pulse 2.4s ease-out infinite;
+  }
+  /* Uses the scale property so it composes with the centring translate utilities */
+  @keyframes pin-pulse {
+    0% { scale: 0.3; opacity: 0.9; }
+    100% { scale: 1.6; opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .map-pin-pulse {
+      animation: none;
+      opacity: 0.5;
+    }
+    .map-card {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Hovering or focusing a project in the list shows its card on the map
+  document.querySelectorAll<HTMLElement>('[data-project-map]').forEach((map) => {
+    const section = map.closest('section')!;
+    const show = (id: string | null) => {
+      map.querySelectorAll<HTMLElement>('[data-pin]').forEach((pin) => pin.toggleAttribute('data-active', pin.dataset.pin === id));
+    };
+    section.querySelectorAll<HTMLElement>('[data-pin-target]').forEach((button) => {
+      const id = button.dataset.pinTarget!;
+      button.addEventListener('mouseenter', () => show(id));
+      button.addEventListener('focus', () => show(id));
+      button.addEventListener('click', () => show(id));
+      button.addEventListener('mouseleave', () => show(null));
+      button.addEventListener('blur', () => show(null));
+    });
+  });
+</script>

@@ -1,0 +1,66 @@
+---
+import Img from './shared/Img.astro';
+
+interface Props {
+  /** Shown on the left of the handle */
+  before: { src: string; alt: string; label: string };
+  /** Shown on the right of the handle */
+  after: { src: string; alt: string; label: string };
+  /** Accessible name for the slider, e.g. "Compare visual and thermal views" */
+  label: string;
+  sizes?: string;
+}
+
+const { before, after, label, sizes = '(min-width: 1024px) 1100px, 100vw' } = Astro.props;
+---
+
+<!-- Drag (or use arrow keys on) the handle to reveal one image over the other.
+     A native range input does the work, so touch, mouse and keyboard all behave
+     the same and screen readers announce the position. -->
+<div class="compare relative aspect-[3/2] w-full select-none overflow-hidden rounded-2xl bg-brand-ink shadow-2xl" style="--pos: 50%" data-compare>
+  <Img src={after.src} alt={after.alt} sizes={sizes} loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" />
+  <div class="compare-before absolute inset-0">
+    <Img src={before.src} alt={before.alt} sizes={sizes} loading="lazy" decoding="async" class="h-full w-full object-cover" />
+  </div>
+
+  <span class="absolute left-4 top-4 rounded-full bg-brand-ink/80 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm">{before.label}</span>
+  <span class="absolute right-4 top-4 rounded-full bg-brand-ink/80 px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-yellow backdrop-blur-sm">{after.label}</span>
+
+  <!-- Handle -->
+  <div class="compare-handle pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-brand-yellow" aria-hidden="true">
+    <div class="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-yellow text-brand-ink shadow-[0_0_20px_rgba(255,198,47,0.6)]">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+    </div>
+  </div>
+
+  <input
+    type="range"
+    min="0"
+    max="100"
+    value="50"
+    step="1"
+    aria-label={label}
+    class="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
+  />
+</div>
+
+<style>
+  .compare-before {
+    clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+  }
+  .compare-handle {
+    left: var(--pos);
+  }
+  /* Show keyboard focus on the handle, since the real input is invisible */
+  .compare:has(input:focus-visible) .compare-handle > div {
+    outline: 3px solid white;
+    outline-offset: 3px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-compare]').forEach((root) => {
+    const input = root.querySelector('input')!;
+    input.addEventListener('input', () => root.style.setProperty('--pos', `${input.value}%`));
+  });
+</script>

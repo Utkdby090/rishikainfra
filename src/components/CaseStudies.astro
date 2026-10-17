@@ -1,0 +1,73 @@
+---
+import Img from './shared/Img.astro';
+import { CASE_STUDIES } from '../data/highlights';
+
+const sectors = [...new Set(CASE_STUDIES.map((study) => study.sector))];
+---
+
+<section class="bg-brand-mist py-24 border-t border-gray-200" aria-labelledby="case-studies-title" data-case-studies>
+  <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
+    <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.25em] text-brand-blue mb-2">Case studies</p>
+        <h2 id="case-studies-title" class="text-4xl font-bold text-brand-ink md:text-5xl">Results from the field</h2>
+      </div>
+
+      <!-- Sector filter: toggle buttons, so screen readers hear which one is on -->
+      <div class="flex flex-wrap gap-2" role="group" aria-label="Filter case studies by sector">
+        {['All', ...sectors].map((sector, i) => (
+          <button
+            type="button"
+            data-filter={sector}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+            class="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:border-brand-ink aria-pressed:border-brand-ink aria-pressed:bg-brand-ink aria-pressed:text-white"
+          >
+            {sector}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <ul class="grid gap-6 md:grid-cols-2">
+      {CASE_STUDIES.map((study) => (
+        <li data-sector={study.sector}>
+          <a href={study.href} class="card-glow group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-500 hover:-translate-y-1 sm:flex-row">
+            <div class="relative h-56 shrink-0 overflow-hidden sm:h-auto sm:w-2/5">
+              <Img src={study.image} alt="" sizes="(min-width: 768px) 280px, 100vw" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-ink-deep via-brand-ink-deep/85 to-transparent p-4 pt-16">
+                <p class="text-3xl font-extrabold text-brand-yellow">{study.metric.value}</p>
+                <p class="text-xs font-semibold text-white">{study.metric.label}</p>
+              </div>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <p class="text-[11px] font-bold uppercase tracking-widest text-brand-amber">{study.sector} · {study.client}</p>
+              <h3 class="mt-2 text-xl font-bold text-brand-ink">{study.title}</h3>
+              <dl class="mt-4 space-y-3 text-sm text-gray-600">
+                <div><dt class="font-bold text-brand-ink">Problem</dt><dd>{study.problem}</dd></div>
+                <div><dt class="font-bold text-brand-ink">What we flew</dt><dd>{study.approach}</dd></div>
+                <div><dt class="font-bold text-brand-ink">Result</dt><dd>{study.result}</dd></div>
+              </dl>
+              <span class="mt-auto pt-5 text-sm font-bold text-brand-blue">
+                See the service <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-case-studies]').forEach((root) => {
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-sector]')];
+    buttons.forEach((button) =>
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+        cards.forEach((card) => (card.hidden = filter !== 'All' && card.dataset.sector !== filter));
+      }),
+    );
+  });
+</script>

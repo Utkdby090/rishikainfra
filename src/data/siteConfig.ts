@@ -11,7 +11,6 @@ export const SITE_CONFIG = {
   clients: [
     { name: "POWERGRID", domain: "Transmission" },
     { name: "L&T Construction", domain: "Infrastructure" },
-    { name: "Kalpataru Projects International", domain: "Power & EPC" },
     { name: "KEC International", domain: "Infrastructure" },
     { name: "Bajel Projects", domain: "Power" },
     { name: "Skipper Limited", domain: "Towers & Structures" },

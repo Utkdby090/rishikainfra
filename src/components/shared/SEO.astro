@@ -1,40 +1,68 @@
 ---
+import { SITE_CONFIG } from '../../data/siteConfig';
+
 interface Props {
   title: string;
   description?: string;
   image?: string;
   canonicalURL?: string | URL;
   type?: 'website' | 'article';
+  /** Keep the page out of search results (thank-you, 404) */
+  noindex?: boolean;
+  /** Trail from the home page, e.g. [{ name: 'Services', path: '/services' }, ...] */
+  breadcrumbs?: { name: string; path: string }[];
+  /** Extra schema.org objects for this page (Service, Article, ...) */
+  schema?: Record<string, unknown>[];
 }
 
 const {
   title,
   // Default description if one isn't provided on the individual page
   description = "Rishika Infra provides enterprise-grade drone inspections, geospatial mapping, and AI-driven analytics for infrastructure and renewable energy.",
-  // Default sharing image (Create a cool 1200x630 banner and save it in the public folder later)
-  image = "/og-banner.jpg", 
+  // Default sharing image (1537x807 brand banner)
+  image = "/images/rishikainfra.jpg",
   canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://rishikainfra.com'),
   type = 'website',
+  noindex = false,
+  breadcrumbs = [],
+  schema = [],
 } = Astro.props;
 
+const SITE = Astro.site?.origin ?? 'https://rishikainfra.com';
+
 // JSON-LD Structured Data for Google Business Graph
-const structuredData = {
-  "@context": "https://schema.org",
+const organization = {
   "@type": "Organization",
+  "@id": `${SITE}/#organization`,
   "name": "Rishika Infra",
-  "url": "https://rishikainfra.com",
-  "logo": "https://rishikainfra.com/logo.png",
-  "description": description,
+  "url": SITE,
+  "logo": `${SITE}/images/Companylogo/rishikaLogo.png`,
+  "email": SITE_CONFIG.contact.email,
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+91-123-456-7890", // Update with your actual number
+    "telephone": SITE_CONFIG.contact.phone,
     "contactType": "customer service",
     "areaServed": "IN",
     "availableLanguage": ["English", "Hindi"]
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/rishikainfra" // Add your LinkedIn here
-  ]
+  }
+};
+
+const breadcrumbList = breadcrumbs.length
+  ? {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{ name: 'Home', path: '/' }, ...breadcrumbs].map((crumb, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": crumb.name,
+        // Match the trailing-slash URLs the site is served and canonicalised at
+        "item": new URL(crumb.path.replace(/\/?$/, '/'), SITE).href,
+      })),
+    }
+  : null;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [organization, breadcrumbList, ...schema].filter(Boolean),
 };
 ---
 
@@ -47,6 +75,7 @@ const structuredData = {
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, follow" />}
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Open Graph / Facebook / LinkedIn -->

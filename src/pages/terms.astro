@@ -1,17 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/islands/Navbar';
 ---
 
-<Layout hideCTA title="Terms & Conditions | Rishika Infra">
-  <Navbar client:load />
+<Layout solidHeader description="Terms and conditions for using the Rishika Infra website and services." hideCTA title="Terms & Conditions | Rishika Infra">
 
   <section class="pt-32 pb-24 bg-gray-50 min-h-screen">
     <div class="mx-auto max-w-[800px] px-6 lg:px-8 bg-white p-10 md:p-16 rounded-3xl shadow-sm border border-gray-100">
-      <h1 class="text-4xl font-extrabold text-[#17212B] mb-4">Terms & Conditions</h1>
+      <h1 class="text-4xl font-extrabold text-brand-ink mb-4">Terms & Conditions</h1>
       <p class="text-gray-500 mb-10">Last updated: {new Date().toLocaleDateString()}</p>
 
-      <div class="prose prose-lg text-gray-600 prose-headings:text-[#17212B] prose-a:text-[#0070BA]">
+      <div class="prose prose-lg text-gray-600 prose-headings:text-brand-ink prose-a:text-brand-blue">
         <p>
           Welcome to Rishika Infra. These terms and conditions outline the rules and regulations for the use of our Website and Services.
         </p>

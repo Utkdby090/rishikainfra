@@ -1,13 +1,14 @@
 ---
+import Img from './Img.astro';
 // Reusable Technology Fleet & Equipment Component
 ---
 
-<section class="bg-[#17212B] py-24 overflow-hidden border-t border-white/10">
+<section class="bg-brand-ink py-24 overflow-hidden border-t border-white/10">
   <div class="mx-auto max-w-[1440px] px-6 lg:px-16">
     
     <!-- Header -->
     <div class="repeat-animate mb-16 text-center md:text-left transition-all duration-1000 ease-out" data-transform="translateY(30px)">
-      <p class="text-sm font-bold uppercase tracking-[0.25em] text-[#FFC62F] mb-2">
+      <p class="text-sm font-bold uppercase tracking-[0.25em] text-brand-yellow mb-2">
         HARDWARE & SOFTWARE CAPABILITIES
       </p>
       <h2 class="text-4xl font-bold text-white md:text-5xl">
@@ -25,17 +26,17 @@
       <div class="repeat-animate transition-all duration-1000 ease-out delay-100" data-transform="translateY(40px)">
         {/* Uniform Image Sizing using aspect-[4/3] */}
         <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group bg-gray-800">
-          <img 
+          <Img loading="lazy" decoding="async" 
             src="/images/technologyFleet/drone.jpg" 
             alt="Enterprise Industrial Drone" 
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] to-transparent opacity-80"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-ink-deep to-transparent opacity-80"></div>
           <div class="absolute bottom-0 left-0 p-6 xl:p-8">
             <div class="flex items-center gap-3 mb-2">
-              <div class="w-10 h-10 rounded-full bg-[#FFC62F] flex items-center justify-center shadow-lg p-2">
+              <div class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center shadow-lg p-2">
                 <!-- Using your custom PNG logo -->
-                <img src="/images/fleetandequipment/powerLineDRoneInspection.png" alt="Drone Icon" class="w-full h-full object-contain" />
+                <Img sizes="40px" loading="lazy" decoding="async" src="/images/fleetandequipment/powerLineDRoneInspection.png" alt="Drone Icon" class="w-full h-full object-contain" />
               </div>
               <h3 class="text-xl xl:text-2xl font-bold text-white">Drone Platforms</h3>
             </div>
@@ -44,21 +45,21 @@
         
         <ul class="space-y-5 px-2">
           <li class="flex items-start gap-4 group">
-            <span class="text-[#FFC62F] mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
             <div>
               <h4 class="text-white font-bold text-lg">Type-Certified SURVEYXK</h4>
               <p class="text-white/60 text-sm mt-1 leading-relaxed">DGCA approved platforms for reliable, compliant industrial operations.</p>
             </div>
           </li>
           <li class="flex items-start gap-4 group">
-            <span class="text-[#FFC62F] mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
             <div>
               <h4 class="text-white font-bold text-lg">RTK-Enabled Sub-Centimeter Drones</h4>
               <p class="text-white/60 text-sm mt-1 leading-relaxed">Real-Time Kinematic positioning for absolute precision in geospatial mapping.</p>
             </div>
           </li>
           <li class="flex items-start gap-4 group">
-            <span class="text-[#FFC62F] mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
             <div>
               <h4 class="text-white font-bold text-lg">PPK-Enabled Systems</h4>
               <p class="text-white/60 text-sm mt-1 leading-relaxed">Post-Processed Kinematic capabilities for areas with limited network connectivity.</p>
@@ -71,15 +72,15 @@
       <div class="repeat-animate transition-all duration-1000 ease-out delay-300" data-transform="translateY(40px)">
         {/* Uniform Image Sizing using aspect-[4/3] */}
         <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group bg-gray-800">
-          <img 
+          <Img loading="lazy" decoding="async" 
             src="https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?q=80&w=1000&auto=format&fit=crop" 
             alt="Advanced Drone Camera Payload" 
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] to-transparent opacity-80"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-ink-deep to-transparent opacity-80"></div>
           <div class="absolute bottom-0 left-0 p-6 xl:p-8">
             <div class="flex items-center gap-3 mb-2">
-              <div class="w-10 h-10 rounded-full bg-[#FFC62F] flex items-center justify-center text-[#17212B] font-bold shadow-lg">
+              <div class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center text-brand-ink font-bold shadow-lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
               </div>
               <h3 class="text-xl xl:text-2xl font-bold text-white">Advanced Sensors</h3>
@@ -89,21 +90,21 @@
 
         <ul class="space-y-5 px-2">
           <li class="flex items-start gap-4 group">
-            <span class="text-[#FFC62F] mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
             <div>
               <h4 class="text-white font-bold text-lg">Thermal Imaging Cameras</h4>
               <p class="text-white/60 text-sm mt-1 leading-relaxed">Radiometric thermal sensors for hotspot detection in solar plants and power grids.</p>
             </div>
           </li>
           <li class="flex items-start gap-4 group">
-            <span class="text-[#FFC62F] mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
             <div>
               <h4 class="text-white font-bold text-lg">LiDAR & Mapping Sensors</h4>
               <p class="text-white/60 text-sm mt-1 leading-relaxed">Laser scanning payloads for high-density 3D terrain modeling and vegetation mapping.</p>
             </div>
           </li>
           <li class="flex items-start gap-4 group">
-            <span class="text-[#FFC62F] mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow mt-1 text-lg group-hover:scale-125 transition-transform">✓</span>
             <div>
               <h4 class="text-white font-bold text-lg">High-Resolution RGB & Zoom</h4>
               <p class="text-white/60 text-sm mt-1 leading-relaxed">Optical zoom cameras for capturing minute hardware defects from safe standoff distances.</p>
@@ -116,15 +117,15 @@
       <div class="repeat-animate transition-all duration-1000 ease-out delay-500" data-transform="translateY(40px)">
         {/* Uniform Image Sizing using aspect-[4/3] */}
         <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl border border-white/10 group bg-gray-800">
-          <img 
+          <Img loading="lazy" decoding="async" 
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
             alt="Data Analytics Interface" 
             class="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#101820] to-transparent opacity-80"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-ink-deep to-transparent opacity-80"></div>
           <div class="absolute bottom-0 left-0 p-6 xl:p-8">
             <div class="flex items-center gap-3 mb-2">
-              <div class="w-10 h-10 rounded-full bg-[#FFC62F] flex items-center justify-center text-[#17212B] font-bold shadow-lg">
+              <div class="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center text-brand-ink font-bold shadow-lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
               </div>
               <h3 class="text-xl xl:text-2xl font-bold text-white">Software & Analytics</h3>
@@ -134,23 +135,23 @@
 
         <ul class="space-y-6 px-2 pt-2">
           <li class="flex items-center gap-4 group">
-            <span class="text-[#FFC62F] text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow text-lg group-hover:scale-125 transition-transform">✓</span>
             <h4 class="text-white font-bold text-[17px]">Flight planning software</h4>
           </li>
           <li class="flex items-center gap-4 group">
-            <span class="text-[#FFC62F] text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow text-lg group-hover:scale-125 transition-transform">✓</span>
             <h4 class="text-white font-bold text-[17px]">GIS mapping platforms</h4>
           </li>
           <li class="flex items-center gap-4 group">
-            <span class="text-[#FFC62F] text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow text-lg group-hover:scale-125 transition-transform">✓</span>
             <h4 class="text-white font-bold text-[17px]">Inspection analytics tools</h4>
           </li>
           <li class="flex items-center gap-4 group">
-            <span class="text-[#FFC62F] text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow text-lg group-hover:scale-125 transition-transform">✓</span>
             <h4 class="text-white font-bold text-[17px]">Report generation systems</h4>
           </li>
           <li class="flex items-center gap-4 group">
-            <span class="text-[#FFC62F] text-lg group-hover:scale-125 transition-transform">✓</span>
+            <span class="text-brand-yellow text-lg group-hover:scale-125 transition-transform">✓</span>
             <h4 class="text-white font-bold text-[17px]">AI/ML Based software</h4>
           </li>
         </ul>

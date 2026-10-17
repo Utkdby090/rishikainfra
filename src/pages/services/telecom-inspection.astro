@@ -1,10 +1,8 @@
 ---
+import Img from '../../components/shared/Img.astro';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
 import Differentiators from '../../components/shared/Differentiators.astro';
-import AnimatedShowcase from '../../components/islands/AnimatedShowcase';
-
-// DATA ARRAY FOR THE INTERACTIVE SHOWCASE
+import AnimatedShowcase from '../../components/AnimatedShowcase.astro';
 const telecomData = [
   {
     id: 'structural',
@@ -41,15 +39,30 @@ const telecomData = [
 ];
 ---
 
-<Layout title="Telecom Tower Inspection | Rishika Infra">
-  <Navbar client:load />
+<Layout
+  title="Telecom Tower Inspection | Rishika Infra"
+  description="Drone inspection of telecom towers for structural assessment, antenna audits and corrosion monitoring to support maintenance planning."
+  breadcrumbs={[{ name: 'Telecom Tower Inspection', path: '/services/telecom-inspection' }]}
+  schema={[
+    {
+      '@type': 'Service',
+      name: 'Telecom Tower Inspection',
+      serviceType: 'Telecom Tower Inspection',
+      description: 'Drone inspection of telecom towers for structural assessment, antenna audits and corrosion monitoring to support maintenance planning.',
+      provider: { '@id': 'https://rishikainfra.com/#organization' },
+      areaServed: 'IN',
+    },
+  ]}
+>
 
   <!-- =========================================================
        HERO SECTION (Now Full-Screen Video)
        ========================================================= -->
-  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#1D2630]">
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-slate">
     {/* Video Background */}
-    <video 
+    <video
+      poster="/videos/telecomTower/telecomtower-poster.webp"
+      data-autopause
       class="absolute inset-0 h-full w-full object-cover  pointer-events-none scale-105" 
       autoplay 
       muted 
@@ -62,22 +75,22 @@ const telecomData = [
       <source src="/videos/telecomTower/telecomtower.mp4" type="video/mp4" />
     </video>
     
-    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/90 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/90 to-transparent"></div>
     
     <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
       <div class="max-w-[800px] repeat-animate" data-transform="translateY(30px)">
-        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-[#FFC62F] mb-6">
+        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-brand-yellow mb-6">
           Telecom Tower Inspection
         </p>
         <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px] mb-6">
           Precision data for <br/>
-          <span class="text-[#FFC62F]">proactive maintenance</span>
+          <span class="text-brand-yellow">proactive maintenance</span>
         </h1>
         <p class="text-[17px] leading-relaxed text-white/90 mb-8 max-w-[650px]">
           Rishika Infra utilizes advanced drone platforms to capture comprehensive, high-resolution data of your telecommunications portfolio. We deliver thorough structural assessments, antenna inspections, and corrosion monitoring to fully support your maintenance planning.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+          <a href="/contact" class="inline-flex rounded-full bg-brand-yellow px-8 py-3.5 font-bold text-brand-ink transition-all hover:bg-brand-yellow-light hover:-translate-y-1">
             Get in touch
           </a>
         </div>
@@ -94,11 +107,11 @@ const telecomData = [
       {/* TEXT CONTENT (Left - Staggered Waterfall Animation) */}
       <div class="flex flex-col items-start justify-center">
         <h2 
-          class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight repeat-animate transition-all duration-700 delay-100" 
+          class="text-4xl md:text-5xl font-extrabold text-brand-ink mb-8 leading-tight repeat-animate transition-all duration-700 delay-100" 
           data-transform="translateX(-40px)"
         >
           Climb less, <br/>
-          <span class="text-[#0070BA]">assess more</span>
+          <span class="text-brand-blue">assess more</span>
         </h2>
         
         <p 
@@ -115,19 +128,19 @@ const telecomData = [
           By rapidly identifying material degradation, missing hardware, and surface corrosion, we provide engineering teams with the exact visual evidence required to support effective, proactive maintenance planning while keeping personnel safely on the ground.
         </p>
         
-        <ul class="space-y-4 font-bold text-[#17212B]">
+        <ul class="space-y-4 font-bold text-brand-ink">
           <li 
             class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-400" 
             data-transform="translateX(-40px)"
           >
-            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-brand-yellow/20 text-brand-yellow">✓</span> 
             Identify structural stress and corrosion safely
           </li>
           <li 
             class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-500" 
             data-transform="translateX(-40px)"
           >
-            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-brand-yellow/20 text-brand-yellow">✓</span> 
             Detailed antenna audits without network downtime
           </li>
         </ul>
@@ -144,12 +157,12 @@ const telecomData = [
 
         {/* Floating Accents */}
         <div 
-          class="absolute top-8 left-[15%] w-12 h-20 bg-[#0070BA] -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-500" 
+          class="absolute top-8 left-[15%] w-12 h-20 bg-brand-blue -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-500" 
           data-transform="translateY(-30px)"
         ></div>
         
         <div 
-          class="absolute bottom-12 right-[15%] w-16 h-12 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-600" 
+          class="absolute bottom-12 right-[15%] w-16 h-12 bg-brand-yellow -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-600" 
           data-transform="translateY(30px)"
         ></div>
 
@@ -159,7 +172,7 @@ const telecomData = [
           data-transform="translateX(50px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-110">
-            <img 
+            <Img loading="lazy" decoding="async" 
               src="https://images.unsplash.com/photo-1519003300449-424ad0405076?q=80&w=800&auto=format&fit=crop" 
               alt="Telecom Antenna Close-up" 
               class="w-full h-full object-cover opacity-90"
@@ -174,7 +187,7 @@ const telecomData = [
           data-transform="translateY(60px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
-            <img 
+            <Img loading="lazy" decoding="async" 
               src="https://images.unsplash.com/photo-1581092334246-88dd830171bd?q=80&w=800&auto=format&fit=crop" 
               alt="Industrial Drone Inspection" 
               class="w-full h-full object-cover"
@@ -192,7 +205,6 @@ const telecomData = [
        ========================================================= -->
        
   <AnimatedShowcase 
-    client:visible 
     subtitle="Inspection Deliverables" 
     title="Actionable Insights" 
     data={telecomData} 

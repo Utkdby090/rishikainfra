@@ -1,10 +1,8 @@
 ---
+import Img from '../../components/shared/Img.astro';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/islands/Navbar';
 import Differentiators from '../../components/shared/Differentiators.astro';
-import AnimatedShowcase from '../../components/islands/AnimatedShowcase';
-
-// DATA ARRAYS FOR THE INTERACTIVE SHOWCASES
+import AnimatedShowcase from '../../components/AnimatedShowcase.astro';
 const applicationsData = [
   {
     id: 'highway',
@@ -47,7 +45,7 @@ const outputData = [
     tagline: 'Digital Terrain Models mapping bare-earth topography.',
     heading: 'Digital Terrain Modeling',
     description: 'We filter out above-ground features like vegetation, vehicles, and buildings to provide a continuous surface of the bare earth. This pure topographic baseline is critical for hydrological modeling, road design, and foundational engineering.',
-    image: '/images/our solutions/LidarEngineering/sectionimage/dtm.png'
+    image: '/images/our solutions/LidarEngineering/sectionimage/dtm.webp'
   },
   {
     id: 'dsm',
@@ -55,7 +53,7 @@ const outputData = [
     tagline: 'Surface models including buildings and canopies.',
     heading: 'Digital Surface Modeling',
     description: 'A comprehensive 3D elevation model that includes everything on the earth’s surface. DSMs are essential for telecommunications line-of-sight analysis, urban planning, and vegetation encroachment monitoring.',
-    image: '/images/our solutions/LidarEngineering/sectionimage/dsm.png'
+    image: '/images/our solutions/LidarEngineering/sectionimage/dsm.webp'
   },
   {
     id: 'contour',
@@ -71,48 +69,55 @@ const outputData = [
     tagline: 'Distortion-free stitched 2D aerial maps.',
     heading: 'High-Res Orthomosaics',
     description: 'Thousands of individual drone photos seamlessly stitched together and geometrically corrected to scale. Measurements taken from these 2D maps are as accurate as those taken on the ground.',
-    image: '/images/our solutions/LidarEngineering/sectionimage/ortho.png'
+    image: '/images/our solutions/LidarEngineering/sectionimage/ortho.webp'
   }
 ];
 ---
 
-<Layout title="Geospatial Mapping & LiDAR | Rishika Infra">
-  <Navbar client:load />
+<Layout
+  title="Geospatial Mapping & LiDAR | Rishika Infra"
+  description="UAV LiDAR and photogrammetry mapping with RTK/PPK and GCP georeferencing for accurate DTMs, DSMs, contours and orthomosaics."
+  breadcrumbs={[{ name: 'Geospatial Mapping & LiDAR', path: '/services/geospatial-mapping' }]}
+  schema={[
+    {
+      '@type': 'Service',
+      name: 'Geospatial Mapping & LiDAR',
+      serviceType: 'Geospatial Mapping & LiDAR',
+      description: 'UAV LiDAR and photogrammetry mapping with RTK/PPK and GCP georeferencing for accurate DTMs, DSMs, contours and orthomosaics.',
+      provider: { '@id': 'https://rishikainfra.com/#organization' },
+      areaServed: 'IN',
+    },
+  ]}
+>
 
   <!-- =========================================================
        HERO SECTION (Now Full-Screen Video)
        ========================================================= -->
-  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#1D2630]">
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-slate">
     {/* Video Background */}
-    <video 
-      class="absolute inset-0 h-full w-full object-cover  pointer-events-none contrast-125" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      webkit-playsinline
+    <Img fetchpriority="high"
+      src="/images/our solutions/LidarEngineering/sectionimage/lidarPhoto.webp"
+      alt=""
       aria-hidden="true"
-      
-    >
-      <source src="/videos/lidar/mapping.mp4" type="video/mp4" />
-    </video>
+      class="absolute inset-0 h-full w-full object-cover pointer-events-none contrast-125"
+    />
 
-    <div class="absolute inset-0 bg-gradient-to-r from-[#17212B] via-[#17212B]/90 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-ink via-brand-ink/90 to-transparent"></div>
     
     <div class="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-16 w-full">
       <div class="max-w-[800px] repeat-animate" data-transform="translateY(30px)">
-        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-[#FFC62F] mb-6">
+        <p class="text-[12px] font-bold uppercase tracking-[0.3em] text-brand-yellow mb-6">
           Surveying & Mapping
         </p>
         <h1 class="text-[42px] font-extrabold leading-[1.05] tracking-tight text-white md:text-[56px] mb-6">
           Geospatial mapping and <br/>
-          <span class="text-[#FFC62F]">3D modeling of areas</span>
+          <span class="text-brand-yellow">3D modeling of areas</span>
         </h1>
         <p class="text-[17px] leading-relaxed text-white/90 mb-8 max-w-[650px]">
           End-to-end 3D mapping and modeling of large areas using UAVs, aerial platforms, LiDAR, and photogrammetry. We integrate cutting-edge RTK/PPK & GCP-based georeferencing for absolute accuracy.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="/contact" class="inline-flex rounded-full bg-[#FFC62F] px-8 py-3.5 font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:-translate-y-1">
+          <a href="/contact" class="inline-flex rounded-full bg-brand-yellow px-8 py-3.5 font-bold text-brand-ink transition-all hover:bg-brand-yellow-light hover:-translate-y-1">
             Get in touch
           </a>
         </div>
@@ -129,11 +134,11 @@ const outputData = [
       {/* TEXT CONTENT (Left - Staggered Waterfall Animation) */}
       <div class="flex flex-col items-start justify-center">
         <h2 
-          class="text-4xl md:text-5xl font-extrabold text-[#17212B] mb-8 leading-tight repeat-animate transition-all duration-700 delay-100" 
+          class="text-4xl md:text-5xl font-extrabold text-brand-ink mb-8 leading-tight repeat-animate transition-all duration-700 delay-100" 
           data-transform="translateX(-40px)"
         >
           Capture reality with <br/>
-          <span class="text-[#0070BA]">unmatched speed</span>
+          <span class="text-brand-blue">unmatched speed</span>
         </h2>
         
         <p 
@@ -150,19 +155,19 @@ const outputData = [
           This replaces long, costly, and hazardous manual surveys. Our rapid data acquisition using UAVs, fixed-wing aircraft, and airborne sensors is suitable for corridors, cities, mining leases, industrial zones, and infrastructure projects.
         </p>
         
-        <ul class="space-y-4 font-bold text-[#17212B]">
+        <ul class="space-y-4 font-bold text-brand-ink">
           <li 
             class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-400" 
             data-transform="translateX(-40px)"
           >
-            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-brand-yellow/20 text-brand-yellow">✓</span> 
             Integration of LiDAR and Photogrammetry for high accuracy and completeness
           </li>
           <li 
             class="flex items-center gap-3 repeat-animate transition-all duration-700 delay-500" 
             data-transform="translateX(-40px)"
           >
-            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-[#FFC62F]/20 text-[#FFC62F]">✓</span> 
+            <span class="flex items-center justify-center min-w-[24px] h-6 rounded-full bg-brand-yellow/20 text-brand-yellow">✓</span> 
             RTK/PPK & GCP-based georeferencing
           </li>
         </ul>
@@ -179,12 +184,12 @@ const outputData = [
 
         {/* Floating Accents */}
         <div 
-          class="absolute top-8 left-[15%] w-12 h-20 bg-[#0070BA] -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-500" 
+          class="absolute top-8 left-[15%] w-12 h-20 bg-brand-blue -skew-x-[20deg] z-30 shadow-md repeat-animate transition-all duration-700 delay-500" 
           data-transform="translateY(-30px)"
         ></div>
         
         <div 
-          class="absolute bottom-12 right-[15%] w-16 h-12 bg-[#FFC62F] -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-600" 
+          class="absolute bottom-12 right-[15%] w-16 h-12 bg-brand-yellow -skew-x-[20deg] z-30 shadow-lg repeat-animate transition-all duration-700 delay-600" 
           data-transform="translateY(30px)"
         ></div>
 
@@ -194,7 +199,7 @@ const outputData = [
           data-transform="translateX(50px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-110">
-            <img 
+            <Img loading="lazy" decoding="async" 
               src="/images/our solutions/LidarEngineering/sectionimage/softwarelidar.jpg" 
               alt="Digital Terrain Model" 
               class="w-full h-full object-cover opacity-80"
@@ -208,8 +213,8 @@ const outputData = [
           data-transform="translateY(60px)"
         >
           <div class="w-[150%] h-full skew-x-[20deg] -ml-[25%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
-            <img 
-              src="/images/our solutions/LidarEngineering/sectionimage/lidarPhoto.png" 
+            <Img loading="lazy" decoding="async" 
+              src="/images/our solutions/LidarEngineering/sectionimage/lidarPhoto.webp" 
               alt="UAV Mapping" 
               class="w-full h-full object-cover"
             />
@@ -225,14 +230,12 @@ const outputData = [
        ========================================================= -->
        
   <AnimatedShowcase 
-    client:visible 
     subtitle="Industries Served" 
     title="Key Applications" 
     data={applicationsData} 
   />
 
   <AnimatedShowcase 
-    client:visible 
     subtitle="Deliverables" 
     title="Output Data" 
     data={outputData} 

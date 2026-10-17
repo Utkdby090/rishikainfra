@@ -1,24 +1,24 @@
 ---
+import Img from '../components/shared/Img.astro';
 import Layout from "../layouts/Layout.astro";
-import { SITE_CONFIG } from "../data/siteConfig";
-import ClientCarousel from "../components/islands/ClientCarousel";
-import Navbar from "../components/islands/Navbar";
+import ClientCarousel from "../components/ClientCarousel.astro";
 import SolutionsGrid from "../components/shared/SolutionsGrid.astro";
 import FleetAndEquipment from "../components/shared/FleetAndEquipment.astro";
 import Differentiators from "../components/shared/Differentiators.astro";
-import NewsSlider from "../components/islands/NewsSlider";
 ---
 
-<Layout title="Rishika Infra | Aerial Inspection & GIS">
+<Layout description="Rishika Infra delivers drone inspections, LiDAR mapping and AI analytics for power grids, renewables, roads and telecom towers across India." title="Rishika Infra | Aerial Inspection & GIS">
   
   <!-- =========================================================
        HERO
        ========================================================= -->
   <section
-    class="relative min-h-screen overflow-hidden bg-[#1D2630]"
+    class="relative min-h-screen overflow-hidden bg-brand-slate"
   >
     <!-- Background video -->
     <video
+      poster="/videos/WebsiteVideo-poster.webp"
+      data-autopause
       class="absolute inset-0 h-full w-full object-cover"
       autoplay
       muted
@@ -26,11 +26,11 @@ import NewsSlider from "../components/islands/NewsSlider";
       playsinline
       aria-hidden="true"
     >
-      <source src="videos/WebsiteVideo.mp4" type="video/mp4" />
+      <source src="/videos/WebsiteVideo.mp4" type="video/mp4" />
     </video>
 
     <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-[#17212B]/10 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-brand-ink/10 pointer-events-none"></div>
 
     <!-- Strong left-side gradient -->
     <div
@@ -50,10 +50,6 @@ import NewsSlider from "../components/islands/NewsSlider";
 
     
 
-    <!-- =======================================================
-     NAVIGATION (REACT ISLAND)
-     ======================================================= -->
-    <Navbar client:load />
 
     <!-- =======================================================
          HERO CONTENT
@@ -69,11 +65,11 @@ import NewsSlider from "../components/islands/NewsSlider";
           <br />
           inspections with
           <br />
-          <span class="text-[#FFC62F]"> powerful aerial data </span>
+          <span class="text-brand-yellow"> powerful aerial data </span>
         </h1>
 
         <!-- Yellow line -->
-        <div class="mt-7 h-[3px] w-[470px] max-w-full bg-[#FFC62F]"></div>
+        <div class="mt-7 h-[3px] w-[470px] max-w-full bg-brand-yellow"></div>
 
         <p
           class="mt-6 max-w-[690px] text-[17px] leading-[1.7] text-white/90 md:text-[18px]"
@@ -87,7 +83,7 @@ import NewsSlider from "../components/islands/NewsSlider";
         <div class="mt-9">
           <a
             href="/contact"
-            class="inline-flex items-center justify-center rounded-full bg-[#FFC62F] px-9 py-4 text-[15px] font-bold text-[#17212B] transition-all hover:bg-[#FFD85C] hover:shadow-xl hover:-translate-y-0.5"
+            class="inline-flex items-center justify-center rounded-full bg-brand-yellow px-9 py-4 text-[15px] font-bold text-brand-ink transition-all hover:bg-brand-yellow-light hover:shadow-xl hover:-translate-y-0.5"
           >
             Get in touch
           </a>
@@ -104,7 +100,7 @@ import NewsSlider from "../components/islands/NewsSlider";
       aria-label="Scroll down"
     >
       <div
-        class="flex h-16 w-16 items-center justify-center rounded-full border border-[#FFC62F] bg-black/10 backdrop-blur-sm transition-colors hover:bg-[#FFC62F] hover:text-[#17212B]"
+        class="flex h-16 w-16 items-center justify-center rounded-full border border-brand-yellow bg-black/10 backdrop-blur-sm transition-colors hover:bg-brand-yellow hover:text-brand-ink"
       >
         <svg
           width="28"
@@ -129,7 +125,7 @@ import NewsSlider from "../components/islands/NewsSlider";
        CLIENTS (INTERACTIVE CAROUSEL)
        ========================================================= -->
   <section class="bg-white">
-    <ClientCarousel client:load />
+    <ClientCarousel />
   </section>
 
   <!-- =========================================================
@@ -142,7 +138,7 @@ import NewsSlider from "../components/islands/NewsSlider";
       </p>
 
       <h2
-        class="mt-5 text-4xl font-bold tracking-tight text-[#17212B] md:text-5xl"
+        class="mt-5 text-4xl font-bold tracking-tight text-brand-ink md:text-5xl"
       >
         Trusted leader in drone inspections and aerial data management
       </h2>
@@ -171,7 +167,7 @@ import NewsSlider from "../components/islands/NewsSlider";
  <!-- =========================================================
        PILOTS & FLEET (Straight Rectangular Layout)
        ========================================================= -->
-  <section class="bg-[#17212B] py-32 overflow-hidden border-t border-white/10">
+  <section class="bg-brand-ink py-32 overflow-hidden border-t border-white/10">
     <div class="mx-auto max-w-[1440px] px-6 lg:px-16 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
       <!-- CUSTOM COMPOSITE GRAPHIC (Left - Staggered Animations) -->
@@ -179,23 +175,23 @@ import NewsSlider from "../components/islands/NewsSlider";
         
         <!-- Dashed Circle -->
         <div 
-          class="absolute right-[5%] top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-2 border-dashed border-[#FFC62F] opacity-40 z-0 repeat-animate transition-all duration-1000 delay-100" 
+          class="absolute right-[5%] top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border-2 border-dashed border-brand-yellow opacity-40 z-0 repeat-animate transition-all duration-1000 delay-100" 
           data-transform="translateY(40px)"
         ></div>
         
         <!-- Top Yellow Accent -->
         <div 
-          class="absolute top-4 left-[15%] w-16 h-24 bg-[#FFC62F] z-30 shadow-lg repeat-animate transition-all duration-700 delay-500" 
+          class="absolute top-4 left-[15%] w-16 h-24 bg-brand-yellow z-30 shadow-lg repeat-animate transition-all duration-700 delay-500" 
           data-transform="translateY(-30px)"
         ></div>
 
         <!-- Back Image (Pilot Team) -->
         <div 
-          class="absolute right-[5%] top-12 w-[300px] h-[340px] overflow-hidden shadow-2xl z-10 opacity-90 border-4 border-[#17212B] group repeat-animate transition-all duration-1000 delay-200" 
+          class="absolute right-[5%] top-12 w-[300px] h-[340px] overflow-hidden shadow-2xl z-10 opacity-90 border-4 border-brand-ink group repeat-animate transition-all duration-1000 delay-200" 
           data-transform="translateX(50px)"
         >
-          <img 
-            src="/images/droneandfleet/dronepilot.png" 
+          <Img loading="lazy" decoding="async" 
+            src="/images/droneandfleet/dronepilot.webp" 
             alt="Rishika Infra Pilot Team" 
             class="w-full h-full object-cover opacity-80 transition-transform duration-[1.5s] ease-out group-hover:scale-110"
             loading="lazy"
@@ -207,8 +203,8 @@ import NewsSlider from "../components/islands/NewsSlider";
           class="absolute left-[5%] bottom-12 w-[320px] h-[360px] md:w-[350px] md:h-[380px] overflow-hidden shadow-[30px_0_50px_-15px_rgba(0,0,0,0.7)] z-20 border-[10px] border-white group repeat-animate transition-all duration-1000 delay-300" 
           data-transform="translateY(60px)"
         >
-          <img 
-            src="/images/droneandfleet/drone.png" 
+          <Img loading="lazy" decoding="async" 
+            src="/images/droneandfleet/drone.webp" 
             alt="Inspection Drone in Flight" 
             class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
             loading="lazy"
@@ -217,7 +213,7 @@ import NewsSlider from "../components/islands/NewsSlider";
 
         <!-- Bottom Yellow Accent -->
         <div 
-          class="absolute bottom-8 right-[20%] w-16 h-20 bg-[#FFC62F] z-30 shadow-lg repeat-animate transition-all duration-700 delay-700" 
+          class="absolute bottom-8 right-[20%] w-16 h-20 bg-brand-yellow z-30 shadow-lg repeat-animate transition-all duration-700 delay-700" 
           data-transform="translateY(30px)"
         ></div>
       </div>
@@ -226,7 +222,7 @@ import NewsSlider from "../components/islands/NewsSlider";
       <div class="order-1 lg:order-2 flex flex-col items-start justify-center">
         
         <p 
-          class="text-sm font-bold uppercase tracking-[0.25em] text-[#FFC62F] mb-4 repeat-animate transition-all duration-700 delay-100" 
+          class="text-sm font-bold uppercase tracking-[0.25em] text-brand-yellow mb-4 repeat-animate transition-all duration-700 delay-100" 
           data-transform="translateX(40px)"
         >
           PILOTS AND FLEET
@@ -237,7 +233,7 @@ import NewsSlider from "../components/islands/NewsSlider";
           data-transform="translateX(40px)"
         >
           Expert pilots and advanced <br class="hidden xl:block" /> drone technology, <br/>
-          <span class="text-[#FFC62F]">working as one</span>
+          <span class="text-brand-yellow">working as one</span>
         </h2>
         
         <p 
@@ -260,7 +256,7 @@ import NewsSlider from "../components/islands/NewsSlider";
         >
           <a 
             href="/about" 
-            class="inline-flex rounded-full border-2 border-white px-8 py-3 font-bold text-white transition-all hover:bg-white hover:text-[#17212B] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1"
+            class="inline-flex rounded-full border-2 border-white px-8 py-3 font-bold text-white transition-all hover:bg-white hover:text-brand-ink hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1"
           >
             Find out more
           </a>
@@ -275,11 +271,6 @@ import NewsSlider from "../components/islands/NewsSlider";
        DIFFERENTIATORS (WHY RISHIKA)
        ========================================================= -->
   <Differentiators />
-
-  <!-- =========================================================
-       NEWS SLIDER (client:visible enables the interactive JS)
-       ========================================================= -->
-  <NewsSlider client:visible />
 
   <!-- =========================================================
        LOCAL STYLES

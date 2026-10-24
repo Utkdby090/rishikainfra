@@ -56,7 +56,7 @@ import { SITE_CONFIG } from '../data/siteConfig';
             Noida, Uttar Pradesh, 201304
           </p>
           {/* Added Optional Chaining (?) to prevent Astro build crashes */}
-          <a href={`tel:${SITE_CONFIG.contact?.phone?.replace(/\s+/g, '')}`} class="inline-block mt-4 text-brand-ink font-bold hover:text-brand-blue transition-colors">
+          <a href={`tel:${SITE_CONFIG.contact?.phone?.replace(/[^\d+]/g, '')}`} class="inline-block mt-4 text-brand-ink font-bold hover:text-brand-blue transition-colors">
             {SITE_CONFIG.contact?.phone}
           </a>
         </div>

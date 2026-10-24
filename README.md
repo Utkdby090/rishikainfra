@@ -67,11 +67,9 @@ scripts/                Link and accessibility checkers used in CI
   yellow-family text on a white background use `text-brand-amber`; plain
   `brand-yellow` text is only readable on dark backgrounds. CI fails on contrast
   below WCAG AA.
-- **Home page highlights:** the stats band, project map and case studies read
-  from `src/data/highlights.ts`. It currently holds sample content that must be
-  replaced with real figures before a release to `master`. The India outline in
-  `src/data/indiaOutline.ts` is DataMeet's official-boundary map (CC BY 4.0, credit
-  shown under the map).
+- **Home page highlights:** the stats band and case studies read from
+  `src/data/highlights.ts` (sample content). The "Where we fly" project map was
+  removed in Oct 2026 and is kept on the `archive/project-map` branch.
 - **SEO:** every page passes `title` and `description` to `Layout`. Service pages
   also pass `breadcrumbs` and `schema` for structured data.
 - **Security headers** live in `public/_headers`; the Content Security Policy is

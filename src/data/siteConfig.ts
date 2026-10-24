@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   description: "Enterprise drone inspections, LiDAR geospatial mapping, and radiometric thermal diagnostics for powerlines, renewables, and civil infrastructure.",
   contact: {
     address: "C-914, Bhutani Alphathum, Sector-90, Noida, Uttar Pradesh, 201304",
-    phone: "+91 9811331744",
+    phone: "+91-120 6993093",
     email: "info@rishikainfra.com",
     website: "https://rishikainfra.com",
   },
